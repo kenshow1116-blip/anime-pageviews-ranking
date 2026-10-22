@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漫画ランキング - アニメ Wikipedia 閲覧数ランキング</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #ffffff;
+    --page-plane:      #ffffff;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --text-muted:      #898781;
+    --gridline:        #e8e8e5;
+    --baseline:        #c3c2b7;
+    --border:          rgba(11,11,11,0.10);
+    --seq-100: #dbe9ff;
+    --seq-250: #a9c9fb;
+    --seq-400: #5b96f0;
+    --seq-450: #3b7de8;
+    --seq-550: #2a63c4;
+    --seq-700: #1a3f80;
+    --accent: #3b7de8;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  .top-link { font-size: 13px; margin-bottom: 10px; }
+  .top-link a { color: var(--accent); text-decoration: none; }
+  .top-link a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--text-primary);
+  }
+  .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin: 0 0 20px;
+  }
+  .footnote {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .footnote a { color: var(--accent); text-decoration: none; }
+  .footnote a:hover { text-decoration: underline; }
+
+  .period-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .period-btn {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-1);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .period-btn:hover { background: var(--gridline); }
+  .period-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .date-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .date-row button {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .date-row button:hover { background: var(--gridline); }
+  .date-hint { color: var(--accent); font-weight: 600; }
+  .date-segment {
+    position: relative;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  .date-segment:hover { background: var(--gridline); }
+  .date-sep { color: var(--text-muted); }
+  .seg-caret {
+    margin-left: 3px;
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+  .segment-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+    min-width: 72px;
+  }
+  .segment-option {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-primary);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .segment-option:hover { background: var(--gridline); }
+  .segment-option.selected { background: var(--accent); color: #ffffff; }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .controls input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 14px;
+  }
+  .controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .controls button:hover { filter: brightness(1.08); }
+  .controls button:disabled { opacity: .5; cursor: default; }
+
+  .status {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    min-height: 18px;
+  }
+  .status .bar-track {
+    margin-top: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--gridline);
+    overflow: hidden;
+  }
+  .status .bar-fill {
+    height: 100%;
+    background: var(--seq-400);
+    border-radius: 3px;
+    transition: width .2s ease;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .row:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  .rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .rank.top3 {
+    font-size: 20px;
+  }
+  .rank-up-badge {
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .rank-up-badge.up { color: #0ca30c; }
+  .rank-up-badge.down { color: #d03b3b; }
+  .rank-up-badge.flat { color: var(--text-muted); }
+
+  .row-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .title-link {
+    font-size: 14px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .title-link:hover { text-decoration: underline; }
+  .value {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .value.pending { color: var(--text-muted); }
+  .value.failed { color: var(--text-muted); font-style: italic; }
+
+  .bar-track {
+    height: 14px;
+    border-radius: 7px;
+    background: var(--gridline);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 7px;
+    background: var(--accent);
+    transition: width .4s ease;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+  .page-btn {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .page-btn:hover:not(:disabled) { background: var(--gridline); }
+  .page-btn:disabled { opacity: .4; cursor: default; }
+  .page-info {
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .row-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trend-toggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 3px 9px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .trend-toggle-btn:hover { background: var(--gridline); }
+  .trend-toggle-btn.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+  }
+
+  .delta-badge {
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .delta-up { color: #0ca30c; }
+  .delta-down { color: #d03b3b; }
+  .delta-new { color: var(--accent); }
+
+  .detail-panel {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--gridline);
+  }
+  .detail-panel[hidden] { display: none; }
+  .chart-wrap { width: 100%; }
+  .trend-svg .grid-line { stroke: var(--gridline); stroke-width: 1; }
+  .trend-svg .axis-label {
+    fill: var(--text-muted);
+    font-size: 10px;
+    font-family: inherit;
+  }
+  .trend-svg .trend-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .trend-svg .trend-area { fill: var(--accent); opacity: 0.1; stroke: none; }
+  .trend-svg .trend-dot {
+    fill: var(--accent);
+    stroke: var(--surface-1);
+    stroke-width: 2;
+  }
+  .trend-svg .crosshair { stroke: var(--text-muted); stroke-width: 1; }
+
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--text-primary);
+    color: var(--page-plane);
+    font-size: 12px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    transition: opacity .1s ease;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip strong { font-weight: 700; }
+  .back-to-top {
+    position: fixed; right: 20px; bottom: 20px; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--accent);
+    font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease; z-index: 100;
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { background: var(--accent); color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-link"><a href="index.html">&larr; ホームに戻る</a></div>
+  <h1>漫画ランキング</h1>
+  <p class="subtitle" id="subtitle">日本語版Wikipediaの「閲覧数」累計(2015年7月〜現在) / 人間アクセスのみ集計</p>
+
+  <div class="top-bar">
+    <div class="period-row" id="periodRow"></div>
+  </div>
+
+  <div class="date-row">
+    <label>基準日:</label>
+    <button type="button" class="date-segment" id="yearSegment"></button>
+    <span class="date-sep">/</span>
+    <button type="button" class="date-segment" id="monthSegment"></button>
+    <span class="date-sep">/</span>
+    <button type="button" class="date-segment" id="daySegment"></button>
+    <button id="liveBtn" type="button">最新に戻す</button>
+    <span class="date-hint" id="dateHint"></span>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="filterInput" placeholder="漫画名で絞り込み...">
+    <button id="refreshBtn">再取得</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <div id="list"></div>
+
+  <p class="footnote">
+    データ元: Wikimedia Pageviews API (ja.wikipedia, all-access, user)。
+    2015年7月以前のデータはAPIの都合上取得できません。
+    Wikipediaの記事名と一致しない項目は「取得失敗」と表示されます。
+  </p>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// 作品一覧と日次閲覧数は、ビルド時にSQLiteから書き出した静的JSON(data/manga-daily-views.json)から
+// 読み込む(ブラウザからWikipedia APIへ直接アクセスしない)。詳細はensureAllDataReady()を参照。
+let ANIME_LIST = [];
+
+const API_START = "20150701";
+const LAG_DAYS = 0; // 当日分を速報値として表示する(未取得の時間帯は0件になる)
+
+const PERIODS = [
+  { key: "all", label: "累計" },
+  { key: "y1", label: "直近1年" },
+  { key: "m1", label: "直近1か月" },
+  { key: "w1", label: "直近1週間" },
+  { key: "surge", label: "急上昇" },
+];
+// ライブ表示(historicalDateなし)では基準日当日を含めず、確定済みの最新日(基準日の前日)を
+// 終点にする。当日を含めると日が変わった直後は値がほぼ0になり、意味のない表示になってしまう
+// ため。過去日付を指定して見ているときは、その日はもう確定済みなので当日を含めてよい
+// (その日自体の数字も知りたいという要望に対応)。
+const ROLLING_DAYS = { w1: 7, m1: 30, y1: 365 };
+
+const RANKING_SELF = "manga-ranking.html";
+const RANKING_LABEL = "漫画ランキング";
+// 作品ページへのリンクに、どのランキング・どの期間から来たかを付与する。
+// 作品ページ側はこれを見て、パンくずと「ランキングに戻る」リンクを実際の遷移元に合わせる。
+function buildNavQuery() {
+  let q = `?from=ranking&rankingPage=${RANKING_SELF}&rankingLabel=${encodeURIComponent(RANKING_LABEL)}&period=${currentPeriod}`;
+  if (historicalDate) q += `&date=${dateToYmd(historicalDate)}`;
+  return q;
+}
+
+let currentPeriod = "all";
+const openTrendTitles = new Set(); // 推移パネルを開いている作品(期間切り替え後も開いた状態を保つ)
+let historicalDate = null; // Date | null (nullなら最新=ライブモード)
+const historicalMaps = {}; // title -> Map<"YYYYMMDD", views>
+
+const PAGE_SIZE = 50;
+let currentPage = 1;
+let lastResults = [];
+let lastPrevSnapshot = {};
+let sortedEnrichedCache = null;
+let sortedEnrichedCachePeriod = null;
+
+function fmtDate(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}${m}${day}`;
+}
+
+function todayStr() {
+  return fmtDate(new Date());
+}
+
+// WikipediaのpageviewsダンプはどれもがUTC日付基準で公開されるため、
+// 「今日」の判定もJST(ローカル時刻)ではなくUTCの日付に合わせる。
+// (JSTの午前中はUTCではまだ前日扱いのため、ズレるとその間「今日」が空に見えてしまう)
+function todayMinusLag() {
+  const now = new Date();
+  const d = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  d.setDate(d.getDate() - LAG_DAYS);
+  return d;
+}
+
+function articleToApiPath(title) {
+  return encodeURIComponent(title.replace(/ /g, "_"));
+}
+
+function safeFileName(title) {
+  return title.replace(/[\\/:*?"<>|]/g, "_");
+}
+
+function metricOfForPeriod(result, periodKey) {
+  if (!result || !result.ok) return -Infinity;
+  return periodKey === "surge" ? result.value.delta : result.value;
+}
+
+function computeRankSnapshot(results, periodKey) {
+  const withIdx = ANIME_LIST.map((title, i) => ({ title, result: results[i] }));
+  withIdx.sort((a, b) => metricOfForPeriod(b.result, periodKey) - metricOfForPeriod(a.result, periodKey));
+  const snapshot = {};
+  withIdx.forEach((e, idx) => {
+    const m = metricOfForPeriod(e.result, periodKey);
+    if (m === -Infinity) return;
+    snapshot[e.title] = { rank: idx + 1, value: m };
+  });
+  return snapshot;
+}
+
+function formatViews(n) {
+  return n.toLocaleString("ja-JP");
+}
+
+const MEDALS = ["🥇", "🥈", "🥉"];
+
+function buildRows(results, prevSnapshot) {
+  lastResults = results;
+  lastPrevSnapshot = prevSnapshot || {};
+  currentPage = 1;
+  sortedEnrichedCache = null;
+  sortedEnrichedCachePeriod = null;
+  renderCurrentPage();
+}
+
+function renderCurrentPage() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  if (lastResults.length === 0) {
+    // 集計が終わるまでは、無名の作品が並び替え前の順序でずらずら表示されて
+    // 混乱を招くため、何も描画せず更新中である旨だけ示す。
+    const note = document.createElement("div");
+    note.style.padding = "30px 0";
+    note.style.textAlign = "center";
+    note.style.color = "var(--text-muted)";
+    note.style.fontSize = "14px";
+    note.textContent = "更新中です…";
+    list.appendChild(note);
+    renderPagination(1, 0);
+    return;
+  }
+
+  function metricOf(result) {
+    return metricOfForPeriod(result, currentPeriod);
+  }
+
+  const prevSnapshot = lastPrevSnapshot;
+
+  // フィルタ入力やページ送りのたびに全件ソートし直すと件数が多いサイト(漫画等)で
+  // 重くなるため、データ・期間が変わらない間はソート済み配列を再利用する。
+  let enriched;
+  if (sortedEnrichedCache && sortedEnrichedCachePeriod === currentPeriod) {
+    enriched = sortedEnrichedCache;
+  } else {
+    enriched = ANIME_LIST.map((title, i) => ({ title, result: lastResults[i] }));
+    enriched.sort((a, b) => metricOf(b.result) - metricOf(a.result));
+    sortedEnrichedCache = enriched;
+    sortedEnrichedCachePeriod = currentPeriod;
+  }
+
+  const q = document.getElementById("filterInput").value.trim().toLowerCase();
+  const filtered = q.length > 0 ? enriched.filter((e) => e.title.toLowerCase().includes(q)) : enriched;
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+  const pageStart = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filtered.slice(pageStart, pageStart + PAGE_SIZE);
+
+  // enrichedは降順ソート済み・filteredはその順序を保つfilterなので先頭要素が最大値。
+  const maxViews = filtered.length > 0 ? Math.max(1, metricOf(filtered[0].result)) : 1;
+
+  const tooltip = document.getElementById("tooltip");
+
+  pageItems.forEach((entry, localIdx) => {
+    const idx = pageStart + localIdx; // 全体での順位(0始まり)
+    const row = document.createElement("div");
+    row.className = "row";
+    row.dataset.title = entry.title;
+
+    const rank = document.createElement("div");
+    rank.className = "rank" + (idx < 3 ? " top3" : "");
+    const rankNum = document.createElement("div");
+    rankNum.textContent = idx < 3 ? MEDALS[idx] : String(idx + 1);
+    rank.appendChild(rankNum);
+
+    const prevRankInfo = prevSnapshot[entry.title];
+    if (prevRankInfo && entry.result && entry.result.ok) {
+      const newRank = idx + 1;
+      const rankDiff = prevRankInfo.rank - newRank; // 正なら上昇、負なら下降
+      const badge = document.createElement("div");
+      if (rankDiff > 0) {
+        badge.className = "rank-up-badge up";
+        badge.textContent = `▲${rankDiff}`;
+      } else if (rankDiff < 0) {
+        badge.className = "rank-up-badge down";
+        badge.textContent = `▼${-rankDiff}`;
+      } else {
+        badge.className = "rank-up-badge flat";
+        badge.textContent = "▶";
+      }
+      rank.appendChild(badge);
+    }
+
+    const main = document.createElement("div");
+    main.className = "row-main";
+
+    const top = document.createElement("div");
+    top.className = "row-top";
+
+    const link = document.createElement("a");
+    link.className = "title-link";
+    link.href = "manga/" + safeFileName(entry.title) + ".html" + buildNavQuery();
+    link.textContent = entry.title;
+
+    const value = document.createElement("div");
+    let deltaBadge = null;
+    if (!entry.result) {
+      value.className = "value pending";
+      value.textContent = "取得中...";
+    } else if (!entry.result.ok) {
+      value.className = "value failed";
+      value.textContent = "取得失敗";
+    } else if (currentPeriod === "surge") {
+      const { recentWeek, prevWeek, delta, pct } = entry.result.value;
+      value.className = "value";
+      value.textContent = formatViews(recentWeek) + " 回 (直近7日)";
+      deltaBadge = document.createElement("span");
+      if (prevWeek === 0 && recentWeek > 0) {
+        deltaBadge.className = "delta-badge delta-new";
+        deltaBadge.textContent = "NEW";
+      } else if (delta === 0) {
+        deltaBadge.className = "delta-badge";
+        deltaBadge.textContent = "±0";
+      } else {
+        const up = delta > 0;
+        deltaBadge.className = "delta-badge " + (up ? "delta-up" : "delta-down");
+        const sign = up ? "+" : "";
+        const pctText = pct === null ? "" : ` (${sign}${pct.toFixed(0)}%)`;
+        deltaBadge.textContent = `${up ? "▲" : "▼"}${sign}${formatViews(delta)}${pctText}`;
+      }
+    } else {
+      value.className = "value";
+      value.textContent = formatViews(entry.result.value) + " 回";
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "row-meta";
+    const trendBtn = document.createElement("button");
+    trendBtn.type = "button";
+    trendBtn.className = "trend-toggle-btn";
+    trendBtn.textContent = "推移";
+    meta.appendChild(value);
+    if (deltaBadge) meta.appendChild(deltaBadge);
+    meta.appendChild(trendBtn);
+
+    top.appendChild(link);
+    top.appendChild(meta);
+
+    const track = document.createElement("div");
+    track.className = "bar-track";
+    const fill = document.createElement("div");
+    fill.className = "bar-fill";
+    const barPct = entry.result && entry.result.ok ? (Math.max(0, metricOf(entry.result)) / maxViews) * 100 : 0;
+    fill.style.width = barPct + "%";
+    track.appendChild(fill);
+
+    track.addEventListener("pointermove", (ev) => {
+      if (!entry.result || !entry.result.ok) return;
+      const shown =
+        currentPeriod === "surge" ? entry.result.value.delta : entry.result.value;
+      const sign = currentPeriod === "surge" && shown > 0 ? "+" : "";
+      tooltip.innerHTML = `<strong>${sign}${formatViews(shown)}</strong> 回`;
+      tooltip.style.left = ev.clientX + "px";
+      tooltip.style.top = ev.clientY - 10 + "px";
+      tooltip.classList.add("visible");
+    });
+    track.addEventListener("pointerleave", () => {
+      tooltip.classList.remove("visible");
+    });
+
+    main.appendChild(top);
+    main.appendChild(track);
+
+    const detailPanel = document.createElement("div");
+    detailPanel.className = "detail-panel";
+    detailPanel.hidden = true;
+
+    trendBtn.addEventListener("click", () => {
+      detailPanel.hidden = !detailPanel.hidden;
+      trendBtn.classList.toggle("active", !detailPanel.hidden);
+      if (!detailPanel.hidden) {
+        openTrendTitles.add(entry.title);
+        renderDetailPanel(detailPanel, entry.title);
+      } else {
+        openTrendTitles.delete(entry.title);
+      }
+    });
+
+    if (openTrendTitles.has(entry.title)) {
+      detailPanel.hidden = false;
+      trendBtn.classList.add("active");
+      renderDetailPanel(detailPanel, entry.title);
+    }
+
+    row.appendChild(rank);
+    row.appendChild(main);
+    row.appendChild(detailPanel);
+    list.appendChild(row);
+  });
+
+  renderPagination(totalPages, filtered.length);
+}
+
+function renderPagination(totalPages, filteredCount) {
+  let container = document.getElementById("pagination");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "pagination";
+    container.className = "pagination";
+    document.getElementById("list").insertAdjacentElement("afterend", container);
+  }
+  container.innerHTML = "";
+  if (filteredCount === 0 || totalPages <= 1) return;
+
+  function gotoPage(p) {
+    currentPage = p;
+    renderCurrentPage();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  const prevBtn = document.createElement("button");
+  prevBtn.type = "button";
+  prevBtn.className = "page-btn";
+  prevBtn.textContent = "← 前へ";
+  prevBtn.disabled = currentPage <= 1;
+  prevBtn.addEventListener("click", () => gotoPage(currentPage - 1));
+
+  const info = document.createElement("span");
+  info.className = "page-info";
+  info.textContent = `${currentPage} / ${totalPages} ページ(${filteredCount}件中 ${(currentPage - 1) * PAGE_SIZE + 1}〜${Math.min(currentPage * PAGE_SIZE, filteredCount)}件)`;
+
+  const nextBtn = document.createElement("button");
+  nextBtn.type = "button";
+  nextBtn.className = "page-btn";
+  nextBtn.textContent = "次へ →";
+  nextBtn.disabled = currentPage >= totalPages;
+  nextBtn.addEventListener("click", () => gotoPage(currentPage + 1));
+
+  container.appendChild(prevBtn);
+  container.appendChild(info);
+  container.appendChild(nextBtn);
+}
+
+function dateToYmd(d) {
+  return fmtDate(d);
+}
+
+// rec = { startDate: "YYYYMMDD", endDate, views: [連番の日次閲覧数配列] }
+function parseYmdToDate(ymd) {
+  return new Date(Number(ymd.slice(0, 4)), Number(ymd.slice(4, 6)) - 1, Number(ymd.slice(6, 8)));
+}
+
+function daysBetweenYmdStr(startYmd, endYmd) {
+  return Math.round((parseYmdToDate(endYmd) - parseYmdToDate(startYmd)) / 86400000);
+}
+
+// rec.viewsは累積合計(prefix sum)なので、その日単体の値は前日との差分で求める。
+function viewsAtYmd(rec, ymd) {
+  if (!rec || !rec.views || !rec.startDate) return 0;
+  const idx = daysBetweenYmdStr(rec.startDate, ymd);
+  if (idx < 0) return 0;
+  const clamped = Math.min(idx, rec.views.length - 1);
+  const cur = rec.views[clamped] || 0;
+  const prev = clamped > 0 ? (rec.views[clamped - 1] || 0) : 0;
+  return cur - prev;
+}
+
+function sumRangeFromRec(rec, fromDate, days) {
+  let total = 0;
+  for (let i = 0; i < days; i++) {
+    const d = new Date(fromDate);
+    d.setDate(d.getDate() + i);
+    total += viewsAtYmd(rec, dateToYmd(d));
+  }
+  return total;
+}
+
+// periodKeyの指標を、refDate(Dateオブジェクト)を基準にrecから計算する。
+// 戻り値の形はsurge以外はnumber、surgeは{recentWeek,prevWeek,delta,pct}。
+function computeMetricFromMap(rec, periodKey, refDate) {
+  if (periodKey === "all") {
+    if (!rec || !rec.views || !rec.startDate) return 0;
+    const refYmd = dateToYmd(refDate);
+    const refIdx = daysBetweenYmdStr(rec.startDate, refYmd);
+    if (refIdx < 0 || rec.views.length === 0) return 0;
+    // views[]は累積合計なので、該当日の値を直接読むだけでよい(O(1))。
+    return rec.views[Math.min(refIdx, rec.views.length - 1)] || 0;
+  }
+  if (periodKey === "surge") {
+    const recentStart = new Date(refDate);
+    recentStart.setDate(recentStart.getDate() - 6);
+    const prevEnd = new Date(refDate);
+    prevEnd.setDate(prevEnd.getDate() - 7);
+    const prevStart = new Date(prevEnd);
+    prevStart.setDate(prevStart.getDate() - 6);
+    const recentWeek = sumRangeFromRec(rec, recentStart, 7);
+    const prevWeek = sumRangeFromRec(rec, prevStart, 7);
+    const delta = recentWeek - prevWeek;
+    const pct = prevWeek > 0 ? (delta / prevWeek) * 100 : recentWeek > 0 ? null : 0;
+    return { recentWeek, prevWeek, delta, pct };
+  }
+  // w1/m1/y1はすべて「直近N日間」のローリングウィンドウ。ライブ表示では基準日(当日)を
+  // 含めず前日を終点にする(当日はまだ確定していないため)。過去日付を見ているときは
+  // その日はもう確定済みなので、指定した日付自体を含めて終点にする。
+  const days = ROLLING_DAYS[periodKey];
+  const end = new Date(refDate);
+  if (!historicalDate) end.setDate(end.getDate() - 1);
+  const start = new Date(end);
+  start.setDate(start.getDate() - (days - 1));
+  return sumRangeFromRec(rec, start, days);
+}
+
+function startOfWeekMonday(refDate) {
+  const day = refDate.getDay(); // 0=日,1=月,...,6=土
+  const diffFromMonday = day === 0 ? 6 : day - 1;
+  const start = new Date(refDate.getFullYear(), refDate.getMonth(), refDate.getDate());
+  start.setDate(start.getDate() - diffFromMonday);
+  return start;
+}
+
+function daysBetweenInclusive(start, end) {
+  const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  return Math.round((e - s) / 86400000) + 1;
+}
+
+// 日次データのブラウザ内永続キャッシュ(IndexedDB)。
+// ビルド時にSQLiteから書き出した静的JSON(data/manga-daily-views.json)を初回に1回だけ取得し、
+// 丸ごとIndexedDBへ保存する。Wikipedia APIへは直接アクセスしない(ensureAllDataReady参照)。
+const IDB_NAME = "mangaPageviewsCacheDB";
+const IDB_STORE = "dailyViews";
+const IDB_META_STORE = "meta";
+let idbPromise = null;
+
+function openIdb() {
+  if (idbPromise) return idbPromise;
+  idbPromise = new Promise((resolve, reject) => {
+    const req = indexedDB.open(IDB_NAME, 4);
+    req.onupgradeneeded = (ev) => {
+      const db = req.result;
+      if (ev.oldVersion < 3) {
+        // v3でレコード形式を{data:{ymd:views}}から{views:[...]}の配列に変更したため、
+        // 古いストアは作り直して全データを再取得させる(meta.endDateもクリアして強制フル取得)。
+        if (db.objectStoreNames.contains(IDB_STORE)) db.deleteObjectStore(IDB_STORE);
+        if (db.objectStoreNames.contains(IDB_META_STORE)) db.deleteObjectStore(IDB_META_STORE);
+        db.createObjectStore(IDB_STORE, { keyPath: "title" });
+        db.createObjectStore(IDB_META_STORE, { keyPath: "key" });
+      } else if (ev.oldVersion < 4) {
+        // v4でviews[]の意味を生の日次値から累積合計(prefix sum)に変更したため、
+        // 古いデータが混在すると値がおかしくなる。強制的に作り直して全件再取得させる。
+        if (db.objectStoreNames.contains(IDB_STORE)) db.deleteObjectStore(IDB_STORE);
+        if (db.objectStoreNames.contains(IDB_META_STORE)) db.deleteObjectStore(IDB_META_STORE);
+        db.createObjectStore(IDB_STORE, { keyPath: "title" });
+        db.createObjectStore(IDB_META_STORE, { keyPath: "key" });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+  return idbPromise;
+}
+
+async function idbGet(title) {
+  try {
+    const db = await openIdb();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_STORE, "readonly");
+      const req = tx.objectStore(IDB_STORE).get(title);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function idbGetMeta(key) {
+  try {
+    const db = await openIdb();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_META_STORE, "readonly");
+      const req = tx.objectStore(IDB_META_STORE).get(key);
+      req.onsuccess = () => resolve(req.result ? req.result.value : null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function idbPutMeta(key, value) {
+  try {
+    const db = await openIdb();
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_META_STORE, "readwrite");
+      tx.objectStore(IDB_META_STORE).put({ key, value });
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch {}
+}
+
+// daily-views.jsonのviews[title]は基準日からの連番配列(0=API_START)。IndexedDBでは
+// 既存仕様に合わせて{"YYYYMMDD": views}のオブジェクトとして1件ずつ保存する。
+// IndexedDBのレコード形式: { title, startDate, endDate, views: [連番の日次閲覧数配列] }
+// (日付文字列をキーにしたオブジェクトではなく単純な数値配列にすることで、
+// 1706件規模でもシリアライズ/デシリアライズと読み込み後の変換コストを抑える)
+async function idbPutAllDailyViews(payload) {
+  const db = await openIdb();
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, "readwrite");
+    const store = tx.objectStore(IDB_STORE);
+    for (const title of payload.titles) {
+      store.put({ title, startDate: payload.startDate, endDate: payload.endDate, views: payload.views[title] || [] });
+    }
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+// 直近分だけの軽量な差分(delta)ファイルを、既存のIndexedDBレコードにマージする。
+// 全件getAll()してメモリ上でマージしてから1トランザクションで書き戻すことで、
+// 1706回の個別get/putを避ける。
+async function idbMergeDelta(payload) {
+  const existing = await idbGetAll();
+  const byTitle = new Map(existing.map((r) => [r.title, r]));
+  const db = await openIdb();
+  await new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, "readwrite");
+    const store = tx.objectStore(IDB_STORE);
+    for (const title of payload.titles) {
+      const rec = byTitle.get(title) || { title, startDate: payload.startDate, endDate: null, views: [] };
+      const deltaArr = payload.views[title] || []; // こちらは生の日次値(累積ではない)
+      const offset = daysBetweenYmdStr(rec.startDate, payload.startDate);
+      // views[]は累積合計なので、既存の直前の累積値に生の日次値を積み上げて書き込む。
+      for (let i = 0; i < deltaArr.length; i++) {
+        const idx = offset + i;
+        const prevCum = idx > 0 ? (rec.views[idx - 1] || 0) : 0;
+        rec.views[idx] = prevCum + deltaArr[i];
+      }
+      rec.endDate = payload.endDate;
+      byTitle.set(title, rec);
+      store.put(rec);
+    }
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+  return byTitle; // 呼び出し側でensureHistoricalMapsの再読み込み(2回目のgetAll)を避けるために返す
+}
+
+// 静的JSONのendDateとIndexedDBに保存済みのendDateを比較する。
+// - 一致: 何もしない(ほとんどの再訪問はこれ)
+// - 前回訪問が直近DELTA_DAYS日以内: 軽量な差分ファイルだけ取得してマージ
+// - それ以外(初回/長期間未訪問): 全データをフル取得
+async function ensureAllDataReady(onProgress) {
+  const cachedEndDate = await idbGetMeta("endDate");
+
+  // ページを行き来するたびに毎回ネットワーク取得し直すのは無駄なので、
+  // 直近30分以内に同期済みならキャッシュ(IndexedDB)をそのまま使う。
+  const lastSyncAt = Number(sessionStorage.getItem("mangaRankingLastSyncAt") || 0);
+  if (cachedEndDate && Date.now() - lastSyncAt < 30 * 60 * 1000) {
+    ANIME_LIST = await idbGetMeta("titles");
+    return;
+  }
+
+  const metaRes = await fetch("data/manga-daily-views-meta.json", { cache: "no-cache" });
+  const meta = await metaRes.json();
+
+  // 当日分の速報値はendDate文字列が変わらないまま数値だけ増えていくため、
+  // 完全一致でも差分ファイル(軽量)を毎回取り直して最新化する。
+  if (cachedEndDate && cachedEndDate >= meta.deltaStartDate) {
+    if (onProgress) onProgress("downloading");
+    const deltaRes = await fetch("data/manga-daily-views-delta.json", { cache: "no-cache" });
+    const payload = await deltaRes.json();
+    if (onProgress) onProgress("saving");
+    const mergedByTitle = await idbMergeDelta(payload);
+    await idbPutMeta("endDate", payload.endDate);
+    await idbPutMeta("titles", payload.titles);
+    ANIME_LIST = payload.titles;
+    // idbMergeDeltaが既に全件読み込み済みなので、ensureHistoricalMaps側での
+    // 2回目のgetAll()を避けるためここでhistoricalMapsを直接組み立てる。
+    ANIME_LIST.forEach((title) => {
+      historicalMaps[title] = mergedByTitle.get(title) || null;
+    });
+    historicalMapsLoaded = true;
+  } else {
+    if (onProgress) onProgress("downloading");
+    const fullRes = await fetch("data/manga-daily-views.json", { cache: "no-cache" });
+    const payload = await fullRes.json();
+    if (onProgress) onProgress("saving");
+    await idbPutAllDailyViews(payload);
+    await idbPutMeta("endDate", payload.endDate);
+    await idbPutMeta("titles", payload.titles);
+    ANIME_LIST = payload.titles;
+    ANIME_LIST.forEach((title) => {
+      historicalMaps[title] = {
+        title,
+        startDate: payload.startDate,
+        endDate: payload.endDate,
+        views: payload.views[title] || [],
+      };
+    });
+    historicalMapsLoaded = true;
+  }
+  sessionStorage.setItem("mangaRankingLastSyncAt", String(Date.now()));
+}
+
+async function idbGetAll() {
+  const db = await openIdb();
+  return await new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, "readonly");
+    const req = tx.objectStore(IDB_STORE).getAll();
+    req.onsuccess = () => resolve(req.result || []);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+let historicalMapsLoaded = false;
+
+// IndexedDBを1706回個別に読むと非常に遅いため、getAll()で1回のトランザクションに
+// まとめて読み出してからメモリ上でMapへ変換する。
+async function ensureHistoricalMaps(onProgress) {
+  if (historicalMapsLoaded) return;
+  if (onProgress) onProgress(0, ANIME_LIST.length);
+  const records = await idbGetAll();
+  const byTitle = new Map(records.map((r) => [r.title, r]));
+  ANIME_LIST.forEach((title) => {
+    historicalMaps[title] = byTitle.get(title) || null;
+  });
+  if (onProgress) onProgress(ANIME_LIST.length, ANIME_LIST.length);
+  historicalMapsLoaded = true;
+}
+
+function parseTimestamp(ts) {
+  const y = Number(ts.slice(0, 4));
+  const m = Number(ts.slice(4, 6));
+  const d = Number(ts.slice(6, 8));
+  return new Date(y, m - 1, d);
+}
+
+function monthLabel(date) {
+  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, "0")}`;
+}
+
+function hourLabel(date) {
+  return date.getHours() + "時";
+}
+function dayLabel(date) {
+  return `${date.getMonth() + 1}/${date.getDate()}`;
+}
+
+function niceCeil(v) {
+  if (v <= 0) return 1;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(v)));
+  const steps = [1, 2, 5, 10];
+  for (const s of steps) {
+    if (v <= s * magnitude) return s * magnitude;
+  }
+  return 10 * magnitude;
+}
+
+function buildDailySeriesFromMap(rec, start, end) {
+  const series = [];
+  const cur = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const last = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  while (cur <= last) {
+    series.push({ date: new Date(cur), value: viewsAtYmd(rec, dateToYmd(cur)) });
+    cur.setDate(cur.getDate() + 1);
+  }
+  return series;
+}
+
+function buildMonthlySeriesFromMap(rec, refDate) {
+  if (!rec || !rec.views || !rec.startDate) return [];
+  const refYmd = dateToYmd(refDate);
+  const refIdx = Math.min(daysBetweenYmdStr(rec.startDate, refYmd), rec.views.length - 1);
+  const byMonth = new Map();
+  const start = parseYmdToDate(rec.startDate);
+  for (let i = 0; i <= refIdx; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    const monthKey = dateToYmd(d).slice(0, 6);
+    // rec.viewsは累積合計なので、その日単体の値は前日との差分。
+    const raw = (rec.views[i] || 0) - (i > 0 ? (rec.views[i - 1] || 0) : 0);
+    byMonth.set(monthKey, (byMonth.get(monthKey) || 0) + raw);
+  }
+  const keys = Array.from(byMonth.keys()).sort();
+  return keys.map((key) => {
+    const y = Number(key.slice(0, 4));
+    const m = Number(key.slice(4, 6));
+    return { date: new Date(y, m - 1, 1), value: byMonth.get(key) };
+  });
+}
+
+// 推移グラフは常に現在選択中の期間(累計/今年/今月/この1週間/当日/急上昇)と同じ範囲を表示する。
+function buildTrendSeriesForCurrentPeriod(title) {
+  const refDate = historicalDate || todayMinusLag();
+  const dayMap = historicalMaps[title] || null;
+
+  if (currentPeriod === "all") {
+    return { series: buildMonthlySeriesFromMap(dayMap, refDate), mode: "cumulative" };
+  }
+  if (currentPeriod in ROLLING_DAYS) {
+    // computeMetricFromMapと同じルールに合わせる。
+    const end = new Date(refDate);
+    if (!historicalDate) end.setDate(end.getDate() - 1);
+    const days = ROLLING_DAYS[currentPeriod];
+    const start = new Date(end);
+    start.setDate(start.getDate() - (days - 1));
+    return { series: buildDailySeriesFromMap(dayMap, start, end), mode: "daily" };
+  }
+  // surgeなど比較系は直近14日を表示して文脈を見せる
+  const start = new Date(refDate);
+  start.setDate(start.getDate() - 13);
+  return { series: buildDailySeriesFromMap(dayMap, start, refDate), mode: "daily" };
+}
+
+function renderDetailPanel(panel, title) {
+  panel.innerHTML = "";
+  const { series, mode } = buildTrendSeriesForCurrentPeriod(title);
+  const chartWrap = document.createElement("div");
+  chartWrap.className = "chart-wrap";
+  chartWrap.appendChild(buildLineChart(series, mode));
+  panel.appendChild(chartWrap);
+}
+
+function buildLineChart(series, mode) {
+  const W = 600, H = 170, padL = 46, padR = 12, padT = 12, padB = 26;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  const n = series.length;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("preserveAspectRatio", "none");
+  svg.setAttribute("width", "100%");
+  svg.setAttribute("height", String(H));
+  svg.classList.add("trend-svg");
+
+  if (n === 0) {
+    const empty = document.createElementNS(svgNS, "text");
+    empty.setAttribute("x", String(W / 2));
+    empty.setAttribute("y", String(H / 2));
+    empty.setAttribute("text-anchor", "middle");
+    empty.setAttribute("class", "axis-label");
+    empty.textContent = "データなし";
+    svg.appendChild(empty);
+    return svg;
+  }
+
+  const values = series.map((p) => p.value);
+  const maxV = niceCeil(Math.max(1, ...values));
+  const xAt = (i) => padL + (n <= 1 ? 0 : (i / (n - 1)) * plotW);
+  const yAt = (v) => padT + plotH - (v / maxV) * plotH;
+
+  [0, 0.5, 1].forEach((frac) => {
+    const y = padT + plotH * (1 - frac);
+    const line = document.createElementNS(svgNS, "line");
+    line.setAttribute("x1", String(padL));
+    line.setAttribute("x2", String(W - padR));
+    line.setAttribute("y1", String(y));
+    line.setAttribute("y2", String(y));
+    line.setAttribute("class", "grid-line");
+    svg.appendChild(line);
+
+    const label = document.createElementNS(svgNS, "text");
+    label.setAttribute("x", String(padL - 6));
+    label.setAttribute("y", String(y + 3));
+    label.setAttribute("text-anchor", "end");
+    label.setAttribute("class", "axis-label");
+    label.textContent = Math.round(maxV * frac).toLocaleString("ja-JP");
+    svg.appendChild(label);
+  });
+
+  let d = `M ${xAt(0)} ${yAt(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${xAt(i)} ${yAt(values[i])}`;
+  const areaD = `${d} L ${xAt(n - 1)} ${padT + plotH} L ${xAt(0)} ${padT + plotH} Z`;
+
+  const areaPath = document.createElementNS(svgNS, "path");
+  areaPath.setAttribute("d", areaD);
+  areaPath.setAttribute("class", "trend-area");
+  svg.appendChild(areaPath);
+
+  const linePath = document.createElementNS(svgNS, "path");
+  linePath.setAttribute("d", d);
+  linePath.setAttribute("class", "trend-line");
+  svg.appendChild(linePath);
+
+  const endDot = document.createElementNS(svgNS, "circle");
+  endDot.setAttribute("cx", String(xAt(n - 1)));
+  endDot.setAttribute("cy", String(yAt(values[n - 1])));
+  endDot.setAttribute("r", "4");
+  endDot.setAttribute("class", "trend-dot");
+  svg.appendChild(endDot);
+
+  const labelFn = mode === "cumulative" ? monthLabel : mode === "hourly" ? hourLabel : dayLabel;
+  const firstLabel = document.createElementNS(svgNS, "text");
+  firstLabel.setAttribute("x", String(padL));
+  firstLabel.setAttribute("y", String(H - 6));
+  firstLabel.setAttribute("text-anchor", "start");
+  firstLabel.setAttribute("class", "axis-label");
+  firstLabel.textContent = labelFn(series[0].date);
+  svg.appendChild(firstLabel);
+
+  const lastLabel = document.createElementNS(svgNS, "text");
+  lastLabel.setAttribute("x", String(W - padR));
+  lastLabel.setAttribute("y", String(H - 6));
+  lastLabel.setAttribute("text-anchor", "end");
+  lastLabel.setAttribute("class", "axis-label");
+  lastLabel.textContent = labelFn(series[n - 1].date);
+  svg.appendChild(lastLabel);
+
+  const crosshair = document.createElementNS(svgNS, "line");
+  crosshair.setAttribute("y1", String(padT));
+  crosshair.setAttribute("y2", String(padT + plotH));
+  crosshair.setAttribute("class", "crosshair");
+  crosshair.style.opacity = "0";
+  svg.appendChild(crosshair);
+
+  const hoverDot = document.createElementNS(svgNS, "circle");
+  hoverDot.setAttribute("r", "5");
+  hoverDot.setAttribute("class", "trend-dot");
+  hoverDot.style.opacity = "0";
+  svg.appendChild(hoverDot);
+
+  const overlay = document.createElementNS(svgNS, "rect");
+  overlay.setAttribute("x", String(padL));
+  overlay.setAttribute("y", String(padT));
+  overlay.setAttribute("width", String(plotW));
+  overlay.setAttribute("height", String(plotH));
+  overlay.setAttribute("fill", "transparent");
+  overlay.style.cursor = "crosshair";
+  svg.appendChild(overlay);
+
+  const tooltip = document.getElementById("tooltip");
+  overlay.addEventListener("pointermove", (ev) => {
+    const rect = svg.getBoundingClientRect();
+    const relX = (ev.clientX - rect.left) * (W / rect.width);
+    let idx = Math.round(((relX - padL) / plotW) * (n - 1));
+    idx = Math.max(0, Math.min(n - 1, idx));
+    const px = xAt(idx), py = yAt(values[idx]);
+    crosshair.setAttribute("x1", String(px));
+    crosshair.setAttribute("x2", String(px));
+    crosshair.style.opacity = "1";
+    hoverDot.setAttribute("cx", String(px));
+    hoverDot.setAttribute("cy", String(py));
+    hoverDot.style.opacity = "1";
+    tooltip.innerHTML = `${labelFn(series[idx].date)} <strong>${values[idx].toLocaleString("ja-JP")}</strong> 回`;
+    tooltip.style.left = ev.clientX + "px";
+    tooltip.style.top = ev.clientY - 10 + "px";
+    tooltip.classList.add("visible");
+  });
+  overlay.addEventListener("pointerleave", () => {
+    crosshair.style.opacity = "0";
+    hoverDot.style.opacity = "0";
+    tooltip.classList.remove("visible");
+  });
+
+  return svg;
+}
+
+function applyFilter() {
+  currentPage = 1;
+  renderCurrentPage();
+}
+
+function getPeriodLabel(periodKey) {
+  return PERIODS.find((p) => p.key === periodKey).label;
+}
+
+function renderPeriodRow() {
+  const row = document.getElementById("periodRow");
+  row.innerHTML = "";
+  PERIODS.forEach((p) => {
+    const btn = document.createElement("button");
+    btn.className = "period-btn" + (p.key === currentPeriod ? " active" : "");
+    btn.textContent = getPeriodLabel(p.key);
+    btn.addEventListener("click", () => {
+      if (p.key === currentPeriod) return;
+      currentPeriod = p.key;
+      renderPeriodRow();
+      updateSubtitle();
+      loadRanking(false);
+    });
+    row.appendChild(btn);
+  });
+}
+
+function updateSubtitle() {
+  const label = getPeriodLabel(currentPeriod);
+  const detail =
+    currentPeriod === "all"
+      ? "累計(2015年7月〜現在)"
+      : currentPeriod === "surge"
+      ? "急上昇(直近7日とその前の7日を比較した増加数)"
+      : historicalDate
+      ? `${label}の合計(指定日までの集計)`
+      : `${label}の合計(前日までの集計)`;
+  const historicalNote = historicalDate
+    ? `(${historicalDate.getFullYear()}年${historicalDate.getMonth() + 1}月${historicalDate.getDate()}日時点)`
+    : "";
+  document.getElementById("subtitle").textContent =
+    `日本語版Wikipedia「ページビュー」${detail} / 人間アクセスのみ集計 ${historicalNote}`;
+}
+
+async function loadRanking(forceRefresh) {
+  const statusEl = document.getElementById("status");
+  const refreshBtn = document.getElementById("refreshBtn");
+  const periodKey = currentPeriod;
+
+  refreshBtn.disabled = true;
+  buildRows([]);
+
+  if (forceRefresh) historicalMapsLoaded = false; // 強制的にキャッシュの鮮度を再確認させる
+
+  statusEl.textContent = "最新データを確認中...";
+  await ensureAllDataReady((stage) => {
+    statusEl.textContent = stage === "downloading" ? "最新データを取得中..." : "保存中...";
+  });
+
+  const refDate = historicalDate || todayMinusLag();
+  const refDateStr = dateToYmd(refDate);
+
+  statusEl.innerHTML = `集計中... 0 / ${ANIME_LIST.length} 件<div class="bar-track"><div class="bar-fill" id="progressFill" style="width:0%"></div></div>`;
+
+  await ensureHistoricalMaps((done, total) => {
+    statusEl.querySelector("div.bar-track div.bar-fill").style.width = (done / total) * 100 + "%";
+    statusEl.firstChild.textContent = `集計中... ${done} / ${total} 件`;
+  });
+
+  if (periodKey !== currentPeriod) return; // 取得中に期間が切り替わった場合は表示を更新しない
+
+  const results = ANIME_LIST.map((title) => ({
+    ok: true,
+    value: computeMetricFromMap(historicalMaps[title], periodKey, refDate),
+  }));
+
+  // "all"(累計)は前日比を取るためだけに全期間を再度合計し直すと件数×日数分の計算が重複するので、
+  // 本日分の値を引くだけのO(1)計算で済ませる。
+  let prevResults;
+  if (periodKey === "all") {
+    prevResults = ANIME_LIST.map((title, i) => {
+      const rec = historicalMaps[title];
+      let todayViews = 0;
+      if (rec && rec.views && rec.startDate) {
+        const refIdx = Math.min(daysBetweenYmdStr(rec.startDate, refDateStr), rec.views.length - 1);
+        // views[]は累積合計なので、当日単体の値は前日との差分で求める。
+        const cur = rec.views[refIdx] || 0;
+        const prev = refIdx > 0 ? (rec.views[refIdx - 1] || 0) : 0;
+        todayViews = cur - prev;
+      }
+      return { ok: true, value: results[i].value - todayViews };
+    });
+  } else {
+    const prevRefDate = new Date(refDate);
+    prevRefDate.setDate(prevRefDate.getDate() - 1);
+    prevResults = ANIME_LIST.map((title) => ({
+      ok: true,
+      value: computeMetricFromMap(historicalMaps[title], periodKey, prevRefDate),
+    }));
+  }
+  const prevSnapshot = computeRankSnapshot(prevResults, periodKey);
+
+  const y = refDateStr.slice(0, 4), m = refDateStr.slice(4, 6), d = refDateStr.slice(6, 8);
+  statusEl.textContent = historicalDate
+    ? `${y}年${m}月${d}日 時点のランキング(前日比)`
+    : `取得完了 (${new Date().toLocaleString("ja-JP")}) / 前日比`;
+  buildRows(results, prevSnapshot);
+  refreshBtn.disabled = false;
+}
+
+document.getElementById("refreshBtn").addEventListener("click", () => loadRanking(true));
+document.getElementById("filterInput").addEventListener("input", applyFilter);
+
+const dateHint = document.getElementById("dateHint");
+const yearSegment = document.getElementById("yearSegment");
+const monthSegment = document.getElementById("monthSegment");
+const daySegment = document.getElementById("daySegment");
+
+function daysInMonth(year, monthIndex0) {
+  return new Date(year, monthIndex0 + 1, 0).getDate();
+}
+
+function renderDateSegments() {
+  const refDate = historicalDate || todayMinusLag();
+  const caret = `<span class="seg-caret">▾</span>`;
+  yearSegment.innerHTML = `${refDate.getFullYear()}年${caret}`;
+  monthSegment.innerHTML = `${refDate.getMonth() + 1}月${caret}`;
+  daySegment.innerHTML = `${refDate.getDate()}日${caret}`;
+}
+
+function closeAllDropdowns() {
+  document.querySelectorAll(".segment-dropdown").forEach((el) => el.remove());
+}
+
+function openSegmentDropdown(segmentEl, options, currentValue, onSelect) {
+  const alreadyOpen = segmentEl.querySelector(".segment-dropdown");
+  closeAllDropdowns();
+  if (alreadyOpen) return; // 同じセグメントを再クリックしたら閉じるだけ
+  const dropdown = document.createElement("div");
+  dropdown.className = "segment-dropdown";
+  options.forEach((opt) => {
+    const item = document.createElement("div");
+    item.className = "segment-option" + (opt === currentValue ? " selected" : "");
+    item.textContent = String(opt);
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      onSelect(opt);
+      closeAllDropdowns();
+    });
+    dropdown.appendChild(item);
+  });
+  segmentEl.appendChild(dropdown);
+}
+
+function applyHistoricalDate(newDate) {
+  const end = todayMinusLag();
+  historicalDate = newDate > end ? end : newDate;
+  dateHint.textContent = "過去日付を表示中";
+  renderDateSegments();
+  renderPeriodRow();
+  updateSubtitle();
+  loadRanking(false);
+}
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".date-segment")) closeAllDropdowns();
+});
+
+yearSegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const maxYear = todayMinusLag().getFullYear();
+  const years = [];
+  for (let y = maxYear; y >= 2015; y--) years.push(y);
+  openSegmentDropdown(yearSegment, years, refDate.getFullYear(), (y) => {
+    const dim = daysInMonth(y, refDate.getMonth());
+    applyHistoricalDate(new Date(y, refDate.getMonth(), Math.min(refDate.getDate(), dim)));
+  });
+});
+
+monthSegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  openSegmentDropdown(monthSegment, months, refDate.getMonth() + 1, (m) => {
+    const dim = daysInMonth(refDate.getFullYear(), m - 1);
+    applyHistoricalDate(new Date(refDate.getFullYear(), m - 1, Math.min(refDate.getDate(), dim)));
+  });
+});
+
+daySegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const dim = daysInMonth(refDate.getFullYear(), refDate.getMonth());
+  const days = Array.from({ length: dim }, (_, i) => i + 1);
+  openSegmentDropdown(daySegment, days, refDate.getDate(), (d) => {
+    applyHistoricalDate(new Date(refDate.getFullYear(), refDate.getMonth(), d));
+  });
+});
+
+document.getElementById("liveBtn").addEventListener("click", () => {
+  if (!historicalDate) return;
+  historicalDate = null;
+  dateHint.textContent = "";
+  renderDateSegments();
+  renderPeriodRow();
+  updateSubtitle();
+  loadRanking(false);
+});
+
+(function restoreFromQuery() {
+  const params = new URLSearchParams(location.search);
+  const p = params.get("period");
+  const d = params.get("date");
+  if (p && PERIODS.some((x) => x.key === p)) currentPeriod = p;
+  if (d) {
+    const parsed = parseYmdToDate(d);
+    if (!isNaN(parsed.getTime())) {
+      const max = todayMinusLag();
+      historicalDate = parsed > max ? max : parsed;
+      dateHint.textContent = "過去日付を表示中";
+    }
+  }
+})();
+
+renderDateSegments();
+renderPeriodRow();
+updateSubtitle();
+loadRanking(false);
+</script>
+<button type="button" id="backToTopBtn" class="back-to-top" aria-label="トップへ戻る" title="トップへ戻る">&uarr;</button>
+<script>
+(function () {
+  var btn = document.getElementById("backToTopBtn");
+  if (!btn) return;
+  var SHOW_AFTER_PX = 300;
+  function onScroll() {
+    if (window.scrollY > SHOW_AFTER_PX) btn.classList.add("visible");
+    else btn.classList.remove("visible");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+</script>
+</body>
+</html>

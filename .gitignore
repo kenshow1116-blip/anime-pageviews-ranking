@@ -1,0 +1,15 @@
+node_modules/
+dist/
+logs/
+scripts-scratch/
+*.log
+
+# SQLiteキャッシュ本体(数GB、GitHub Actions実行時にGoogleドライブから復元する)
+data/pageviews.db
+data/pageviews.db-wal
+data/pageviews.db-shm
+data/*.bak
+
+# サービスアカウント鍵等の秘密情報を誤ってコミットしないためのセーフガード
+*.key.json
+service-account*.json
