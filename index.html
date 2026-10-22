@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アニメ Wikipedia 閲覧数ランキング</title>
+<meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、アニメ・声優・漫画のランキングサイトです。アニメランキング・声優ランキング・漫画ランキングなど、各種ランキング・一覧ページへのリンクをまとめています。">
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #ffffff;
+    --page-plane: #ffffff;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --gridline: #e8e8e5;
+    --border: rgba(11,11,11,0.10);
+    --accent: #3b7de8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px 60px; }
+  h1 { font-size: 26px; font-weight: 700; margin: 0 0 8px; }
+  .subtitle { color: var(--text-secondary); font-size: 14px; margin: 0 0 32px; line-height: 1.6; }
+  h2 { font-size: 14px; font-weight: 700; color: var(--text-muted); margin: 32px 0 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  h2:first-of-type { margin-top: 0; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .card {
+    display: block;
+    padding: 18px 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface-1);
+    text-decoration: none;
+    color: var(--text-primary);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+  .card-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .card-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+  .footnote { color: var(--text-muted); font-size: 12px; margin-top: 40px; border-top: 1px solid var(--gridline); padding-top: 16px; }
+  .footnote a { color: var(--accent); text-decoration: none; }
+  .footnote a:hover { text-decoration: underline; }
+  .back-to-top {
+    position: fixed; right: 20px; bottom: 20px; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--accent);
+    font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease; z-index: 100;
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { background: var(--accent); color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>アニメ Wikipedia 閲覧数ランキング</h1>
+  <p class="subtitle">日本語版Wikipediaの「閲覧数」データに基づく、アニメ・声優・漫画のランキングサイトです。見たいランキング・一覧を選んでください。</p>
+
+  <h2>ランキング</h2>
+  <div class="card-grid">
+    <a class="card" href="anime-ranking.html">
+      <div class="card-title">アニメランキング</div>
+      <div class="card-desc">累計・直近1年・急上昇など期間別の閲覧数ランキング</div>
+    </a>
+    <a class="card" href="seiyuu-ranking.html">
+      <div class="card-title">声優ランキング</div>
+      <div class="card-desc">出演作品数に基づき自動抽出した声優陣のランキング</div>
+    </a>
+    <a class="card" href="manga-ranking.html">
+      <div class="card-title">漫画ランキング</div>
+      <div class="card-desc">日本の連載漫画全13,681件の閲覧数ランキング</div>
+    </a>
+    <a class="card" href="studio-ranking.html">
+      <div class="card-title">制作会社別ランキング</div>
+      <div class="card-desc">累計・直近1年・急上昇など期間別の、制作会社ごとの合計閲覧数ランキング</div>
+    </a>
+  </div>
+
+  <h2>海外(英語ランキング)</h2>
+  <div class="card-grid">
+    <a class="card" href="overseas-ranking.html">
+      <div class="card-title">海外アニメランキング</div>
+      <div class="card-desc">英語版Wikipediaの閲覧数に基づく海外人気ランキング</div>
+    </a>
+    <a class="card" href="overseas-seiyuu-ranking.html">
+      <div class="card-title">海外声優ランキング</div>
+      <div class="card-desc">英語版Wikipediaの閲覧数に基づく声優の海外人気ランキング</div>
+    </a>
+    <a class="card" href="overseas-manga-ranking.html">
+      <div class="card-title">海外漫画ランキング</div>
+      <div class="card-desc">英語版Wikipediaの閲覧数に基づく漫画の海外人気ランキング</div>
+    </a>
+  </div>
+
+  <h2>一覧(全件)</h2>
+  <div class="card-grid">
+    <a class="card" href="works/index.html">
+      <div class="card-title">アニメ一覧</div>
+      <div class="card-desc">対象アニメ全件のシンプルな一覧</div>
+    </a>
+    <a class="card" href="seiyuu/index.html">
+      <div class="card-title">声優一覧</div>
+      <div class="card-desc">対象声優全件のシンプルな一覧</div>
+    </a>
+    <a class="card" href="manga/index.html">
+      <div class="card-title">漫画一覧</div>
+      <div class="card-desc">対象漫画全件のシンプルな一覧</div>
+    </a>
+    <a class="card" href="studios/index.html">
+      <div class="card-title">制作会社一覧</div>
+      <div class="card-desc">対象制作会社全件のシンプルな一覧</div>
+    </a>
+  </div>
+
+  <p class="footnote">
+    データ元: Wikimedia Pageviews API / pageviewsダンプ(ja.wikipedia, all-access, 人間アクセスのみ)。
+    各ランキングの詳細な集計範囲・注意事項はそれぞれのページをご確認ください。
+  </p>
+</div>
+<button type="button" id="backToTopBtn" class="back-to-top" aria-label="トップへ戻る" title="トップへ戻る">&uarr;</button>
+<script>
+(function () {
+  var btn = document.getElementById("backToTopBtn");
+  if (!btn) return;
+  var SHOW_AFTER_PX = 300;
+  function onScroll() {
+    if (window.scrollY > SHOW_AFTER_PX) btn.classList.add("visible");
+    else btn.classList.remove("visible");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+</script>
+</body>
+</html>

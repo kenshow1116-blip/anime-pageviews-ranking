@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Wikipedia Pageview Ranking</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #ffffff;
+    --page-plane:      #ffffff;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --text-muted:      #898781;
+    --gridline:        #e8e8e5;
+    --baseline:        #c3c2b7;
+    --border:          rgba(11,11,11,0.10);
+    --seq-100: #dbe9ff;
+    --seq-250: #a9c9fb;
+    --seq-400: #5b96f0;
+    --seq-450: #3b7de8;
+    --seq-550: #2a63c4;
+    --seq-700: #1a3f80;
+    --accent: #3b7de8;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  .top-link { font-size: 13px; margin-bottom: 10px; }
+  .top-link a { color: var(--accent); text-decoration: none; }
+  .top-link a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--text-primary);
+  }
+  .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .menu-wrap { position: relative; }
+  .hamburger-btn {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .hamburger-btn:hover { background: var(--gridline); }
+  .menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    flex-direction: column;
+    min-width: 220px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+    overflow: hidden;
+  }
+  .menu-dropdown.open { display: flex; }
+  .menu-dropdown a {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .menu-dropdown a:hover { background: var(--gridline); }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin: 0 0 20px;
+  }
+  .footnote {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .footnote a { color: var(--accent); text-decoration: none; }
+  .footnote a:hover { text-decoration: underline; }
+
+  .period-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .period-btn {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-1);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .period-btn:hover { background: var(--gridline); }
+  .period-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .date-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .date-row button {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .date-row button:hover { background: var(--gridline); }
+  .date-hint { color: var(--accent); font-weight: 600; }
+  .date-segment {
+    position: relative;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  .date-segment:hover { background: var(--gridline); }
+  .date-sep { color: var(--text-muted); }
+  .seg-caret {
+    margin-left: 3px;
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+  .segment-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+    min-width: 72px;
+  }
+  .segment-option {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-primary);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .segment-option:hover { background: var(--gridline); }
+  .segment-option.selected { background: var(--accent); color: #ffffff; }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .controls input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-size: 14px;
+  }
+  .controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .controls button:hover { filter: brightness(1.08); }
+  .controls button:disabled { opacity: .5; cursor: default; }
+
+  .status {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    min-height: 18px;
+  }
+  .status .bar-track {
+    margin-top: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--gridline);
+    overflow: hidden;
+  }
+  .status .bar-fill {
+    height: 100%;
+    background: var(--seq-400);
+    border-radius: 3px;
+    transition: width .2s ease;
+  }
+
+  table.ranking {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.ranking caption {
+    text-align: left;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .row:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  .rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .rank.top3 {
+    font-size: 20px;
+  }
+  .rank-up-badge {
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .rank-up-badge.up { color: #0ca30c; }
+  .rank-up-badge.down { color: #d03b3b; }
+  .rank-up-badge.flat { color: var(--text-muted); }
+
+  .row-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .title-link {
+    font-size: 14px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .title-link:hover { text-decoration: underline; }
+  .value {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .value.pending { color: var(--text-muted); }
+  .value.failed { color: var(--text-muted); font-style: italic; }
+
+  .bar-track {
+    height: 14px;
+    border-radius: 7px;
+    background: var(--gridline);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 7px;
+    background: var(--accent);
+    transition: width .4s ease;
+  }
+
+  .row[hidden] { display: none; }
+
+  .row-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trend-toggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 3px 9px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .trend-toggle-btn:hover { background: var(--gridline); }
+  .trend-toggle-btn.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+  }
+
+  .delta-badge {
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .delta-up { color: #0ca30c; }
+  .delta-down { color: #d03b3b; }
+  .delta-new { color: var(--accent); }
+
+  .detail-panel {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--gridline);
+  }
+  .detail-panel[hidden] { display: none; }
+  .chart-wrap { width: 100%; }
+  .trend-svg .grid-line { stroke: var(--gridline); stroke-width: 1; }
+  .trend-svg .axis-label {
+    fill: var(--text-muted);
+    font-size: 10px;
+    font-family: inherit;
+  }
+  .trend-svg .trend-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .trend-svg .trend-area { fill: var(--accent); opacity: 0.1; stroke: none; }
+  .trend-svg .trend-dot {
+    fill: var(--accent);
+    stroke: var(--surface-1);
+    stroke-width: 2;
+  }
+  .trend-svg .crosshair { stroke: var(--text-muted); stroke-width: 1; }
+
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--text-primary);
+    color: var(--page-plane);
+    font-size: 12px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    transition: opacity .1s ease;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip strong { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-link"><a href="../index.html">&larr; Back to Home</a></div>
+  <h1>Anime Wikipedia Pageview Ranking</h1>
+  <p class="subtitle" id="subtitle">English Wikipedia "pageviews" all-time (July 2015 - present) / human traffic only</p>
+
+  <div class="top-bar">
+    <div class="menu-wrap">
+      <button type="button" class="hamburger-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      <div class="menu-dropdown" id="menuDropdown">
+        <a href="../index.html">Japanese version &rarr;</a>
+      </div>
+    </div>
+    <div class="period-row" id="periodRow"></div>
+  </div>
+
+  <div class="date-row">
+    <label>As of:</label>
+    <button type="button" class="date-segment" id="yearSegment"></button>
+    <span class="date-sep">/</span>
+    <button type="button" class="date-segment" id="monthSegment"></button>
+    <span class="date-sep">/</span>
+    <button type="button" class="date-segment" id="daySegment"></button>
+    <button id="liveBtn" type="button">Back to live</button>
+    <span class="date-hint" id="dateHint"></span>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="filterInput" placeholder="Search by title...">
+    <button id="refreshBtn">Refresh</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <div id="list"></div>
+
+  <p class="footnote">
+    Data: Wikimedia Pageviews API (en.wikipedia, all-access, user traffic).
+    Views before July 2015 are not available from the API.
+    If a title does not match the actual Wikipedia page title, that entry will show "Failed".
+  </p>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const ANIME_LIST = [
+  "One Piece",
+  "Naruto",
+  "Bleach (manga)",
+  "Fullmetal Alchemist",
+  "Attack on Titan",
+  "Demon Slayer: Kimetsu no Yaiba",
+  "Jujutsu Kaisen",
+  "My Hero Academia",
+  "That Time I Got Reincarnated as a Slime",
+  "Re:Zero",
+  "KonoSuba",
+  "Spy × Family",
+  "Frieren",
+  "Oshi no Ko",
+  "Neon Genesis Evangelion",
+  "Code Geass Lelouch of the Rebellion",
+  "Steins;Gate",
+  "Mobile Suit Gundam",
+  "Case Closed",
+  "Crayon Shin-chan",
+  "Chibi Maruko-chan",
+  "Doraemon",
+  "Sazae-san",
+  "Puella Magi Madoka Magica",
+  "Sword Art Online",
+  "The Quintessential Quintuplets",
+  "Tokyo Revengers",
+  "Chainsaw Man",
+  "Kaiju No. 8",
+  "Blue Lock",
+  "The Apothecary Diaries",
+  "One-Punch Man",
+  "Death Note",
+  "Gintama",
+  "Haikyu!!",
+  "Slam Dunk (manga)",
+  "Dragon Ball"
+];
+
+const API_START = "20150701";
+const CONCURRENCY = 6;
+const LAG_DAYS = 1; // the API lags by about one day
+
+const PERIODS = [
+  { key: "all", label: "All-time" },
+  { key: "y1", label: "Last year" },
+  { key: "m1", label: "Last month" },
+  { key: "w1", label: "This week" },
+  { key: "d1", label: "Yesterday" },
+  { key: "surge", label: "Trending" },
+];
+const PERIOD_DAYS = { d1: 1 }; // m1/y1/w1 use calendar-based ranges instead
+
+const MONTH_NAMES_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function formatDateEn(d) {
+  return `${MONTH_NAMES_EN[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
+let currentPeriod = "all";
+const openTrendTitles = new Set(); // titles whose trend panel is open (kept open across period switches)
+let historicalDate = null; // Date | null (null = live mode)
+const historicalMaps = {}; // title -> Map<"YYYYMMDD", views>
+let historicalMapsDateStr = null; // the reference date historicalMaps currently reflects
+
+function fmtDate(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}${m}${day}`;
+}
+
+function todayStr() {
+  return fmtDate(new Date());
+}
+
+function todayMinusLag() {
+  const d = new Date();
+  d.setDate(d.getDate() - LAG_DAYS);
+  return d;
+}
+
+function articleToApiPath(title) {
+  return encodeURIComponent(title.replace(/ /g, "_"));
+}
+
+function safeFileName(title) {
+  return title.replace(/[\\/:*?"<>|]/g, "_");
+}
+
+async function runPool(items, worker, concurrency, onProgress) {
+  let next = 0;
+  let done = 0;
+  const results = new Array(items.length);
+  async function runOne() {
+    while (next < items.length) {
+      const i = next++;
+      try {
+        results[i] = { ok: true, value: await worker(items[i], i) };
+      } catch (e) {
+        results[i] = { ok: false, error: e };
+      }
+      done++;
+      onProgress(done, items.length);
+    }
+  }
+  const runners = Array.from({ length: Math.min(concurrency, items.length) }, runOne);
+  await Promise.all(runners);
+  return results;
+}
+
+function metricOfForPeriod(result, periodKey) {
+  if (!result || !result.ok) return -Infinity;
+  return periodKey === "surge" ? result.value.delta : result.value;
+}
+
+function computeRankSnapshot(results, periodKey) {
+  const withIdx = ANIME_LIST.map((title, i) => ({ title, result: results[i] }));
+  withIdx.sort((a, b) => metricOfForPeriod(b.result, periodKey) - metricOfForPeriod(a.result, periodKey));
+  const snapshot = {};
+  withIdx.forEach((e, idx) => {
+    const m = metricOfForPeriod(e.result, periodKey);
+    if (m === -Infinity) return;
+    snapshot[e.title] = { rank: idx + 1, value: m };
+  });
+  return snapshot;
+}
+
+function formatViews(n) {
+  return n.toLocaleString("en-US");
+}
+
+const MEDALS = ["🥇", "🥈", "🥉"];
+
+function buildRows(results, prevSnapshot) {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  function metricOf(result) {
+    return metricOfForPeriod(result, currentPeriod);
+  }
+
+  prevSnapshot = prevSnapshot || {};
+
+  const enriched = ANIME_LIST.map((title, i) => ({ title, result: results[i] }));
+  enriched.sort((a, b) => metricOf(b.result) - metricOf(a.result));
+
+  const maxViews = Math.max(1, ...enriched.map((e) => Math.max(0, metricOf(e.result))));
+
+  const tooltip = document.getElementById("tooltip");
+
+  enriched.forEach((entry, idx) => {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.dataset.title = entry.title;
+
+    const rank = document.createElement("div");
+    rank.className = "rank" + (idx < 3 ? " top3" : "");
+    const rankNum = document.createElement("div");
+    rankNum.textContent = idx < 3 ? MEDALS[idx] : String(idx + 1);
+    rank.appendChild(rankNum);
+
+    const prevRankInfo = prevSnapshot[entry.title];
+    if (prevRankInfo && entry.result && entry.result.ok) {
+      const newRank = idx + 1;
+      const rankDiff = prevRankInfo.rank - newRank; // positive = improved, negative = dropped
+      const badge = document.createElement("div");
+      if (rankDiff > 0) {
+        badge.className = "rank-up-badge up";
+        badge.textContent = `▲${rankDiff}`;
+      } else if (rankDiff < 0) {
+        badge.className = "rank-up-badge down";
+        badge.textContent = `▼${-rankDiff}`;
+      } else {
+        badge.className = "rank-up-badge flat";
+        badge.textContent = "▶";
+      }
+      rank.appendChild(badge);
+    }
+
+    const main = document.createElement("div");
+    main.className = "row-main";
+
+    const top = document.createElement("div");
+    top.className = "row-top";
+
+    const link = document.createElement("a");
+    link.className = "title-link";
+    link.href = "works/" + safeFileName(entry.title) + ".html";
+    link.textContent = entry.title;
+
+    const value = document.createElement("div");
+    let deltaBadge = null;
+    if (!entry.result) {
+      value.className = "value pending";
+      value.textContent = "Loading...";
+    } else if (!entry.result.ok) {
+      value.className = "value failed";
+      value.textContent = "Failed";
+    } else if (currentPeriod === "surge") {
+      const { recentWeek, prevWeek, delta, pct } = entry.result.value;
+      value.className = "value";
+      value.textContent = formatViews(recentWeek) + " views (last 7 days)";
+      deltaBadge = document.createElement("span");
+      if (prevWeek === 0 && recentWeek > 0) {
+        deltaBadge.className = "delta-badge delta-new";
+        deltaBadge.textContent = "NEW";
+      } else if (delta === 0) {
+        deltaBadge.className = "delta-badge";
+        deltaBadge.textContent = "±0";
+      } else {
+        const up = delta > 0;
+        deltaBadge.className = "delta-badge " + (up ? "delta-up" : "delta-down");
+        const sign = up ? "+" : "";
+        const pctText = pct === null ? "" : ` (${sign}${pct.toFixed(0)}%)`;
+        deltaBadge.textContent = `${up ? "▲" : "▼"}${sign}${formatViews(delta)}${pctText}`;
+      }
+    } else {
+      value.className = "value";
+      value.textContent = formatViews(entry.result.value) + " views";
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "row-meta";
+    const trendBtn = document.createElement("button");
+    trendBtn.type = "button";
+    trendBtn.className = "trend-toggle-btn";
+    trendBtn.textContent = "Trend";
+    meta.appendChild(value);
+    if (deltaBadge) meta.appendChild(deltaBadge);
+    meta.appendChild(trendBtn);
+
+    top.appendChild(link);
+    top.appendChild(meta);
+
+    const track = document.createElement("div");
+    track.className = "bar-track";
+    const fill = document.createElement("div");
+    fill.className = "bar-fill";
+    const barPct = entry.result && entry.result.ok ? (Math.max(0, metricOf(entry.result)) / maxViews) * 100 : 0;
+    fill.style.width = barPct + "%";
+    track.appendChild(fill);
+
+    track.addEventListener("pointermove", (ev) => {
+      if (!entry.result || !entry.result.ok) return;
+      const shown =
+        currentPeriod === "surge" ? entry.result.value.delta : entry.result.value;
+      const sign = currentPeriod === "surge" && shown > 0 ? "+" : "";
+      tooltip.innerHTML = `<strong>${sign}${formatViews(shown)}</strong> views`;
+      tooltip.style.left = ev.clientX + "px";
+      tooltip.style.top = ev.clientY - 10 + "px";
+      tooltip.classList.add("visible");
+    });
+    track.addEventListener("pointerleave", () => {
+      tooltip.classList.remove("visible");
+    });
+
+    main.appendChild(top);
+    main.appendChild(track);
+
+    const detailPanel = document.createElement("div");
+    detailPanel.className = "detail-panel";
+    detailPanel.hidden = true;
+
+    trendBtn.addEventListener("click", () => {
+      detailPanel.hidden = !detailPanel.hidden;
+      trendBtn.classList.toggle("active", !detailPanel.hidden);
+      if (!detailPanel.hidden) {
+        openTrendTitles.add(entry.title);
+        renderDetailPanel(detailPanel, entry.title);
+      } else {
+        openTrendTitles.delete(entry.title);
+      }
+    });
+
+    if (openTrendTitles.has(entry.title)) {
+      detailPanel.hidden = false;
+      trendBtn.classList.add("active");
+      renderDetailPanel(detailPanel, entry.title);
+    }
+
+    row.appendChild(rank);
+    row.appendChild(main);
+    row.appendChild(detailPanel);
+    list.appendChild(row);
+  });
+}
+
+async function fetchSeries(title, granularity, start, end) {
+  const article = articleToApiPath(title);
+  const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/${article}/${granularity}/${start}/${end}`;
+  const res = await fetch(url);
+  if (res.status === 404) return [];
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  return (data.items || []).map((it) => ({ timestamp: it.timestamp, views: it.views || 0 }));
+}
+
+function dateToYmd(d) {
+  return fmtDate(d);
+}
+
+function sumRangeFromMap(map, fromDate, days) {
+  let total = 0;
+  for (let i = 0; i < days; i++) {
+    const d = new Date(fromDate);
+    d.setDate(d.getDate() + i);
+    total += map.get(dateToYmd(d)) || 0;
+  }
+  return total;
+}
+
+// Computes the metric for periodKey from map, anchored on refDate (a Date object).
+// Returns a number for every period except "surge", which returns {recentWeek,prevWeek,delta,pct}.
+function computeMetricFromMap(map, periodKey, refDate) {
+  if (periodKey === "all") {
+    const refYmd = dateToYmd(refDate);
+    let total = 0;
+    for (const [key, v] of map.entries()) {
+      if (key <= refYmd) total += v;
+    }
+    return total;
+  }
+  if (periodKey === "surge") {
+    const recentStart = new Date(refDate);
+    recentStart.setDate(recentStart.getDate() - 6);
+    const prevEnd = new Date(refDate);
+    prevEnd.setDate(prevEnd.getDate() - 7);
+    const prevStart = new Date(prevEnd);
+    prevStart.setDate(prevStart.getDate() - 6);
+    const recentWeek = sumRangeFromMap(map, recentStart, 7);
+    const prevWeek = sumRangeFromMap(map, prevStart, 7);
+    const delta = recentWeek - prevWeek;
+    const pct = prevWeek > 0 ? (delta / prevWeek) * 100 : recentWeek > 0 ? null : 0;
+    return { recentWeek, prevWeek, delta, pct };
+  }
+  if (periodKey === "m1") {
+    const start = new Date(refDate.getFullYear(), refDate.getMonth(), 1);
+    return sumRangeFromMap(map, start, daysBetweenInclusive(start, refDate));
+  }
+  if (periodKey === "y1") {
+    const start = new Date(refDate.getFullYear(), 0, 1);
+    return sumRangeFromMap(map, start, daysBetweenInclusive(start, refDate));
+  }
+  if (periodKey === "w1") {
+    const start = startOfWeekMonday(refDate);
+    return sumRangeFromMap(map, start, daysBetweenInclusive(start, refDate));
+  }
+  const days = PERIOD_DAYS[periodKey];
+  const start = new Date(refDate);
+  start.setDate(start.getDate() - (days - 1));
+  return sumRangeFromMap(map, start, days);
+}
+
+function startOfWeekMonday(refDate) {
+  const day = refDate.getDay(); // 0=Sun,1=Mon,...,6=Sat
+  const diffFromMonday = day === 0 ? 6 : day - 1;
+  const start = new Date(refDate.getFullYear(), refDate.getMonth(), refDate.getDate());
+  start.setDate(start.getDate() - diffFromMonday);
+  return start;
+}
+
+function daysBetweenInclusive(start, end) {
+  const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  return Math.round((e - s) / 86400000) + 1;
+}
+
+// Persistent in-browser cache of daily pageview data (IndexedDB).
+// Once a date range has been fetched it stays on disk; later loads only fetch the
+// gap between the last cached day and the newly requested reference date.
+const IDB_NAME = "animePageviewsCacheDB_en";
+const IDB_STORE = "dailyViews";
+let idbPromise = null;
+
+function openIdb() {
+  if (idbPromise) return idbPromise;
+  idbPromise = new Promise((resolve, reject) => {
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(IDB_STORE)) {
+        db.createObjectStore(IDB_STORE, { keyPath: "title" });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+  return idbPromise;
+}
+
+async function idbGet(title) {
+  try {
+    const db = await openIdb();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_STORE, "readonly");
+      const req = tx.objectStore(IDB_STORE).get(title);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function idbPut(record) {
+  try {
+    const db = await openIdb();
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_STORE, "readwrite");
+      tx.objectStore(IDB_STORE).put(record);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch {}
+}
+
+function addDaysToYmd(ymd, days) {
+  const y = Number(ymd.slice(0, 4));
+  const m = Number(ymd.slice(4, 6));
+  const d = Number(ymd.slice(6, 8));
+  const date = new Date(y, m - 1, d);
+  date.setDate(date.getDate() + days);
+  return fmtDate(date);
+}
+
+async function getOrFetchDailyMap(title, refDateStr) {
+  const cached = await idbGet(title);
+  const dataObj = cached ? cached.data : {};
+  let cachedMaxDate = cached ? cached.maxDate : null;
+
+  if (!cachedMaxDate || cachedMaxDate < refDateStr) {
+    const fetchStart = cachedMaxDate ? addDaysToYmd(cachedMaxDate, 1) : API_START;
+    if (fetchStart <= refDateStr) {
+      const items = await fetchSeries(title, "daily", fetchStart, refDateStr);
+      for (const it of items) {
+        dataObj[it.timestamp.slice(0, 8)] = it.views;
+      }
+      const keys = Object.keys(dataObj);
+      const newMaxDate = keys.length > 0 ? keys.reduce((a, b) => (a > b ? a : b)) : cachedMaxDate;
+      if (newMaxDate) {
+        await idbPut({ title, maxDate: newMaxDate, data: dataObj });
+        cachedMaxDate = newMaxDate;
+      }
+    }
+  }
+  return new Map(Object.entries(dataObj));
+}
+
+async function ensureHistoricalMaps(refDateStr, onProgress) {
+  if (historicalMapsDateStr === refDateStr) return; // already in memory for this session
+  const results = await runPool(
+    ANIME_LIST,
+    (title) => getOrFetchDailyMap(title, refDateStr),
+    CONCURRENCY,
+    onProgress
+  );
+  ANIME_LIST.forEach((title, i) => {
+    historicalMaps[title] = results[i].ok ? results[i].value : new Map();
+  });
+  historicalMapsDateStr = refDateStr;
+}
+
+function parseTimestamp(ts) {
+  const y = Number(ts.slice(0, 4));
+  const m = Number(ts.slice(4, 6));
+  const d = Number(ts.slice(6, 8));
+  return new Date(y, m - 1, d);
+}
+
+function monthLabel(date) {
+  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, "0")}`;
+}
+
+function dayLabel(date) {
+  return `${date.getMonth() + 1}/${date.getDate()}`;
+}
+
+function niceCeil(v) {
+  if (v <= 0) return 1;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(v)));
+  const steps = [1, 2, 5, 10];
+  for (const s of steps) {
+    if (v <= s * magnitude) return s * magnitude;
+  }
+  return 10 * magnitude;
+}
+
+function buildDailySeriesFromMap(dayMap, start, end) {
+  const series = [];
+  const cur = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  const last = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+  while (cur <= last) {
+    series.push({ date: new Date(cur), value: dayMap.get(dateToYmd(cur)) || 0 });
+    cur.setDate(cur.getDate() + 1);
+  }
+  return series;
+}
+
+function buildMonthlySeriesFromMap(dayMap, refDate) {
+  const refYmd = dateToYmd(refDate);
+  const byMonth = new Map();
+  for (const [key, v] of dayMap.entries()) {
+    if (key > refYmd) continue;
+    const monthKey = key.slice(0, 6);
+    byMonth.set(monthKey, (byMonth.get(monthKey) || 0) + v);
+  }
+  const keys = Array.from(byMonth.keys()).sort();
+  return keys.map((key) => {
+    const y = Number(key.slice(0, 4));
+    const m = Number(key.slice(4, 6));
+    return { date: new Date(y, m - 1, 1), value: byMonth.get(key) };
+  });
+}
+
+// The trend chart always mirrors the currently selected period and reference date.
+function buildTrendSeriesForCurrentPeriod(title) {
+  const refDate = historicalDate || todayMinusLag();
+  const dayMap = historicalMaps[title] || new Map();
+
+  if (currentPeriod === "all") {
+    return { series: buildMonthlySeriesFromMap(dayMap, refDate), mode: "cumulative" };
+  }
+  if (currentPeriod === "y1") {
+    const start = new Date(refDate.getFullYear(), 0, 1);
+    return { series: buildDailySeriesFromMap(dayMap, start, refDate), mode: "daily" };
+  }
+  if (currentPeriod === "m1") {
+    const start = new Date(refDate.getFullYear(), refDate.getMonth(), 1);
+    return { series: buildDailySeriesFromMap(dayMap, start, refDate), mode: "daily" };
+  }
+  if (currentPeriod === "w1") {
+    const start = startOfWeekMonday(refDate);
+    return { series: buildDailySeriesFromMap(dayMap, start, refDate), mode: "daily" };
+  }
+  // d1 / surge: show the trailing 14 days for context
+  const start = new Date(refDate);
+  start.setDate(start.getDate() - 13);
+  return { series: buildDailySeriesFromMap(dayMap, start, refDate), mode: "daily" };
+}
+
+function renderDetailPanel(panel, title) {
+  panel.innerHTML = "";
+  const { series, mode } = buildTrendSeriesForCurrentPeriod(title);
+  const chartWrap = document.createElement("div");
+  chartWrap.className = "chart-wrap";
+  chartWrap.appendChild(buildLineChart(series, mode));
+  panel.appendChild(chartWrap);
+}
+
+function buildLineChart(series, mode) {
+  const W = 600, H = 170, padL = 46, padR = 12, padT = 12, padB = 26;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  const n = series.length;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("preserveAspectRatio", "none");
+  svg.setAttribute("width", "100%");
+  svg.setAttribute("height", String(H));
+  svg.classList.add("trend-svg");
+
+  if (n === 0) {
+    const empty = document.createElementNS(svgNS, "text");
+    empty.setAttribute("x", String(W / 2));
+    empty.setAttribute("y", String(H / 2));
+    empty.setAttribute("text-anchor", "middle");
+    empty.setAttribute("class", "axis-label");
+    empty.textContent = "No data";
+    svg.appendChild(empty);
+    return svg;
+  }
+
+  const values = series.map((p) => p.value);
+  const maxV = niceCeil(Math.max(1, ...values));
+  const xAt = (i) => padL + (n <= 1 ? 0 : (i / (n - 1)) * plotW);
+  const yAt = (v) => padT + plotH - (v / maxV) * plotH;
+
+  [0, 0.5, 1].forEach((frac) => {
+    const y = padT + plotH * (1 - frac);
+    const line = document.createElementNS(svgNS, "line");
+    line.setAttribute("x1", String(padL));
+    line.setAttribute("x2", String(W - padR));
+    line.setAttribute("y1", String(y));
+    line.setAttribute("y2", String(y));
+    line.setAttribute("class", "grid-line");
+    svg.appendChild(line);
+
+    const label = document.createElementNS(svgNS, "text");
+    label.setAttribute("x", String(padL - 6));
+    label.setAttribute("y", String(y + 3));
+    label.setAttribute("text-anchor", "end");
+    label.setAttribute("class", "axis-label");
+    label.textContent = Math.round(maxV * frac).toLocaleString("en-US");
+    svg.appendChild(label);
+  });
+
+  let d = `M ${xAt(0)} ${yAt(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${xAt(i)} ${yAt(values[i])}`;
+  const areaD = `${d} L ${xAt(n - 1)} ${padT + plotH} L ${xAt(0)} ${padT + plotH} Z`;
+
+  const areaPath = document.createElementNS(svgNS, "path");
+  areaPath.setAttribute("d", areaD);
+  areaPath.setAttribute("class", "trend-area");
+  svg.appendChild(areaPath);
+
+  const linePath = document.createElementNS(svgNS, "path");
+  linePath.setAttribute("d", d);
+  linePath.setAttribute("class", "trend-line");
+  svg.appendChild(linePath);
+
+  const endDot = document.createElementNS(svgNS, "circle");
+  endDot.setAttribute("cx", String(xAt(n - 1)));
+  endDot.setAttribute("cy", String(yAt(values[n - 1])));
+  endDot.setAttribute("r", "4");
+  endDot.setAttribute("class", "trend-dot");
+  svg.appendChild(endDot);
+
+  const labelFn = mode === "cumulative" ? monthLabel : dayLabel;
+  const firstLabel = document.createElementNS(svgNS, "text");
+  firstLabel.setAttribute("x", String(padL));
+  firstLabel.setAttribute("y", String(H - 6));
+  firstLabel.setAttribute("text-anchor", "start");
+  firstLabel.setAttribute("class", "axis-label");
+  firstLabel.textContent = labelFn(series[0].date);
+  svg.appendChild(firstLabel);
+
+  const lastLabel = document.createElementNS(svgNS, "text");
+  lastLabel.setAttribute("x", String(W - padR));
+  lastLabel.setAttribute("y", String(H - 6));
+  lastLabel.setAttribute("text-anchor", "end");
+  lastLabel.setAttribute("class", "axis-label");
+  lastLabel.textContent = labelFn(series[n - 1].date);
+  svg.appendChild(lastLabel);
+
+  const crosshair = document.createElementNS(svgNS, "line");
+  crosshair.setAttribute("y1", String(padT));
+  crosshair.setAttribute("y2", String(padT + plotH));
+  crosshair.setAttribute("class", "crosshair");
+  crosshair.style.opacity = "0";
+  svg.appendChild(crosshair);
+
+  const hoverDot = document.createElementNS(svgNS, "circle");
+  hoverDot.setAttribute("r", "5");
+  hoverDot.setAttribute("class", "trend-dot");
+  hoverDot.style.opacity = "0";
+  svg.appendChild(hoverDot);
+
+  const overlay = document.createElementNS(svgNS, "rect");
+  overlay.setAttribute("x", String(padL));
+  overlay.setAttribute("y", String(padT));
+  overlay.setAttribute("width", String(plotW));
+  overlay.setAttribute("height", String(plotH));
+  overlay.setAttribute("fill", "transparent");
+  overlay.style.cursor = "crosshair";
+  svg.appendChild(overlay);
+
+  const tooltip = document.getElementById("tooltip");
+  overlay.addEventListener("pointermove", (ev) => {
+    const rect = svg.getBoundingClientRect();
+    const relX = (ev.clientX - rect.left) * (W / rect.width);
+    let idx = Math.round(((relX - padL) / plotW) * (n - 1));
+    idx = Math.max(0, Math.min(n - 1, idx));
+    const px = xAt(idx), py = yAt(values[idx]);
+    crosshair.setAttribute("x1", String(px));
+    crosshair.setAttribute("x2", String(px));
+    crosshair.style.opacity = "1";
+    hoverDot.setAttribute("cx", String(px));
+    hoverDot.setAttribute("cy", String(py));
+    hoverDot.style.opacity = "1";
+    tooltip.innerHTML = `${labelFn(series[idx].date)} <strong>${values[idx].toLocaleString("en-US")}</strong> views`;
+    tooltip.style.left = ev.clientX + "px";
+    tooltip.style.top = ev.clientY - 10 + "px";
+    tooltip.classList.add("visible");
+  });
+  overlay.addEventListener("pointerleave", () => {
+    crosshair.style.opacity = "0";
+    hoverDot.style.opacity = "0";
+    tooltip.classList.remove("visible");
+  });
+
+  return svg;
+}
+
+function applyFilter() {
+  const q = document.getElementById("filterInput").value.trim().toLowerCase();
+  document.querySelectorAll(".row").forEach((row) => {
+    const title = row.dataset.title.toLowerCase();
+    row.hidden = q.length > 0 && !title.includes(q);
+  });
+}
+
+function getPeriodLabel(periodKey, refDate) {
+  if (periodKey === "m1") return historicalDate ? `${MONTH_NAMES_EN[refDate.getMonth()]} ${refDate.getFullYear()}` : "This month";
+  if (periodKey === "y1") return historicalDate ? `${refDate.getFullYear()}` : "This year";
+  if (periodKey === "w1") {
+    if (!historicalDate) return "This week";
+    const start = startOfWeekMonday(refDate);
+    return `${start.getMonth() + 1}/${start.getDate()}–${refDate.getMonth() + 1}/${refDate.getDate()}`;
+  }
+  if (periodKey === "d1") return "That day";
+  return PERIODS.find((p) => p.key === periodKey).label;
+}
+
+function renderPeriodRow() {
+  const row = document.getElementById("periodRow");
+  row.innerHTML = "";
+  const refDate = historicalDate || todayMinusLag();
+  PERIODS.forEach((p) => {
+    const btn = document.createElement("button");
+    btn.className = "period-btn" + (p.key === currentPeriod ? " active" : "");
+    btn.textContent = getPeriodLabel(p.key, refDate);
+    btn.addEventListener("click", () => {
+      if (p.key === currentPeriod) return;
+      currentPeriod = p.key;
+      renderPeriodRow();
+      updateSubtitle();
+      loadRanking(false);
+    });
+    row.appendChild(btn);
+  });
+}
+
+function updateSubtitle() {
+  const refDate = historicalDate || todayMinusLag();
+  const label = getPeriodLabel(currentPeriod, refDate);
+  const detail =
+    currentPeriod === "all"
+      ? "all-time (July 2015 - present)"
+      : currentPeriod === "surge"
+      ? "trending (growth over the last 7 days vs. the prior 7 days)"
+      : currentPeriod === "m1"
+      ? `${label} total (from the 1st to the reference date)`
+      : currentPeriod === "y1"
+      ? `${label} total (from Jan 1 to the reference date)`
+      : currentPeriod === "w1"
+      ? `${label} total (from Monday to the reference date)`
+      : `${label} total`;
+  const historicalNote = historicalDate ? `(as of ${formatDateEn(historicalDate)})` : "";
+  document.getElementById("subtitle").textContent =
+    `English Wikipedia "pageviews" ${detail} / human traffic only ${historicalNote}`;
+}
+
+async function loadRanking(forceRefresh) {
+  const statusEl = document.getElementById("status");
+  const refreshBtn = document.getElementById("refreshBtn");
+  const periodKey = currentPeriod;
+
+  const refDate = historicalDate || todayMinusLag();
+  const refDateStr = dateToYmd(refDate);
+
+  if (forceRefresh) historicalMapsDateStr = null; // force a freshness re-check
+
+  refreshBtn.disabled = true;
+  statusEl.innerHTML = `Loading... 0 / ${ANIME_LIST.length}<div class="bar-track"><div class="bar-fill" id="progressFill" style="width:0%"></div></div>`;
+  buildRows([]);
+
+  await ensureHistoricalMaps(refDateStr, (done, total) => {
+    statusEl.querySelector("div.bar-track div.bar-fill").style.width = (done / total) * 100 + "%";
+    statusEl.firstChild.textContent = `Loading... ${done} / ${total}`;
+  });
+
+  if (periodKey !== currentPeriod) return; // discard stale results if period changed mid-fetch
+
+  const results = ANIME_LIST.map((title) => ({
+    ok: true,
+    value: computeMetricFromMap(historicalMaps[title], periodKey, refDate),
+  }));
+
+  const prevRefDate = new Date(refDate);
+  prevRefDate.setDate(prevRefDate.getDate() - 1);
+  const prevResults = ANIME_LIST.map((title) => ({
+    ok: true,
+    value: computeMetricFromMap(historicalMaps[title], periodKey, prevRefDate),
+  }));
+  const prevSnapshot = computeRankSnapshot(prevResults, periodKey);
+
+  statusEl.textContent = historicalDate
+    ? `Ranking as of ${formatDateEn(refDate)} (vs. previous day)`
+    : `Updated (${new Date().toLocaleString("en-US")}) / vs. yesterday`;
+  buildRows(results, prevSnapshot);
+  applyFilter();
+  refreshBtn.disabled = false;
+}
+
+document.getElementById("refreshBtn").addEventListener("click", () => loadRanking(true));
+document.getElementById("filterInput").addEventListener("input", applyFilter);
+
+const dateHint = document.getElementById("dateHint");
+const yearSegment = document.getElementById("yearSegment");
+const monthSegment = document.getElementById("monthSegment");
+const daySegment = document.getElementById("daySegment");
+
+function daysInMonth(year, monthIndex0) {
+  return new Date(year, monthIndex0 + 1, 0).getDate();
+}
+
+function renderDateSegments() {
+  const refDate = historicalDate || todayMinusLag();
+  const caret = `<span class="seg-caret">▾</span>`;
+  yearSegment.innerHTML = `${refDate.getFullYear()}${caret}`;
+  monthSegment.innerHTML = `${MONTH_NAMES_EN[refDate.getMonth()]}${caret}`;
+  daySegment.innerHTML = `${refDate.getDate()}${caret}`;
+}
+
+function closeAllDropdowns() {
+  document.querySelectorAll(".segment-dropdown").forEach((el) => el.remove());
+}
+
+function openSegmentDropdown(segmentEl, options, currentValue, labelFn, onSelect) {
+  const alreadyOpen = segmentEl.querySelector(".segment-dropdown");
+  closeAllDropdowns();
+  if (alreadyOpen) return; // clicking the same segment again just closes it
+  const dropdown = document.createElement("div");
+  dropdown.className = "segment-dropdown";
+  options.forEach((opt) => {
+    const item = document.createElement("div");
+    item.className = "segment-option" + (opt === currentValue ? " selected" : "");
+    item.textContent = labelFn ? labelFn(opt) : String(opt);
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      onSelect(opt);
+      closeAllDropdowns();
+    });
+    dropdown.appendChild(item);
+  });
+  segmentEl.appendChild(dropdown);
+}
+
+function applyHistoricalDate(newDate) {
+  const end = todayMinusLag();
+  historicalDate = newDate > end ? end : newDate;
+  dateHint.textContent = "Showing a past date";
+  renderDateSegments();
+  renderPeriodRow();
+  updateSubtitle();
+  loadRanking(false);
+}
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".date-segment")) closeAllDropdowns();
+  if (!e.target.closest(".menu-wrap")) {
+    document.getElementById("menuDropdown").classList.remove("open");
+  }
+});
+
+document.getElementById("menuBtn").addEventListener("click", (e) => {
+  e.stopPropagation();
+  document.getElementById("menuDropdown").classList.toggle("open");
+});
+
+yearSegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const maxYear = todayMinusLag().getFullYear();
+  const years = [];
+  for (let y = maxYear; y >= 2015; y--) years.push(y);
+  openSegmentDropdown(yearSegment, years, refDate.getFullYear(), null, (y) => {
+    const dim = daysInMonth(y, refDate.getMonth());
+    applyHistoricalDate(new Date(y, refDate.getMonth(), Math.min(refDate.getDate(), dim)));
+  });
+});
+
+monthSegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  openSegmentDropdown(monthSegment, months, refDate.getMonth() + 1, (m) => MONTH_NAMES_EN[m - 1], (m) => {
+    const dim = daysInMonth(refDate.getFullYear(), m - 1);
+    applyHistoricalDate(new Date(refDate.getFullYear(), m - 1, Math.min(refDate.getDate(), dim)));
+  });
+});
+
+daySegment.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const refDate = historicalDate || todayMinusLag();
+  const dim = daysInMonth(refDate.getFullYear(), refDate.getMonth());
+  const days = Array.from({ length: dim }, (_, i) => i + 1);
+  openSegmentDropdown(daySegment, days, refDate.getDate(), null, (d) => {
+    applyHistoricalDate(new Date(refDate.getFullYear(), refDate.getMonth(), d));
+  });
+});
+
+document.getElementById("liveBtn").addEventListener("click", () => {
+  if (!historicalDate) return;
+  historicalDate = null;
+  dateHint.textContent = "";
+  renderDateSegments();
+  renderPeriodRow();
+  updateSubtitle();
+  loadRanking(false);
+});
+
+renderDateSegments();
+renderPeriodRow();
+updateSubtitle();
+loadRanking(false);
+</script>
+</body>
+</html>

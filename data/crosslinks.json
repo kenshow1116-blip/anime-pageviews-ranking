@@ -1,0 +1,7026 @@
+{
+  "worksToCast": {
+    "BLEACH": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "破面"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "滅却師"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "コン (BLEACH)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "虚 (BLEACH)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "護廷十三隊"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "破面"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "滅却師"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "コン (BLEACH)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "虚 (BLEACH)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "護廷十三隊"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "破面"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "滅却師"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "コン (BLEACH)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "虚 (BLEACH)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "護廷十三隊"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "破面"
+      }
+    ],
+    "D.C. 〜ダ・カーポ〜 (アニメ)": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "大城雪乃",
+        "tracked": false,
+        "character": "白河ことり"
+      },
+      {
+        "name": "大城雪乃",
+        "tracked": false,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "大坪秀敏",
+        "tracked": false,
+        "character": "白河ことり"
+      },
+      {
+        "name": "大坪秀敏",
+        "tracked": false,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "大坪新一郎",
+        "tracked": false,
+        "character": "白河ことり"
+      },
+      {
+        "name": "大坪新一郎",
+        "tracked": false,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "大佛俊泰",
+        "tracked": false,
+        "character": "白河ことり"
+      },
+      {
+        "name": "大佛俊泰",
+        "tracked": false,
+        "character": "芳乃さくら"
+      },
+      {
+        "name": "大久祐哉",
+        "tracked": false,
+        "character": "白河ことり"
+      },
+      {
+        "name": "大久祐哉",
+        "tracked": false,
+        "character": "芳乃さくら"
+      }
+    ],
+    "DEATH NOTE (アニメ)": [
+      {
+        "name": "山口勝平",
+        "tracked": true,
+        "character": "L (DEATH NOTE)"
+      },
+      {
+        "name": "松風雅也",
+        "tracked": true,
+        "character": "魅上照"
+      }
+    ],
+    "DIGIMON BEATBREAK": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "天馬星座の星矢",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "垂見宿禰",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "久米川駅",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "Benza English",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "藤原範兼",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "芦ヶ久保駅",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "秋田白神県立自然公園",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "源兼俊母",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "東祖谷栗枝渡",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "剣持光",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "元赤目町",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "二条道良",
+        "tracked": false,
+        "character": "モノドラモン"
+      }
+    ],
+    "F-ZERO ファルコン伝説": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "小野宮流",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "儇子内親王",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "YOSUI TRIBUTE",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "Category:世羅郡",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "Blue Moon Blue",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "鷹司基忠",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "高階栄子",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "高階師尚",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "name": "高向公輔",
+        "tracked": false,
+        "character": "キャプテン・ファルコン"
+      }
+    ],
+    "PSYCHO-PASS サイコパス": [
+      {
+        "name": "花澤香菜",
+        "tracked": true,
+        "character": "常守朱"
+      },
+      {
+        "name": "関智一",
+        "tracked": true,
+        "character": "狡噛慎也"
+      }
+    ],
+    "SDガンダムフォース": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "藤原顕長",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "藤原泰憲",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "藤原常行",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "紀本道",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "安房国の式内社一覧",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "天日神命",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "刑部省",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "I Love a Piano",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "name": "Category:有楽町",
+        "tracked": false,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      }
+    ],
+    "THE IDOLM@STER (アニメ)": [
+      {
+        "name": "中村繪里子",
+        "tracked": true,
+        "character": "天海春香"
+      },
+      {
+        "name": "滝田樹里",
+        "tracked": true,
+        "character": "音無小鳥"
+      },
+      {
+        "name": "仁後真耶子",
+        "tracked": true,
+        "character": "高槻やよい"
+      },
+      {
+        "name": "今井麻美",
+        "tracked": true,
+        "character": "如月千早"
+      }
+    ],
+    "∀ガンダム": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "∀ガンダム (架空の兵器)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "カイラスギリー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ギャロップ (ガンダムシリーズ)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "グエン・サード・ラインフォード"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "コレン・ナンダー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "スモー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ターンX"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ポゥ・エイジ"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "∀ガンダム (架空の兵器)"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "カイラスギリー"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "ギャロップ (ガンダムシリーズ)"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "グエン・サード・ラインフォード"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "コレン・ナンダー"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "スモー"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "ターンX"
+      },
+      {
+        "name": "小野篁",
+        "tracked": false,
+        "character": "ポゥ・エイジ"
+      },
+      {
+        "name": "国鉄コキ9300形貨車",
+        "tracked": false,
+        "character": "∀ガンダム (架空の兵器)"
+      },
+      {
+        "name": "国鉄コキ9300形貨車",
+        "tracked": false,
+        "character": "カイラスギリー"
+      },
+      {
+        "name": "国鉄コキ9300形貨車",
+        "tracked": false,
+        "character": "ギャロップ (ガンダムシリーズ)"
+      },
+      {
+        "name": "国鉄コキ9300形貨車",
+        "tracked": false,
+        "character": "グエン・サード・ラインフォード"
+      }
+    ],
+    "【推しの子】 (アニメ)": [
+      {
+        "name": "潘めぐみ",
+        "tracked": true,
+        "character": "有馬かな"
+      },
+      {
+        "name": "石見舞菜香",
+        "tracked": true,
+        "character": "黒川あかね"
+      },
+      {
+        "name": "高橋李依",
+        "tracked": true,
+        "character": "星野アイ"
+      }
+    ],
+    "おじゃる丸": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "パーソナライゼーション",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "バド・コリンズ",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "バド・グリーンスパン",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "バッキーペーパー",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "バスティーリア",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "ハークスベルヘン",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "ナポリ地下鉄7号線",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "トーンク",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "ディーノ・208/308GT4",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "name": "タンディル",
+        "tracked": false,
+        "character": "坂ノ上おじゃる丸"
+      }
+    ],
+    "おそ松さん": [
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "name": "源義忠",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "源時中",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "幣原雅子",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "友光恒",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "ミニコン (ミュージシャン)",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "魏相",
+        "tracked": false,
+        "character": "チビ太"
+      },
+      {
+        "name": "長屋王の変",
+        "tracked": false,
+        "character": "チビ太"
+      }
+    ],
+    "おはようハクション大魔王": [
+      {
+        "name": "谷井あすか",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "天城サリー",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "金田朋子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "貴家堂子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜": [
+      {
+        "name": "小原好美",
+        "tracked": true,
+        "character": "藤原千花"
+      },
+      {
+        "name": "古賀葵",
+        "tracked": true,
+        "character": "四宮かぐや"
+      }
+    ],
+    "この素晴らしい世界に祝福を!": [
+      {
+        "name": "福島潤",
+        "tracked": true,
+        "character": "佐藤和真"
+      },
+      {
+        "name": "高橋李依",
+        "tracked": true,
+        "character": "めぐみん"
+      },
+      {
+        "name": "エリカ・メンデス",
+        "tracked": false,
+        "character": "めぐみん"
+      }
+    ],
+    "こんにちは アン 〜Before Green Gables": [
+      {
+        "name": "井上ほの花",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "山田栄子",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "日高里菜",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "しましまとらのしまじろう": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "みみりん"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "みみりん"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "みみりん"
+      },
+      {
+        "name": "藤原文山",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "藤原文山",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "藤原宮房",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "藤原宮房",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "秋田県知事一覧",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "秋田県知事一覧",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "石上宅嗣",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "石上宅嗣",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "王惇",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "王惇",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "海軍省",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "海軍省",
+        "tracked": false,
+        "character": "みみりん"
+      },
+      {
+        "name": "村山貯水池駅",
+        "tracked": false,
+        "character": "縞野しまじろう"
+      },
+      {
+        "name": "村山貯水池駅",
+        "tracked": false,
+        "character": "みみりん"
+      }
+    ],
+    "ひぐらしのなく頃に (アニメ)": [
+      {
+        "name": "田村ゆかり",
+        "tracked": true,
+        "character": "古手梨花"
+      },
+      {
+        "name": "イ・ヨンシン",
+        "tracked": false,
+        "character": "古手梨花"
+      },
+      {
+        "name": "レベッカ・フォースダット",
+        "tracked": false,
+        "character": "古手梨花"
+      }
+    ],
+    "ふしぎの海のナディア": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "アトランティス"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "アトランティス"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "アトランティス"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "アトランティス"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "アトランティス"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "アトランティス"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "ネモ船長"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "ノーチラス号"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "アトランティス"
+      }
+    ],
+    "よばれてとびでて!アクビちゃん": [
+      {
+        "name": "谷井あすか",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "天城サリー",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "金田朋子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "貴家堂子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "らき☆すた (アニメ)": [
+      {
+        "name": "平野綾",
+        "tracked": true,
+        "character": "泉こなた"
+      },
+      {
+        "name": "チョン・ユミ (1984年生の女優)",
+        "tracked": false,
+        "character": "泉こなた"
+      },
+      {
+        "name": "ウェンディー・リー",
+        "tracked": false,
+        "character": "泉こなた"
+      }
+    ],
+    "わが青春のアルカディア 無限軌道SSX": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "三品建",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "name": "高鍾徳",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "藤原忠信 (三乃三位)",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "藤原俊成",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "藤原仲実",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "稲森安太己",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "源基平",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "平頼盛",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "大森ペット霊堂",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "大伴和武多麻呂",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "ハク加",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "トゥアト語",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "デレラジ",
+        "tracked": false,
+        "character": "イルミダス"
+      },
+      {
+        "name": "やんばる国立公園",
+        "tracked": false,
+        "character": "イルミダス"
+      }
+    ],
+    "わんだふるぷりきゅあ!": [
+      {
+        "name": "長縄まりあ",
+        "tracked": true,
+        "character": "犬飼こむぎ"
+      },
+      {
+        "name": "上田麗奈",
+        "tracked": true,
+        "character": "猫屋敷まゆ"
+      }
+    ],
+    "アクビガール": [
+      {
+        "name": "谷井あすか",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "天城サリー",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "金田朋子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "name": "貴家堂子",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "アン・シャーリー (アニメ)": [
+      {
+        "name": "井上ほの花",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "山田栄子",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "日高里菜",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "ウマ娘 プリティーダービー": [
+      {
+        "name": "上田瞳",
+        "tracked": true,
+        "character": "ゴールドシップ (ウマ娘)"
+      },
+      {
+        "name": "小倉唯",
+        "tracked": true,
+        "character": "マンハッタンカフェ (ウマ娘)"
+      }
+    ],
+    "カウボーイビバップ": [
+      {
+        "name": "山寺宏一",
+        "tracked": true,
+        "character": "スパイク・スピーゲル"
+      },
+      {
+        "name": "スティーヴン・ブルーム",
+        "tracked": false,
+        "character": "スパイク・スピーゲル"
+      }
+    ],
+    "キャプテン翼 (アニメ)": [
+      {
+        "name": "三ツ矢雄二",
+        "tracked": true,
+        "character": "新田瞬"
+      }
+    ],
+    "クレヨンしんちゃん (アニメ)": [
+      {
+        "name": "森川智之",
+        "tracked": true,
+        "character": "野原ひろし"
+      },
+      {
+        "name": "藤原啓治",
+        "tracked": true,
+        "character": "野原ひろし"
+      }
+    ],
+    "ゴジラ S.P ＜シンギュラポイント＞": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "Category:指定難病",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "1964年東京オリンピックの日本選手団",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "飯村樹輝弥",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "西武バス",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "藤原真友",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "粉室製作所",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "name": "毛受敏浩",
+        "tracked": false,
+        "character": "ラドン (架空の怪獣)"
+      }
+    ],
+    "シティーハンター (アニメ)": [
+      {
+        "name": "神谷明",
+        "tracked": true,
+        "character": "冴羽獠"
+      }
+    ],
+    "ジョジョの奇妙な冒険 (テレビアニメ)": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "強平",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "常陸国の式内社一覧",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "小沢重政",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "天野遠景",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "加美杏奈",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "YeYe",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "1チップMSX",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "鎌倉章名",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "西祖谷山村西岡",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "name": "藤原長良",
+        "tracked": false,
+        "character": "ジョジョ 〜その血の運命〜"
+      }
+    ],
+    "スクールランブル (アニメ)": [
+      {
+        "name": "南里侑香",
+        "tracked": true,
+        "character": "一条かれん"
+      },
+      {
+        "name": "生天目仁美",
+        "tracked": true,
+        "character": "周防美琴"
+      },
+      {
+        "name": "MAKO",
+        "tracked": true,
+        "character": "一条かれん"
+      }
+    ],
+    "スレイヤーズ (アニメ)": [
+      {
+        "name": "松本保典",
+        "tracked": true,
+        "character": "ガウリイ＝ガブリエフ"
+      }
+    ],
+    "ゾイドジェネシス": [
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "三品建",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "西野創人",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "藤原家隆 (従二位)",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "源重実",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "清原氏",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "池袋駅",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "東吾野駅",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      },
+      {
+        "name": "小田泰知",
+        "tracked": false,
+        "character": "ムラサメライガー"
+      }
+    ],
+    "チェンソーマン": [
+      {
+        "name": "ファイルーズあい",
+        "tracked": true,
+        "character": "パワー (チェンソーマン)"
+      },
+      {
+        "name": "楠木ともり",
+        "tracked": true,
+        "character": "マキマ"
+      },
+      {
+        "name": "上田麗奈",
+        "tracked": true,
+        "character": "レゼ"
+      }
+    ],
+    "デジモンテイマーズ": [
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ティラノモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "サイバードラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ゴツモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ヌメモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "バクモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "アンドロモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "エアドラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ゲコモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ジジモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ジュレイモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "チンロンモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "デュークモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "バイフーモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "メガドラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "メギドラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "メラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "モノドラモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ゲソモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "ディアボロモン"
+      },
+      {
+        "name": "Category:球技を題材としたアニメ作品",
+        "tracked": false,
+        "character": "インプモン"
+      }
+    ],
+    "トランスフォーマー 超神マスターフォース": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ジンライ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ジンライ"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ジンライ"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "ジンライ"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "ジンライ"
+      }
+    ],
+    "ドラえもん (1973年のテレビアニメ)": [
+      {
+        "name": "野村道子",
+        "tracked": true,
+        "character": "源静香"
+      },
+      {
+        "name": "かかずゆみ",
+        "tracked": true,
+        "character": "源静香"
+      },
+      {
+        "name": "恵比寿まさ子",
+        "tracked": true,
+        "character": "源静香"
+      }
+    ],
+    "ハイキュー!!": [
+      {
+        "name": "村瀬歩",
+        "tracked": true,
+        "character": "日向翔陽"
+      }
+    ],
+    "ハイスクール!奇面組": [
+      {
+        "name": "松岡禎丞",
+        "tracked": true,
+        "character": "出瀬潔"
+      },
+      {
+        "name": "龍田直樹",
+        "tracked": true,
+        "character": "大間仁"
+      },
+      {
+        "name": "小林千晃",
+        "tracked": true,
+        "character": "大間仁"
+      },
+      {
+        "name": "二又一成",
+        "tracked": true,
+        "character": "出瀬潔"
+      }
+    ],
+    "バーチャルさんはみている": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "電脳少女シロ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ミライアカリ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "月ノ美兎"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "富士葵"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "樋口楓"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ときのそら"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ヒメヒナ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "KMNZ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "もちひよこ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "おめがシスターズ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ピーナッツくん"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "猫宮ひなた"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "静凛"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "剣持刀也"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "電脳少女シロ"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "ミライアカリ"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "月ノ美兎"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "富士葵"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "樋口楓"
+      },
+      {
+        "name": "余巌",
+        "tracked": false,
+        "character": "ときのそら"
+      }
+    ],
+    "ポケットモンスター (2023年のアニメ)": [
+      {
+        "name": "喜多村英梨",
+        "tracked": true,
+        "character": "ネモ (ポケットモンスター)"
+      },
+      {
+        "name": "斎賀みつき",
+        "tracked": true,
+        "character": "チリ (ポケットモンスター)"
+      },
+      {
+        "name": "松井恵理子",
+        "tracked": true,
+        "character": "ネモ (ポケットモンスター)"
+      }
+    ],
+    "ポケットモンスター (アニメ)": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ロケット団 (ポケットモンスター)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "マサラタウン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "シロナ (ポケットモンスター)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "めざせポケモンマスター"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "フロンティアブレーン (アニメポケットモンスター)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "カロス地方"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ガオガエン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "メルタン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ロケット団 (ポケットモンスター)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "マサラタウン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "シロナ (ポケットモンスター)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "めざせポケモンマスター"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "フロンティアブレーン (アニメポケットモンスター)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "カロス地方"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ガオガエン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "メルタン"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "ロケット団 (ポケットモンスター)"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "マサラタウン"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "シロナ (ポケットモンスター)"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "めざせポケモンマスター"
+      }
+    ],
+    "マクロスΔ": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "VF-31 ジークフリード"
+      }
+    ],
+    "リコリス・リコイル": [
+      {
+        "name": "若山詩音",
+        "tracked": true,
+        "character": "井ノ上たきな"
+      },
+      {
+        "name": "安済知佳",
+        "tracked": true,
+        "character": "錦木千束"
+      }
+    ],
+    "伝説巨神イデオン": [
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "バッフ・クラン"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "重機動メカ"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "イデ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "バッフ・クラン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "重機動メカ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "イデ"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "バッフ・クラン"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "重機動メカ"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "イデ"
+      },
+      {
+        "name": "Category:喜多郡",
+        "tracked": false,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "name": "Category:喜多郡",
+        "tracked": false,
+        "character": "バッフ・クラン"
+      },
+      {
+        "name": "Category:喜多郡",
+        "tracked": false,
+        "character": "重機動メカ"
+      },
+      {
+        "name": "Category:喜多郡",
+        "tracked": false,
+        "character": "イデ"
+      },
+      {
+        "name": "藤原内麻呂",
+        "tracked": false,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "name": "藤原内麻呂",
+        "tracked": false,
+        "character": "バッフ・クラン"
+      },
+      {
+        "name": "藤原内麻呂",
+        "tracked": false,
+        "character": "重機動メカ"
+      },
+      {
+        "name": "藤原内麻呂",
+        "tracked": false,
+        "character": "イデ"
+      }
+    ],
+    "夜明け前より瑠璃色な": [
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "一条家経",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "かたおかしろう",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "Category:沖縄都市モノレール",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "源通資",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "山王金冠塚古墳",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "八木優樹",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "コシャマイン",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "グレゴリウス12世 (ローマ教皇)",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "Retty",
+        "tracked": false,
+        "character": "スフィア王国"
+      },
+      {
+        "name": "KO-ney",
+        "tracked": false,
+        "character": "スフィア王国"
+      }
+    ],
+    "天空のエスカフローネ": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "西野創人",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "藤原家隆 (従二位)",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "源重実",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "清原氏",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "池袋駅",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "東吾野駅",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "小田泰知",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "吉田東篁",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "name": "勝見嘉美",
+        "tracked": false,
+        "character": "クルゼーロ (飛行艇)"
+      }
+    ],
+    "太陽の使者 鉄人28号": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "三品建",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "橘美來",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "水野亜美 (声優)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "サン・プロスペロ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "サン・フェリーチェ・スル・パーナロ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "サン・チェザーリオ・スル・パーナロ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "ケネソー",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "クリストフ・ヴァイゲル",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "キブツ・ダリヤ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "ガボン",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "カルヴェンツァーノ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "カルチョ (イタリア)",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "カルチナーテ",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "太陽の勇者ファイバード": [
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "Category:指定難病",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "1964年東京オリンピックの日本選手団",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "飯村樹輝弥",
+        "tracked": false,
+        "character": "これはハトですか?"
+      },
+      {
+        "name": "西武バス",
+        "tracked": false,
+        "character": "これはハトですか?"
+      }
+    ],
+    "太陽の牙ダグラム": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "藤原文山",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "藤原宮房",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "秋田県知事一覧",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "石上宅嗣",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "王惇",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "海軍省",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "村山貯水池駅",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "平忠常",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "増穂残口",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      },
+      {
+        "name": "北嶺山",
+        "tracked": false,
+        "character": "コンバットアーマー"
+      }
+    ],
+    "学校の怪談 (テレビアニメ)": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "強平",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "常陸国の式内社一覧",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "小沢重政",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "天野遠景",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "加美杏奈",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "YeYe",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "1チップMSX",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "鎌倉章名",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "西祖谷山村西岡",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "藤原長良",
+        "tracked": false,
+        "character": "オバケ日記"
+      },
+      {
+        "name": "藤原兼子",
+        "tracked": false,
+        "character": "オバケ日記"
+      }
+    ],
+    "宇宙戦艦ヤマト2": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "タイムレーダー"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "テレサ (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ミル (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "メダルーザ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "加藤三郎 (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "タイムレーダー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "テレサ (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ミル (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "メダルーザ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "加藤三郎 (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "タイムレーダー"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "テレサ (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "ミル (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "メダルーザ"
+      },
+      {
+        "name": "二条師忠",
+        "tracked": false,
+        "character": "加藤三郎 (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二人の果て",
+        "tracked": false,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "二人の果て",
+        "tracked": false,
+        "character": "タイムレーダー"
+      }
+    ],
+    "宇宙戦艦ヤマトIII": [
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "デスラー戦闘空母"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ハイドロコスモジェン砲"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ハーキンス艦"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "バルコム艦"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "バース星"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ボラー連邦の戦闘艦"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ラジェンドラ号"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "二連三段空母"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "惑星破壊プロトンミサイル"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "次元潜航艇"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "空間磁力メッキ"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "重核子爆弾"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "高圧直撃砲"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "シャルバート"
+      },
+      {
+        "name": "Jihad",
+        "tracked": false,
+        "character": "ヤマト (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "Jihad",
+        "tracked": false,
+        "character": "デスラー戦闘空母"
+      },
+      {
+        "name": "Jihad",
+        "tracked": false,
+        "character": "ハイドロコスモジェン砲"
+      },
+      {
+        "name": "Jihad",
+        "tracked": false,
+        "character": "ハーキンス艦"
+      },
+      {
+        "name": "Jihad",
+        "tracked": false,
+        "character": "バルコム艦"
+      }
+    ],
+    "宇宙戦艦ヤマトシリーズ": [
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "波動エンジン"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "波動砲"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ゆきかぜ (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "アンドロメダ (宇宙戦艦ヤマト)"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ガルマン・ガミラス帝国"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ゲーニッツ"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "コスモタイガーII"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "コスモゼロ"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ゴーランド"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "サーベラー"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ザバイバル"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ショックカノン"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ズォーダー"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "タラン"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ダミーバルーン"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "デスラー機雷"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "デスラー砲"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "デスラー艦"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ドメラーズ2世"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ドメラーズ3世"
+      }
+    ],
+    "戦え!超ロボット生命体 トランスフォーマーV": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "デスザラス"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "デスザラス"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "デスザラス"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "デスザラス"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "デスザラス"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "デスザラス"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "スターセイバー (トランスフォーマー)"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "ブレストフォース"
+      },
+      {
+        "name": "Category:指定難病",
+        "tracked": false,
+        "character": "デスザラス"
+      },
+      {
+        "name": "Category:指定難病",
+        "tracked": false,
+        "character": "スターセイバー (トランスフォーマー)"
+      }
+    ],
+    "戦闘メカ ザブングル": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "アイアン・ギアー級"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ウォーカーマシン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ウォーカー・ギャリア"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ザブングル (架空の兵器)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "惑星ゾラ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "アイアン・ギアー級"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ウォーカーマシン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ウォーカー・ギャリア"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ザブングル (架空の兵器)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "惑星ゾラ"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "アイアン・ギアー級"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "ウォーカーマシン"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "ウォーカー・ギャリア"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "ザブングル (架空の兵器)"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "惑星ゾラ"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "アイアン・ギアー級"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "ウォーカーマシン"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "ウォーカー・ギャリア"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "ザブングル (架空の兵器)"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "惑星ゾラ"
+      }
+    ],
+    "新世紀GPXサイバーフォーミュラ": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "サン・プロスペロ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "サン・フェリーチェ・スル・パーナロ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "サン・チェザーリオ・スル・パーナロ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "ケネソー",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "クリストフ・ヴァイゲル",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "キブツ・ダリヤ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "ガボン",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "カルヴェンツァーノ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "カルチョ (イタリア)",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "カルチナーテ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      },
+      {
+        "name": "カルスコ・ダッダ",
+        "tracked": false,
+        "character": "ゼロの領域"
+      }
+    ],
+    "明日のナージャ": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "中西妙子",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "西野創人",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "藤原家隆 (従二位)",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "源重実",
+        "tracked": false,
+        "character": "ナージャ!!"
+      },
+      {
+        "name": "清原氏",
+        "tracked": false,
+        "character": "ナージャ!!"
+      }
+    ],
+    "東京卍リベンジャーズ": [
+      {
+        "name": "新祐樹",
+        "tracked": true,
+        "character": "花垣武道"
+      },
+      {
+        "name": "渡辺明乃",
+        "tracked": true,
+        "character": "花垣武道"
+      }
+    ],
+    "機動戦士ガンダム 水星の魔女": [
+      {
+        "name": "市ノ瀬加那",
+        "tracked": true,
+        "character": "スレッタ・マーキュリー"
+      }
+    ],
+    "機動戦士ガンダム00": [
+      {
+        "name": "宮野真守",
+        "tracked": true,
+        "character": "刹那・F・セイエイ"
+      }
+    ],
+    "機動戦艦ナデシコ": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "name": "Category:NTTドコモ",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "高鍾徳",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "藤原忠信 (三乃三位)",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "藤原俊成",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "藤原仲実",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "稲森安太己",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "源基平",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "平頼盛",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "大森ペット霊堂",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "大伴和武多麻呂",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "ハク加",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "トゥアト語",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "デレラジ",
+        "tracked": false,
+        "character": "エステバリス"
+      },
+      {
+        "name": "やんばる国立公園",
+        "tracked": false,
+        "character": "エステバリス"
+      }
+    ],
+    "機甲戦記ドラグナー": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "大阪府知事一覧",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "儇子内親王",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "YOSUI TRIBUTE",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "Category:世羅郡",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "Blue Moon Blue",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "鷹司基忠",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "高階栄子",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "高階師尚",
+        "tracked": false,
+        "character": "メタルアーマー"
+      },
+      {
+        "name": "高向公輔",
+        "tracked": false,
+        "character": "メタルアーマー"
+      }
+    ],
+    "機甲界ガリアン": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "三井美代子",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "ふぁみ魂家郎",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "2007年長崎市長選挙",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "鷹司兼平",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "西野創人",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "藤原家隆 (従二位)",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "源重実",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "清原氏",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "池袋駅",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "東吾野駅",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "name": "小田泰知",
+        "tracked": false,
+        "character": "機甲兵 (機甲界ガリアン)"
+      }
+    ],
+    "灼眼のシャナ (アニメ)": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "含アルミニウム泉",
+        "tracked": false,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "含アルミニウム泉",
+        "tracked": false,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "三浦義明",
+        "tracked": false,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "三浦義明",
+        "tracked": false,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "一条内実",
+        "tracked": false,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "一条内実",
+        "tracked": false,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "Memories (今井美樹の曲)",
+        "tracked": false,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "Memories (今井美樹の曲)",
+        "tracked": false,
+        "character": "紅世の徒"
+      },
+      {
+        "name": "Category:西春日井郡",
+        "tracked": false,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "name": "Category:西春日井郡",
+        "tracked": false,
+        "character": "紅世の徒"
+      }
+    ],
+    "無限のリヴァイアス": [
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "中山忠親",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "一条家経",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "かたおかしろう",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "Category:沖縄都市モノレール",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "源通資",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "山王金冠塚古墳",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "八木優樹",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "コシャマイン",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "グレゴリウス12世 (ローマ教皇)",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "Retty",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "KO-ney",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      },
+      {
+        "name": "Category:伊佐市",
+        "tracked": false,
+        "character": "ヴァイア艦"
+      }
+    ],
+    "聖戦士ダンバイン": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ダンバイン (架空の兵器)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ドラムロ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "レプラカーン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "オーラバトラー"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "オーラバルカン"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ボゾン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ダンバイン (架空の兵器)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ドラムロ"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "レプラカーン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "オーラバトラー"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "オーラバルカン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ボゾン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "ダンバイン (架空の兵器)"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "ドラムロ"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "レプラカーン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "オーラバトラー"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "オーラバルカン"
+      },
+      {
+        "name": "Category:出水郡",
+        "tracked": false,
+        "character": "ボゾン (聖戦士ダンバイン)"
+      },
+      {
+        "name": "香月美夜",
+        "tracked": false,
+        "character": "ダンバイン (架空の兵器)"
+      },
+      {
+        "name": "香月美夜",
+        "tracked": false,
+        "character": "ドラムロ"
+      }
+    ],
+    "花咲くいろは": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "中西妙子",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "佐久間紅美",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "志村由美",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "天馬星座の星矢",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "垂見宿禰",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "久米川駅",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "Benza English",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "藤原範兼",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "芦ヶ久保駅",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "秋田白神県立自然公園",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "源兼俊母",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "東祖谷栗枝渡",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "剣持光",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "name": "元赤目町",
+        "tracked": false,
+        "character": "湯涌ぼんぼり祭り"
+      }
+    ],
+    "葬送のフリーレン": [
+      {
+        "name": "小林千晃",
+        "tracked": true,
+        "character": "シュタルク (葬送のフリーレン)"
+      },
+      {
+        "name": "市ノ瀬加那",
+        "tracked": true,
+        "character": "フェルン"
+      },
+      {
+        "name": "種﨑敦美",
+        "tracked": true,
+        "character": "フリーレン"
+      }
+    ],
+    "葬送のフリーレン (アニメ)": [
+      {
+        "name": "小林千晃",
+        "tracked": true,
+        "character": "シュタルク (葬送のフリーレン)"
+      },
+      {
+        "name": "市ノ瀬加那",
+        "tracked": true,
+        "character": "フェルン"
+      },
+      {
+        "name": "種﨑敦美",
+        "tracked": true,
+        "character": "フリーレン"
+      }
+    ],
+    "薬屋のひとりごと": [
+      {
+        "name": "大塚剛央",
+        "tracked": true,
+        "character": "壬氏"
+      },
+      {
+        "name": "悠木碧",
+        "tracked": true,
+        "character": "猫猫"
+      }
+    ],
+    "赤毛のアン (アニメ)": [
+      {
+        "name": "井上ほの花",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "山田栄子",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "name": "日高里菜",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "超時空騎団サザンクロス": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ゾル人"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "サイフリート・ヴァイス"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ムジカ・ノヴァ"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "惑星グロリエ"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ゾル人"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "サイフリート・ヴァイス"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "ムジカ・ノヴァ"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "惑星グロリエ"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "ゾル人"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "サイフリート・ヴァイス"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "ムジカ・ノヴァ"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "惑星グロリエ"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "ゾル人"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "サイフリート・ヴァイス"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "ムジカ・ノヴァ"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "惑星グロリエ"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "ゾル人"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "サイフリート・ヴァイス"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "ムジカ・ノヴァ"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "惑星グロリエ"
+      }
+    ],
+    "鉄人28号 (テレビアニメ第1作)": [
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "橘美來",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "水野亜美 (声優)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "留冬藍名",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "花岡志織",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "天馬星座の星矢",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "垂見宿禰",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "久米川駅",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "Benza English",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "藤原範兼",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "芦ヶ久保駅",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "秋田白神県立自然公園",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "源兼俊母",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "name": "東祖谷栗枝渡",
+        "tracked": false,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "銀河漂流バイファム": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "藤原在衡",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "デジリーマン",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "Teens'ブリブリCLUB",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "Category:昭島市",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "藤原清衡",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "藤原朝元",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "橘清友",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "古内東子",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "内海太一",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "name": "Category:茂木町",
+        "tracked": false,
+        "character": "ラウンドバーニアン"
+      }
+    ],
+    "銀河鉄道999 (アニメ)": [
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "秋吉あや",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "藤原良世",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "菊池織部",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "源義忠",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "源時中",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "幣原雅子",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "友光恒",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "ミニコン (ミュージシャン)",
+        "tracked": false,
+        "character": "星野鉄郎"
+      },
+      {
+        "name": "魏相",
+        "tracked": false,
+        "character": "星野鉄郎"
+      }
+    ],
+    "銀河鉄道物語": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "小島菜々恵",
+        "tracked": true,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "サフィヤ",
+        "tracked": false,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "いが☆グリオ",
+        "tracked": false,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "銀河鉄道物語の戦闘列車"
+      },
+      {
+        "name": "Category:西武バス",
+        "tracked": false,
+        "character": "銀河鉄道物語の非戦闘列車"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "銀河鉄道株式会社"
+      },
+      {
+        "name": "Category:西宇和郡",
+        "tracked": false,
+        "character": "銀河鉄道物語の戦闘列車"
+      }
+    ],
+    "鋼の錬金術師 (アニメ)": [
+      {
+        "name": "朴璐美",
+        "tracked": true,
+        "character": "エドワード・エルリック"
+      },
+      {
+        "name": "ヴィック・ミニョーニャ",
+        "tracked": false,
+        "character": "エドワード・エルリック"
+      }
+    ],
+    "陽だまりの樹": [
+      {
+        "name": "畠中洋",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "井上喜久子",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "矢野妃菜喜",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "醍醐虎汰朗",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "中田あすみ",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "伊藤ゆいな",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "家中宏",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "白砂沙帆",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "鷹森淑乃",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "山田美鈴",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "星ノ谷しずく",
+        "tracked": true,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "島野浩太朗",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "小平市",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "デジリーマン",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "Teens'ブリブリCLUB",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "Category:昭島市",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "藤原清衡",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "藤原朝元",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "橘清友",
+        "tracked": false,
+        "character": "手塚良仙"
+      },
+      {
+        "name": "古内東子",
+        "tracked": false,
+        "character": "手塚良仙"
+      }
+    ],
+    "鬼滅の刃": [
+      {
+        "name": "花江夏樹",
+        "tracked": true,
+        "character": "竈門炭治郎"
+      },
+      {
+        "name": "鬼頭明里",
+        "tracked": true,
+        "character": "竈門禰󠄀豆子"
+      },
+      {
+        "name": "佐藤聡美",
+        "tracked": true,
+        "character": "竈門炭治郎"
+      }
+    ]
+  },
+  "seiyuuToWorks": {
+    "井上喜久子": [
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "破面"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "滅却師"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "コン (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "虚 (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "護廷十三隊"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "ノーチラス号"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "アトランティス"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "ネモ船長"
+      },
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      }
+    ],
+    "畠中洋": [
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "鬼道 (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "破面"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "滅却師"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "コン (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "虚 (BLEACH)"
+      },
+      {
+        "title": "BLEACH",
+        "tracked": true,
+        "character": "護廷十三隊"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "∀ガンダム (架空の兵器)"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "カイラスギリー"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "ギャロップ (ガンダムシリーズ)"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "グエン・サード・ラインフォード"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "コレン・ナンダー"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "スモー"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "ターンX"
+      },
+      {
+        "title": "∀ガンダム",
+        "tracked": true,
+        "character": "ポゥ・エイジ"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      }
+    ],
+    "小島菜々恵": [
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "しましまとらのしまじろう",
+        "tracked": true,
+        "character": "縞野しまじろう"
+      },
+      {
+        "title": "しましまとらのしまじろう",
+        "tracked": true,
+        "character": "みみりん"
+      },
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "バッフ・クラン"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "重機動メカ"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "イデ"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "天空のエスカフローネ",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "山田美鈴": [
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "機甲界ガリアン",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "銀河漂流バイファム",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      }
+    ],
+    "星ノ谷しずく": [
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "白河ことり"
+      },
+      {
+        "title": "D.C. 〜ダ・カーポ〜 (アニメ)",
+        "tracked": true,
+        "character": "芳乃さくら"
+      },
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "機甲界ガリアン",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "銀河漂流バイファム",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      }
+    ],
+    "山口勝平": [
+      {
+        "title": "DEATH NOTE (アニメ)",
+        "tracked": true,
+        "character": "L (DEATH NOTE)"
+      }
+    ],
+    "松風雅也": [
+      {
+        "title": "DEATH NOTE (アニメ)",
+        "tracked": true,
+        "character": "魅上照"
+      }
+    ],
+    "伊藤ゆいな": [
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "マクロスΔ",
+        "tracked": true,
+        "character": "Sv-262 ドラケンIII"
+      },
+      {
+        "title": "マクロスΔ",
+        "tracked": true,
+        "character": "VF-31 ジークフリード"
+      },
+      {
+        "title": "マクロスΔ",
+        "tracked": true,
+        "character": "ワルキューレ (マクロスΔ)"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "イデオン (架空の兵器)"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "バッフ・クラン"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "重機動メカ"
+      },
+      {
+        "title": "伝説巨神イデオン",
+        "tracked": true,
+        "character": "イデ"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "天空のエスカフローネ",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      }
+    ],
+    "家中宏": [
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "ノーチラス号"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "アトランティス"
+      },
+      {
+        "title": "ふしぎの海のナディア",
+        "tracked": true,
+        "character": "ネモ船長"
+      },
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "天空のエスカフローネ",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機動戦艦ナデシコ",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "title": "機甲界ガリアン",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "title": "無限のリヴァイアス",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "白砂沙帆": [
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "天空のエスカフローネ",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機動戦艦ナデシコ",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "銀河鉄道999 (アニメ)",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "title": "陽だまりの樹",
+        "tracked": true,
+        "character": "手塚良仙"
+      }
+    ],
+    "秋吉あや": [
+      {
+        "title": "DIGIMON BEATBREAK",
+        "tracked": true,
+        "character": "モノドラモン"
+      },
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "天空のエスカフローネ",
+        "tracked": true,
+        "character": "クルゼーロ (飛行艇)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲界ガリアン",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "title": "銀河漂流バイファム",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      },
+      {
+        "title": "銀河鉄道999 (アニメ)",
+        "tracked": true,
+        "character": "星野鉄郎"
+      }
+    ],
+    "矢野妃菜喜": [
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "トランスフォーマー 超神マスターフォース",
+        "tracked": true,
+        "character": "メタルホーク (トランスフォーマー)"
+      },
+      {
+        "title": "トランスフォーマー 超神マスターフォース",
+        "tracked": true,
+        "character": "オーバーロード (トランスフォーマー)"
+      },
+      {
+        "title": "トランスフォーマー 超神マスターフォース",
+        "tracked": true,
+        "character": "プリテンダー (トランスフォーマー)"
+      },
+      {
+        "title": "トランスフォーマー 超神マスターフォース",
+        "tracked": true,
+        "character": "ジンライ"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "灼眼のシャナ (アニメ)",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "title": "灼眼のシャナ (アニメ)",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "title": "無限のリヴァイアス",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      }
+    ],
+    "醍醐虎汰朗": [
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ジョジョの奇妙な冒険 (テレビアニメ)",
+        "tracked": true,
+        "character": "ジョジョ 〜その血の運命〜"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "新世紀GPXサイバーフォーミュラ",
+        "tracked": true,
+        "character": "ゼロの領域"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "灼眼のシャナ (アニメ)",
+        "tracked": true,
+        "character": "フレイムヘイズ"
+      },
+      {
+        "title": "灼眼のシャナ (アニメ)",
+        "tracked": true,
+        "character": "紅世の徒"
+      },
+      {
+        "title": "無限のリヴァイアス",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "title": "銀河鉄道999 (アニメ)",
+        "tracked": true,
+        "character": "星野鉄郎"
+      },
+      {
+        "title": "陽だまりの樹",
+        "tracked": true,
+        "character": "手塚良仙"
+      }
+    ],
+    "中田あすみ": [
+      {
+        "title": "F-ZERO ファルコン伝説",
+        "tracked": true,
+        "character": "キャプテン・ファルコン"
+      },
+      {
+        "title": "SDガンダムフォース",
+        "tracked": true,
+        "character": "LOVE & PEACE (little by littleの曲)"
+      },
+      {
+        "title": "おじゃる丸",
+        "tracked": true,
+        "character": "坂ノ上おじゃる丸"
+      },
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "しましまとらのしまじろう",
+        "tracked": true,
+        "character": "縞野しまじろう"
+      },
+      {
+        "title": "しましまとらのしまじろう",
+        "tracked": true,
+        "character": "みみりん"
+      },
+      {
+        "title": "ゴジラ S.P ＜シンギュラポイント＞",
+        "tracked": true,
+        "character": "ラドン (架空の怪獣)"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "夜明け前より瑠璃色な",
+        "tracked": true,
+        "character": "スフィア王国"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "太陽の勇者ファイバード",
+        "tracked": true,
+        "character": "これはハトですか?"
+      },
+      {
+        "title": "太陽の牙ダグラム",
+        "tracked": true,
+        "character": "コンバットアーマー"
+      },
+      {
+        "title": "学校の怪談 (テレビアニメ)",
+        "tracked": true,
+        "character": "オバケ日記"
+      },
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "機動戦艦ナデシコ",
+        "tracked": true,
+        "character": "エステバリス"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "機甲界ガリアン",
+        "tracked": true,
+        "character": "機甲兵 (機甲界ガリアン)"
+      },
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "銀河漂流バイファム",
+        "tracked": true,
+        "character": "ラウンドバーニアン"
+      }
+    ],
+    "花澤香菜": [
+      {
+        "title": "PSYCHO-PASS サイコパス",
+        "tracked": true,
+        "character": "常守朱"
+      }
+    ],
+    "関智一": [
+      {
+        "title": "PSYCHO-PASS サイコパス",
+        "tracked": true,
+        "character": "狡噛慎也"
+      }
+    ],
+    "中村繪里子": [
+      {
+        "title": "THE IDOLM@STER (アニメ)",
+        "tracked": true,
+        "character": "天海春香"
+      }
+    ],
+    "滝田樹里": [
+      {
+        "title": "THE IDOLM@STER (アニメ)",
+        "tracked": true,
+        "character": "音無小鳥"
+      }
+    ],
+    "仁後真耶子": [
+      {
+        "title": "THE IDOLM@STER (アニメ)",
+        "tracked": true,
+        "character": "高槻やよい"
+      }
+    ],
+    "今井麻美": [
+      {
+        "title": "THE IDOLM@STER (アニメ)",
+        "tracked": true,
+        "character": "如月千早"
+      }
+    ],
+    "潘めぐみ": [
+      {
+        "title": "【推しの子】 (アニメ)",
+        "tracked": true,
+        "character": "有馬かな"
+      }
+    ],
+    "石見舞菜香": [
+      {
+        "title": "【推しの子】 (アニメ)",
+        "tracked": true,
+        "character": "黒川あかね"
+      }
+    ],
+    "高橋李依": [
+      {
+        "title": "【推しの子】 (アニメ)",
+        "tracked": true,
+        "character": "星野アイ"
+      },
+      {
+        "title": "この素晴らしい世界に祝福を!",
+        "tracked": true,
+        "character": "めぐみん"
+      }
+    ],
+    "鷹森淑乃": [
+      {
+        "title": "おそ松さん",
+        "tracked": true,
+        "character": "チビ太"
+      },
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "機甲戦記ドラグナー",
+        "tracked": true,
+        "character": "メタルアーマー"
+      },
+      {
+        "title": "無限のリヴァイアス",
+        "tracked": true,
+        "character": "ヴァイア艦"
+      },
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      },
+      {
+        "title": "陽だまりの樹",
+        "tracked": true,
+        "character": "手塚良仙"
+      }
+    ],
+    "谷井あすか": [
+      {
+        "title": "おはようハクション大魔王",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "よばれてとびでて!アクビちゃん",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "アクビガール",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "天城サリー": [
+      {
+        "title": "おはようハクション大魔王",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "よばれてとびでて!アクビちゃん",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "アクビガール",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "金田朋子": [
+      {
+        "title": "おはようハクション大魔王",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "よばれてとびでて!アクビちゃん",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "アクビガール",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "貴家堂子": [
+      {
+        "title": "おはようハクション大魔王",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "よばれてとびでて!アクビちゃん",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      },
+      {
+        "title": "アクビガール",
+        "tracked": true,
+        "character": "アクビ (キャラクター)"
+      }
+    ],
+    "小原好美": [
+      {
+        "title": "かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜",
+        "tracked": true,
+        "character": "藤原千花"
+      }
+    ],
+    "古賀葵": [
+      {
+        "title": "かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜",
+        "tracked": true,
+        "character": "四宮かぐや"
+      }
+    ],
+    "福島潤": [
+      {
+        "title": "この素晴らしい世界に祝福を!",
+        "tracked": true,
+        "character": "佐藤和真"
+      }
+    ],
+    "井上ほの花": [
+      {
+        "title": "こんにちは アン 〜Before Green Gables",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "アン・シャーリー (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "赤毛のアン (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "山田栄子": [
+      {
+        "title": "こんにちは アン 〜Before Green Gables",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "アン・シャーリー (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "赤毛のアン (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "日高里菜": [
+      {
+        "title": "こんにちは アン 〜Before Green Gables",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "アン・シャーリー (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      },
+      {
+        "title": "赤毛のアン (アニメ)",
+        "tracked": true,
+        "character": "アン・シャーリー"
+      }
+    ],
+    "田村ゆかり": [
+      {
+        "title": "ひぐらしのなく頃に (アニメ)",
+        "tracked": true,
+        "character": "古手梨花"
+      }
+    ],
+    "平野綾": [
+      {
+        "title": "らき☆すた (アニメ)",
+        "tracked": true,
+        "character": "泉こなた"
+      }
+    ],
+    "三品建": [
+      {
+        "title": "わが青春のアルカディア 無限軌道SSX",
+        "tracked": true,
+        "character": "イルミダス"
+      },
+      {
+        "title": "ゾイドジェネシス",
+        "tracked": true,
+        "character": "ムラサメライガー"
+      },
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "長縄まりあ": [
+      {
+        "title": "わんだふるぷりきゅあ!",
+        "tracked": true,
+        "character": "犬飼こむぎ"
+      }
+    ],
+    "上田麗奈": [
+      {
+        "title": "わんだふるぷりきゅあ!",
+        "tracked": true,
+        "character": "猫屋敷まゆ"
+      },
+      {
+        "title": "チェンソーマン",
+        "tracked": true,
+        "character": "レゼ"
+      }
+    ],
+    "上田瞳": [
+      {
+        "title": "ウマ娘 プリティーダービー",
+        "tracked": true,
+        "character": "ゴールドシップ (ウマ娘)"
+      }
+    ],
+    "小倉唯": [
+      {
+        "title": "ウマ娘 プリティーダービー",
+        "tracked": true,
+        "character": "マンハッタンカフェ (ウマ娘)"
+      }
+    ],
+    "山寺宏一": [
+      {
+        "title": "カウボーイビバップ",
+        "tracked": true,
+        "character": "スパイク・スピーゲル"
+      }
+    ],
+    "三ツ矢雄二": [
+      {
+        "title": "キャプテン翼 (アニメ)",
+        "tracked": true,
+        "character": "新田瞬"
+      }
+    ],
+    "森川智之": [
+      {
+        "title": "クレヨンしんちゃん (アニメ)",
+        "tracked": true,
+        "character": "野原ひろし"
+      }
+    ],
+    "藤原啓治": [
+      {
+        "title": "クレヨンしんちゃん (アニメ)",
+        "tracked": true,
+        "character": "野原ひろし"
+      }
+    ],
+    "神谷明": [
+      {
+        "title": "シティーハンター (アニメ)",
+        "tracked": true,
+        "character": "冴羽獠"
+      }
+    ],
+    "南里侑香": [
+      {
+        "title": "スクールランブル (アニメ)",
+        "tracked": true,
+        "character": "一条かれん"
+      }
+    ],
+    "生天目仁美": [
+      {
+        "title": "スクールランブル (アニメ)",
+        "tracked": true,
+        "character": "周防美琴"
+      }
+    ],
+    "MAKO": [
+      {
+        "title": "スクールランブル (アニメ)",
+        "tracked": true,
+        "character": "一条かれん"
+      }
+    ],
+    "松本保典": [
+      {
+        "title": "スレイヤーズ (アニメ)",
+        "tracked": true,
+        "character": "ガウリイ＝ガブリエフ"
+      }
+    ],
+    "ファイルーズあい": [
+      {
+        "title": "チェンソーマン",
+        "tracked": true,
+        "character": "パワー (チェンソーマン)"
+      }
+    ],
+    "楠木ともり": [
+      {
+        "title": "チェンソーマン",
+        "tracked": true,
+        "character": "マキマ"
+      }
+    ],
+    "野村道子": [
+      {
+        "title": "ドラえもん (1973年のテレビアニメ)",
+        "tracked": true,
+        "character": "源静香"
+      }
+    ],
+    "かかずゆみ": [
+      {
+        "title": "ドラえもん (1973年のテレビアニメ)",
+        "tracked": true,
+        "character": "源静香"
+      }
+    ],
+    "恵比寿まさ子": [
+      {
+        "title": "ドラえもん (1973年のテレビアニメ)",
+        "tracked": true,
+        "character": "源静香"
+      }
+    ],
+    "村瀬歩": [
+      {
+        "title": "ハイキュー!!",
+        "tracked": true,
+        "character": "日向翔陽"
+      }
+    ],
+    "松岡禎丞": [
+      {
+        "title": "ハイスクール!奇面組",
+        "tracked": true,
+        "character": "出瀬潔"
+      }
+    ],
+    "龍田直樹": [
+      {
+        "title": "ハイスクール!奇面組",
+        "tracked": true,
+        "character": "大間仁"
+      }
+    ],
+    "小林千晃": [
+      {
+        "title": "ハイスクール!奇面組",
+        "tracked": true,
+        "character": "大間仁"
+      },
+      {
+        "title": "葬送のフリーレン",
+        "tracked": true,
+        "character": "シュタルク (葬送のフリーレン)"
+      },
+      {
+        "title": "葬送のフリーレン (アニメ)",
+        "tracked": true,
+        "character": "シュタルク (葬送のフリーレン)"
+      }
+    ],
+    "二又一成": [
+      {
+        "title": "ハイスクール!奇面組",
+        "tracked": true,
+        "character": "出瀬潔"
+      }
+    ],
+    "喜多村英梨": [
+      {
+        "title": "ポケットモンスター (2023年のアニメ)",
+        "tracked": true,
+        "character": "ネモ (ポケットモンスター)"
+      }
+    ],
+    "斎賀みつき": [
+      {
+        "title": "ポケットモンスター (2023年のアニメ)",
+        "tracked": true,
+        "character": "チリ (ポケットモンスター)"
+      }
+    ],
+    "松井恵理子": [
+      {
+        "title": "ポケットモンスター (2023年のアニメ)",
+        "tracked": true,
+        "character": "ネモ (ポケットモンスター)"
+      }
+    ],
+    "若山詩音": [
+      {
+        "title": "リコリス・リコイル",
+        "tracked": true,
+        "character": "井ノ上たきな"
+      }
+    ],
+    "安済知佳": [
+      {
+        "title": "リコリス・リコイル",
+        "tracked": true,
+        "character": "錦木千束"
+      }
+    ],
+    "橘美來": [
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "水野亜美 (声優)": [
+      {
+        "title": "太陽の使者 鉄人28号",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      },
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "中西妙子": [
+      {
+        "title": "明日のナージャ",
+        "tracked": true,
+        "character": "ナージャ!!"
+      },
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      }
+    ],
+    "新祐樹": [
+      {
+        "title": "東京卍リベンジャーズ",
+        "tracked": true,
+        "character": "花垣武道"
+      }
+    ],
+    "渡辺明乃": [
+      {
+        "title": "東京卍リベンジャーズ",
+        "tracked": true,
+        "character": "花垣武道"
+      }
+    ],
+    "市ノ瀬加那": [
+      {
+        "title": "機動戦士ガンダム 水星の魔女",
+        "tracked": true,
+        "character": "スレッタ・マーキュリー"
+      },
+      {
+        "title": "葬送のフリーレン",
+        "tracked": true,
+        "character": "フェルン"
+      },
+      {
+        "title": "葬送のフリーレン (アニメ)",
+        "tracked": true,
+        "character": "フェルン"
+      }
+    ],
+    "宮野真守": [
+      {
+        "title": "機動戦士ガンダム00",
+        "tracked": true,
+        "character": "刹那・F・セイエイ"
+      }
+    ],
+    "佐久間紅美": [
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      }
+    ],
+    "志村由美": [
+      {
+        "title": "花咲くいろは",
+        "tracked": true,
+        "character": "湯涌ぼんぼり祭り"
+      }
+    ],
+    "種﨑敦美": [
+      {
+        "title": "葬送のフリーレン",
+        "tracked": true,
+        "character": "フリーレン"
+      },
+      {
+        "title": "葬送のフリーレン (アニメ)",
+        "tracked": true,
+        "character": "フリーレン"
+      }
+    ],
+    "大塚剛央": [
+      {
+        "title": "薬屋のひとりごと",
+        "tracked": true,
+        "character": "壬氏"
+      }
+    ],
+    "悠木碧": [
+      {
+        "title": "薬屋のひとりごと",
+        "tracked": true,
+        "character": "猫猫"
+      }
+    ],
+    "留冬藍名": [
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "花岡志織": [
+      {
+        "title": "鉄人28号 (テレビアニメ第1作)",
+        "tracked": true,
+        "character": "鉄人28号 (架空のロボット)"
+      }
+    ],
+    "朴璐美": [
+      {
+        "title": "鋼の錬金術師 (アニメ)",
+        "tracked": true,
+        "character": "エドワード・エルリック"
+      }
+    ],
+    "花江夏樹": [
+      {
+        "title": "鬼滅の刃",
+        "tracked": true,
+        "character": "竈門炭治郎"
+      }
+    ],
+    "鬼頭明里": [
+      {
+        "title": "鬼滅の刃",
+        "tracked": true,
+        "character": "竈門禰󠄀豆子"
+      }
+    ],
+    "佐藤聡美": [
+      {
+        "title": "鬼滅の刃",
+        "tracked": true,
+        "character": "竈門炭治郎"
+      }
+    ]
+  }
+}
