@@ -14,7 +14,7 @@ import { loadYomiganaMap, groupByRow, getRow, getSortKey, buildKanaNav, buildRow
 import { BACK_TO_TOP_CSS, BACK_TO_TOP_HTML, BACK_TO_TOP_SCRIPT } from "./back-to-top.js";
 import { NAV_CONTEXT_SCRIPT } from "./nav-context.js";
 
-const SITE_URL = "https://example.com"; // build.js と同じ値(ドメインが決まったら全ファイル変更する)
+const SITE_URL = "https://kenshow1116-blip.github.io/anime-pageviews-ranking";
 
 const ALL_MANGA_LIST_FILE = path.resolve("data", "all-manga-list.json");
 

@@ -60,7 +60,7 @@ export async function loadMetadata() {
   }
 }
 
-const SITE_URL = "https://example.com"; // ドメインが決まったらここを変更する
+const SITE_URL = "https://kenshow1116-blip.github.io/anime-pageviews-ranking";
 
 const FALLBACK_ANIME_LIST = [
   "ONE PIECE",
