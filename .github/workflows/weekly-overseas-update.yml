@@ -1,0 +1,49 @@
+name: Weekly Overseas Stats Update
+
+# 海外版(英語版Wikipedia)の閲覧数取得は対象が約7,000件あり、レート制限対策で
+# 同時実行数1に制限しているため数時間かかる。日次更新とは別のワークフローにして、
+# 週1回だけ実行する。
+
+on:
+  schedule:
+    - cron: "0 12 * * 0" # 毎週日曜 UTC 12:00
+  workflow_dispatch: {}
+
+concurrency:
+  group: overseas-update
+  cancel-in-progress: false
+
+jobs:
+  update-overseas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Download cache from Google Drive
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+        run: |
+          mkdir -p data
+          node drive-sync.js download data/pageviews.db
+
+      - name: Fetch overseas (en.wikipedia) stats
+        run: node fetch-overseas-stats.js
+
+      - name: Upload cache back to Google Drive
+        if: always()
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+        run: node drive-sync.js upload data/pageviews.db
