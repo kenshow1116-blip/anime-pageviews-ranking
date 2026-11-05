@@ -40,6 +40,13 @@ New-Item -ItemType File -Force (Join-Path $DistDir ".nojekyll") | Out-Null
 if ($LASTEXITCODE -ge 8) { throw "robocopy failed with exit code $LASTEXITCODE" }
 Write-Log "copied dist -> $DeployDir"
 
+# GitHubは1ファイル100MB(104,857,600バイト)を超えるとpushを拒否するため、上限を超えるファイルは公開から外す
+$MaxBytes = 100MB  # = 104,857,600バイト(GitHubの上限)
+Get-ChildItem -Path $DeployDir -Recurse -File | Where-Object { $_.FullName -notlike "*\.git\*" -and $_.Length -gt $MaxBytes } | ForEach-Object {
+    Write-Log ("WARNING: skip oversized file {0} ({1:N1} MB)" -f $_.FullName.Substring($DeployDir.Length + 1), ($_.Length / 1MB))
+    Remove-Item -LiteralPath $_.FullName -Force
+}
+
 # スケジューラ実行中にログイン画面待ちで止まらないようにする
 $env:GCM_INTERACTIVE = if ($args -contains "-Interactive") { "auto" } else { "never" }
 
