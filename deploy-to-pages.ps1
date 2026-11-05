@@ -1,4 +1,4 @@
-# dist/ の内容を GitHub Pages(gh-pagesブランチ)へ公開する。
+﻿# dist/ の内容を GitHub Pages(gh-pagesブランチ)へ公開する。
 # このPCでビルドした結果をそのままアップロードする方式(GitHub Actions/Google Driveは使わない)。
 #  1. dist/ -> C:\Users\kensh\gh-pages-deploy-tmp へミラーコピー(.git と Search Console確認ファイルは残す)
 #  2. 変更があれば commit して gh-pages ブランチへ push
@@ -19,8 +19,8 @@ function Write-Log([string]$msg) {
     Write-Output $line
 }
 
-function Git([string[]]$GitArgs) {
-    & git -C $DeployDir @GitArgs
+function Invoke-Git([string[]]$GitArgs) {
+    & git.exe -C $DeployDir @GitArgs
     if ($LASTEXITCODE -ne 0) { throw "git $($GitArgs -join ' ') failed with exit code $LASTEXITCODE" }
 }
 
@@ -43,14 +43,14 @@ Write-Log "copied dist -> $DeployDir"
 # スケジューラ実行中にログイン画面待ちで止まらないようにする
 $env:GCM_INTERACTIVE = if ($args -contains "-Interactive") { "auto" } else { "never" }
 
-Git @("add", "-A")
+Invoke-Git @("add", "-A")
 & git -C $DeployDir diff --cached --quiet
 if ($LASTEXITCODE -eq 0) {
     Write-Log "no changes to deploy"
 } else {
-    Git @("commit", "-q", "-m", "Update site $(Get-Date -Format 'yyyy-MM-dd HH:mm')")
+    Invoke-Git @("commit", "-q", "-m", "Update site $(Get-Date -Format 'yyyy-MM-dd HH:mm')")
     Write-Log "committed"
 }
 
-Git @("push", $RemoteUrl, "gh-pages:gh-pages")
+Invoke-Git @("push", $RemoteUrl, "gh-pages:gh-pages")
 Write-Log "=== deploy completed successfully ==="
