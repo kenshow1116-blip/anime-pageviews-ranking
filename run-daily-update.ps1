@@ -46,6 +46,11 @@ try {
     Run-Step "build (anime works)" "build.js"
     Run-Step "build-seiyuu" "build-seiyuu.js"
     Run-Step "build-manga" "build-manga.js"
+    Run-Step "build-categories" "build-categories.js"
+    Write-Log "step start: deploy-to-pages"
+    & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $ProjectDir "deploy-to-pages.ps1")
+    if ($LASTEXITCODE -ne 0) { throw "deploy-to-pages failed with exit code $LASTEXITCODE" }
+    Write-Log "step done: deploy-to-pages"
     Write-Log "=== daily update completed successfully ==="
 } catch {
     Write-Log "=== daily update FAILED: $($_.Exception.Message) ==="

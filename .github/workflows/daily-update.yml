@@ -1,8 +1,6 @@
 name: Daily Update
 
 on:
-  schedule:
-    - cron: "0 20 * * *" # 毎日 UTC 20:00 (JST 翌5:00)
   workflow_dispatch: {}
 
 concurrency:
