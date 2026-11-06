@@ -2,6 +2,7 @@
 // node build-seiyuu.js で dist/seiyuu/ 以下に全声優ページ + 一覧を書き出し、
 // dist/sitemap.xml に声優ページ分のURLを追記する。
 
+import { stylesheetTag } from "./shared-assets.js";
 import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -300,7 +301,7 @@ function buildSeiyuuPage(name, stat, totalCount, works, characterNames, row) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(name)} のWikipedia閲覧数推移・累計${formatViews(total)}回</title>
 <meta name="description" content="${escapeHtml(description)}">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("seiyuu", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -342,7 +343,7 @@ export function buildSeiyuuIndexPage(groups, totalCount) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>声優一覧 - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、声優の名前一覧(50音順)です。各声優のページでは累計閲覧数・推移を確認できます。対象はWikidataの出演作品数に基づき自動抽出した声優陣です。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("seiyuu", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -377,7 +378,7 @@ export function buildSeiyuuIndexRowPage(group, groups, totalCount) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>声優一覧(${escapeHtml(heading)}) - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、声優の名前一覧(${escapeHtml(heading)})です。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("seiyuu", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
