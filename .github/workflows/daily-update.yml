@@ -1,6 +1,8 @@
 name: Daily Update
 
 on:
+  schedule:
+    - cron: "0 20 * * *" # 毎日 UTC 20:00 (JST 翌5:00)。混雑時は数十分遅れることがある
   workflow_dispatch: {}
 
 # 日次・週次の両ワークフローが同じDriveのDBを読み書きするため、同じグループで直列化する
@@ -68,6 +70,10 @@ jobs:
       - name: Upload cache back to Google Drive
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: node drive-sync.js upload data/pageviews.db
+
+      # Google Search Consoleの所有権確認ファイル。消えると定期再確認で所有権が外れる
+      - name: Add site verification file
+        run: cp google2d2cf974c93a7546.html dist/
 
       - name: Check site size
         run: |

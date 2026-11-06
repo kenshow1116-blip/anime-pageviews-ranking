@@ -5,6 +5,8 @@ name: Weekly Overseas Stats Update
 # 週1回だけ実行する。結果はDBに入り、次の日次更新のビルドでサイトに反映される。
 
 on:
+  schedule:
+    - cron: "0 12 * * 0" # 毎週日曜 UTC 12:00 (JST 21:00)。日次更新(JST 5:00)とは時間をずらす
   workflow_dispatch: {}
 
 # 日次更新と同じグループで直列化する(同じDriveのDBを読み書きするため)
