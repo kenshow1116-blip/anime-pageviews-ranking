@@ -3,8 +3,10 @@ name: Daily Update
 on:
   workflow_dispatch: {}
 
+# 日次・週次の両ワークフローが同じDriveのDBを読み書きするため、同じグループで直列化する
+# (同時に走ると後からアップロードした方が、もう片方の更新を上書きして消してしまう)
 concurrency:
-  group: daily-update
+  group: pageviews-db
   cancel-in-progress: false
 
 permissions:
@@ -12,10 +14,16 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+  GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+  GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+  GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -28,15 +36,17 @@ jobs:
         with:
           node-version: 24
 
-      - name: Download cache from Google Drive
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+      # 約10GBのDB + 圧縮ファイル + 約1GBのサイトを置くため、使わないプリインストール物を消して空きを作る
+      - name: Free disk space
         run: |
-          mkdir -p data
-          node drive-sync.js download data/pageviews.db
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo docker image prune --all --force >/dev/null 2>&1 || true
+          df -h /
+
+      - name: Download cache from Google Drive
+        id: download
+        run: node drive-sync.js download data/pageviews.db
 
       - name: Fetch anime/manga title lists
         run: |
@@ -53,14 +63,16 @@ jobs:
           node build-manga.js
           node build-categories.js
 
+      # ダウンロードに成功したときだけ書き戻す(失敗時に空や壊れたDBでDrive上の本体を上書きしないため)。
+      # 途中の手順が失敗しても、取得済みの閲覧数は無駄にしないよう書き戻す。
       - name: Upload cache back to Google Drive
-        if: always()
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: node drive-sync.js upload data/pageviews.db
+
+      - name: Check site size
+        run: |
+          du -sh dist
+          find dist -type f -size +100M -exec ls -lh {} \;
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

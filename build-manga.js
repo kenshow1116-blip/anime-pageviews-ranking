@@ -4,6 +4,7 @@
 // アニメ化済みの漫画はアニメ版と同じWikipedia記事・同じ閲覧数を単純複製する
 // (方針として重複除去はしない)。作品ページとのクロスリンクは持たない。
 
+import { stylesheetTag } from "./shared-assets.js";
 import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -253,7 +254,7 @@ export function buildMangaPage(title, stat, totalCount, row) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)} のWikipedia閲覧数推移・累計${formatViews(total)}回</title>
 <meta name="description" content="${escapeHtml(description)}">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("manga", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -295,7 +296,7 @@ export function buildMangaIndexPage(groups, totalCount) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>漫画一覧 - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、漫画ごとの累計閲覧数・推移の一覧ページです(50音順)。対象はWikidataの「日本の連載漫画」分類に基づき自動抽出した全件です。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("manga", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -334,7 +335,7 @@ export function buildMangaIndexRowPage(group, groups, totalCount) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>漫画一覧(${escapeHtml(heading)}) - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、漫画ごとの累計閲覧数・推移の一覧ページ(${escapeHtml(heading)})です。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("manga", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">

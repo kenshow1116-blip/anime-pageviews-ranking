@@ -13,3 +13,6 @@ data/*.bak
 # サービスアカウント鍵等の秘密情報を誤ってコミットしないためのセーフガード
 *.key.json
 service-account*.json
+
+# OAuthのクライアント情報・リフレッシュトークン(drive-sync.jsのローカル実行用)
+.secrets/

@@ -1,6 +1,7 @@
 // 作品ごとの静的SEOページを生成するビルドスクリプト。
 // node build.js で dist/ 以下に全作品ページ + 一覧 + sitemap.xml を書き出す。
 
+import { stylesheetTag } from "./shared-assets.js";
 import { mkdir, writeFile, copyFile, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -394,7 +395,7 @@ export function buildWorkPage(title, stat, cast, characterNames, meta, enStat, r
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)} のWikipedia閲覧数推移・累計${formatViews(total)}回</title>
 <meta name="description" content="${escapeHtml(description)}">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("works", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -437,7 +438,7 @@ export function buildIndexPage(groups) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>作品一覧 - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、アニメ作品ごとの累計閲覧数・推移の一覧ページです(50音順)。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("works", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -474,7 +475,7 @@ export function buildIndexRowPage(group, groups) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>作品一覧(${escapeHtml(heading)}) - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="日本語版Wikipediaの閲覧数データに基づく、アニメ作品ごとの累計閲覧数・推移の一覧ページ(${escapeHtml(heading)})です。">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("works", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">

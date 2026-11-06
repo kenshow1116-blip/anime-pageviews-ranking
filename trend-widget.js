@@ -2,6 +2,8 @@
 // 同仕様のインタラクティブ推移ウィジェット(期間切り替え・基準日指定・IndexedDBキャッシュ・
 // ジグザグ推移グラフ)を1記事分に特化して提供する。build.js / build-seiyuu.js から共通で使う。
 
+import { assetHref } from "./shared-assets.js";
+
 export const TREND_WIDGET_CSS = `
   .tw-period-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
   .tw-period-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-1); color: var(--text-secondary); font-size: 12px; cursor: pointer; }
@@ -49,14 +51,25 @@ export function buildTrendWidget({
   <p class="tw-stat-line" id="${widgetId}-statLine">読み込み中...</p>
   <div class="chart-wrap" id="${widgetId}-chartWrap"></div>`;
 
-  const script = `<script>
-  (function(){
-    var TITLE = ${JSON.stringify(title)};
-    var PROJECT = ${JSON.stringify(project)};
-    var API_START = ${JSON.stringify(apiStart)};
-    var IDB_NAME = ${JSON.stringify(idbDbName)};
-    var IDB_STORE = ${JSON.stringify(idbStoreName)};
-    var WID = ${JSON.stringify(widgetId)};
+  // ウィジェット本体(約23KB)は全ページ共通なので dist/assets/ の共有ファイルに1回だけ書き出し、
+  // ページには設定値だけを渡す初期化呼び出しを置く(2万ページ×23KBの重複でサイトが1GB上限に迫っていたため)
+  const config = { title, project, apiStart, idbDbName, idbStoreName, widgetId };
+  const src = assetHref("trend-widget", "js", TREND_WIDGET_JS);
+  // JSON内の "</" をエスケープして、タイトルに "</script>" が含まれてもscript要素が途中で閉じないようにする
+  const configJson = JSON.stringify(config).replace(/</g, "\\u003c");
+  return `${html}
+  <script src="${src}"></script>
+  <script>initTrendWidget(${configJson});</script>`;
+}
+
+export const TREND_WIDGET_JS = `
+  window.initTrendWidget = function(cfg){
+    var TITLE = cfg.title;
+    var PROJECT = cfg.project;
+    var API_START = cfg.apiStart;
+    var IDB_NAME = cfg.idbDbName;
+    var IDB_STORE = cfg.idbStoreName;
+    var WID = cfg.widgetId;
     var LAG_DAYS = 0;
 
     var PERIODS = [
@@ -518,8 +531,5 @@ export function buildTrendWidget({
 
     renderDateSegments();
     loadAndRender();
-  })();
-  </script>`;
-
-  return html + script;
-}
+  };
+`;

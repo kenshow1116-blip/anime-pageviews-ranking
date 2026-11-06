@@ -2,14 +2,24 @@ name: Weekly Overseas Stats Update
 
 # 海外版(英語版Wikipedia)の閲覧数取得は対象が約7,000件あり、レート制限対策で
 # 同時実行数1に制限しているため数時間かかる。日次更新とは別のワークフローにして、
-# 週1回だけ実行する。
+# 週1回だけ実行する。結果はDBに入り、次の日次更新のビルドでサイトに反映される。
 
 on:
   workflow_dispatch: {}
 
+# 日次更新と同じグループで直列化する(同じDriveのDBを読み書きするため)
 concurrency:
-  group: overseas-update
+  group: pageviews-db
   cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+  GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+  GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+  GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
 
 jobs:
   update-overseas:
@@ -24,24 +34,32 @@ jobs:
         with:
           node-version: 24
 
-      - name: Download cache from Google Drive
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+      - name: Free disk space
         run: |
-          mkdir -p data
-          node drive-sync.js download data/pageviews.db
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          df -h /
+
+      - name: Download cache from Google Drive
+        id: download
+        run: node drive-sync.js download data/pageviews.db
 
       - name: Fetch overseas (en.wikipedia) stats
         run: node fetch-overseas-stats.js
 
       - name: Upload cache back to Google Drive
-        if: always()
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: node drive-sync.js upload data/pageviews.db
+
+      # 集計結果(data/en-*-stats.json)はリポジトリ管理のファイルなので、コミットしないと次回の日次ビルドに反映されない
+      - name: Commit overseas stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/en-*-stats.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "Update overseas stats $(date -u +%Y-%m-%d)"
+            git pull --rebase
+            git push
+          fi

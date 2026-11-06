@@ -5,6 +5,7 @@
 // Pageviews APIへの新規アクセスはなし。
 // node build-categories.js
 
+import { stylesheetTag } from "./shared-assets.js";
 import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { BACK_TO_TOP_CSS, BACK_TO_TOP_HTML, BACK_TO_TOP_SCRIPT } from "./back-to-top.js";
@@ -136,7 +137,7 @@ function buildListPage({ breadcrumbLabel, title, description, items, backHref })
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)} - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="${escapeHtml(description)}">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("studios", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
@@ -170,7 +171,7 @@ function buildTopIndexPage({ title, description, items }) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)} - アニメ Wikipedia 閲覧数ランキング</title>
 <meta name="description" content="${escapeHtml(description)}">
-<style>${PAGE_CSS}</style>
+${stylesheetTag("studios", PAGE_CSS)}
 </head>
 <body>
 <div class="wrap">
