@@ -5,10 +5,11 @@
 #    (個別記事ごとのAPIフェッチを避け、429レート制限を回避する)
 # 3. build.js / build-seiyuu.js / build-manga.js を実行(当日分は既にSQLiteにあるため瞬時に終わる。
 #    新規追加された作品・声優・漫画だけは、ダンプに無い過去分をAPI経由で取得するフォールバックが働く)
-# タスクスケジューラ/cron/GitHub Actionsから1日1回呼び出す想定。
 # fetch-all-manga-list.jsはWikidataへの問い合わせで15〜20分程度かかるため、
 # 深夜帯などダンプ公開を待つ時間に実行されるこの日次更新に含めるのが適切。
 # 実行: powershell -File run-daily-update.ps1
+# 本番の日次更新は GitHub Actions(.github/workflows/daily-update.yml)で行う。このスクリプトは手元で
+# サイトを作り直して確認したいとき用(公開はしない)。先に node drive-sync.js download data/pageviews.db で最新のDBを取ってくること。
 
 $ErrorActionPreference = "Stop"
 $ProjectDir = "C:\Users\kensh\anime_pageviews_ranking"
@@ -47,10 +48,6 @@ try {
     Run-Step "build-seiyuu" "build-seiyuu.js"
     Run-Step "build-manga" "build-manga.js"
     Run-Step "build-categories" "build-categories.js"
-    Write-Log "step start: deploy-to-pages"
-    & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $ProjectDir "deploy-to-pages.ps1")
-    if ($LASTEXITCODE -ne 0) { throw "deploy-to-pages failed with exit code $LASTEXITCODE" }
-    Write-Log "step done: deploy-to-pages"
     Write-Log "=== daily update completed successfully ==="
 } catch {
     Write-Log "=== daily update FAILED: $($_.Exception.Message) ==="
