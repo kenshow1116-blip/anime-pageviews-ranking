@@ -30,7 +30,7 @@ async function loadCharacterNames() {
   return new Set();
 }
 
-const SITE_URL = "https://kenshow1116-blip.github.io/anime-pageviews-ranking";
+const SITE_URL = "https://ninkimeter.com";
 
 const SEIYUU_LIST_FILE = path.resolve("data", "seiyuu-list.json");
 const ALL_SEIYUU_LIST_FILE = path.resolve("data", "all-seiyuu-list.json");

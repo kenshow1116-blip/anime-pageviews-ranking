@@ -61,7 +61,7 @@ export async function loadMetadata() {
   }
 }
 
-const SITE_URL = "https://kenshow1116-blip.github.io/anime-pageviews-ranking";
+const SITE_URL = "https://ninkimeter.com";
 
 const FALLBACK_ANIME_LIST = [
   "ONE PIECE",

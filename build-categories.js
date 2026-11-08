@@ -11,7 +11,7 @@ import path from "node:path";
 import { BACK_TO_TOP_CSS, BACK_TO_TOP_HTML, BACK_TO_TOP_SCRIPT } from "./back-to-top.js";
 import { exportStudioDailyViews } from "./export-daily-views-lib.js";
 
-const SITE_URL = "https://kenshow1116-blip.github.io/anime-pageviews-ranking";
+const SITE_URL = "https://ninkimeter.com";
 const OUT_DIR = path.resolve("dist");
 const STUDIOS_DIR = path.join(OUT_DIR, "studios");
 const SITEMAP_FILE = path.join(OUT_DIR, "sitemap.xml");
