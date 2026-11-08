@@ -984,6 +984,29 @@ async function idbMergeDelta(payload) {
 // - 一致: 何もしない(ほとんどの再訪問はこれ)
 // - 前回訪問が直近DELTA_DAYS日以内: 軽量な差分ファイルだけ取得してマージ
 // - それ以外(初回/長期間未訪問): 全データをフル取得
+// フル版JSONは容量削減のため「先頭の0を省略した生の日次値」(format: "raw-trimmed")で配信している。
+// 以降の処理はすべて累積配列(prefix sum)前提なので、受け取った直後に従来の形へ戻す。
+// views[title] = [先頭で省略した0の個数, 生の日次値...] / データ無しは空配列
+function decodeDailyViewsPayload(payload) {
+  if (payload.format !== "raw-trimmed") return payload;
+  const n = daysBetweenYmdStr(payload.startDate, payload.endDate) + 1;
+  for (const title of payload.titles) {
+    const arr = payload.views[title] || [];
+    const out = new Array(n).fill(0);
+    if (arr.length > 0) {
+      const offset = arr[0];
+      let running = 0;
+      for (let i = 1; i < arr.length; i++) {
+        running += arr[i];
+        out[offset + i - 1] = running;
+      }
+    }
+    payload.views[title] = out;
+  }
+  payload.format = "cumulative";
+  return payload;
+}
+
 async function ensureAllDataReady(onProgress) {
   const cachedEndDate = await idbGetMeta("endDate");
 
@@ -1018,7 +1041,7 @@ async function ensureAllDataReady(onProgress) {
   } else {
     if (onProgress) onProgress("downloading");
     const fullRes = await fetch("data/overseas-daily-views.json", { cache: "no-cache" });
-    const payload = await fullRes.json();
+    const payload = decodeDailyViewsPayload(await fullRes.json());
     if (onProgress) onProgress("saving");
     await idbPutAllDailyViews(payload);
     await idbPutMeta("endDate", payload.endDate);

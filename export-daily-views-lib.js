@@ -1,6 +1,6 @@
 // pageviews.db(SQLite)から対象リスト(作品 or 声優)の日次閲覧数を読み出し、
 // ブラウザ側がWikipedia APIを直接叩かずに済むよう、静的JSONとして dist/data/ に書き出す共通ロジック。
-// - <outPrefix>.json: 全データ本体(初回訪問時のみ使う)
+// - <outPrefix>.json: 全データ本体(初回訪問時のみ使う。形式はFULL_FORMATの説明を参照)
 // - <outPrefix>-delta.json: 直近DELTA_DAYS日分だけの軽量ファイル(通常の再訪問時に使う)
 // - <outPrefix>-meta.json: endDate/deltaStartDateを持つ軽量ファイル(差分判定用)
 
@@ -16,6 +16,18 @@ const API_START = "20150701";
 // 新規記事を丸ごとバックフィルする際の対象範囲(完全な「前日まで」)を指すため変更不要。
 const LAG_DAYS = 0;
 const DELTA_DAYS = 35; // この日数より長く訪問が空いた場合のみフル再ダウンロードにフォールバックする
+
+// フル版JSONは累積値ではなく「生の日次値＋先頭の0を省略」の形で書き出す。
+// 累積値は桁数が大きく(数百万)、記事ができる前の期間も0が延々と並ぶため、
+// サイト容量(GitHub Pagesの上限1GB)を圧迫していた。生の日次値なら大半が1〜3桁で済む。
+// 形式: [先頭で省略した0の個数, 生の日次値...]。データが全く無い記事は空配列。
+// ブラウザ側(各ranking.htmlのdecodeDailyViewsPayload)で従来どおりの累積配列に戻してから使う。
+const FULL_FORMAT = "raw-trimmed";
+function encodeTrimmedRaw(raw) {
+  const first = raw.findIndex((v) => v !== 0);
+  if (first < 0) return [];
+  return [first, ...raw.slice(first)];
+}
 
 function fmtDate(d) {
   const y = d.getFullYear();
@@ -82,8 +94,7 @@ export async function exportDailyViews({ listFile, titles, outPrefix, project = 
     const map = new Map(rows.map((r) => [r.date, r.views]));
     const raw = dateKeys.map((ymd) => map.get(ymd) || 0);
     deltaViews[title] = raw.slice(deltaStartIdx);
-    let running = 0;
-    views[title] = raw.map((v) => (running += v));
+    views[title] = encodeTrimmedRaw(raw);
   }
   db.close();
 
@@ -93,7 +104,7 @@ export async function exportDailyViews({ listFile, titles, outPrefix, project = 
 
   await mkdir(OUT_DIR, { recursive: true });
 
-  const payload = { startDate: API_START, endDate, titles: titleList, views, format: "cumulative" };
+  const payload = { startDate: API_START, endDate, titles: titleList, views, format: FULL_FORMAT };
   await writeFile(path.join(OUT_DIR, `${outPrefix}.json`), JSON.stringify(payload), "utf-8");
 
   // delta側は累積ではなく生の日次値のまま(クライアント側で既存の累積に積み上げてマージする)。
@@ -155,14 +166,13 @@ export async function exportStudioDailyViews({ studioToWorks, outPrefix }) {
       for (let i = 0; i < totalDays; i++) raw[i] += workRaw[i];
     }
     deltaViews[studio] = raw.slice(deltaStartIdx);
-    let running = 0;
-    views[studio] = raw.map((v) => (running += v));
+    views[studio] = encodeTrimmedRaw(raw);
   }
   db.close();
 
   await mkdir(OUT_DIR, { recursive: true });
 
-  const payload = { startDate: API_START, endDate, titles: studioList, views, format: "cumulative" };
+  const payload = { startDate: API_START, endDate, titles: studioList, views, format: FULL_FORMAT };
   await writeFile(path.join(OUT_DIR, `${outPrefix}.json`), JSON.stringify(payload), "utf-8");
 
   const deltaStartDate = dateKeys[deltaStartIdx];
