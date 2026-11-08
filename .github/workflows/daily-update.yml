@@ -50,10 +50,13 @@ jobs:
         id: download
         run: node drive-sync.js download data/pageviews.db
 
+      # Wikidataが混雑で失敗することがある。失敗時は出力ファイルが書き換わらず、リポジトリにある
+      # 前回の一覧がそのまま使われるので、ここでは止めずに続行する(新作の反映が1日遅れるだけ)
       - name: Fetch anime/manga title lists
+        continue-on-error: true
         run: |
-          node fetch-all-anime-list.js
-          node fetch-all-manga-list.js
+          node fetch-all-anime-list.js || echo "::warning::fetch-all-anime-list failed; using previous list"
+          node fetch-all-manga-list.js || echo "::warning::fetch-all-manga-list failed; using previous list"
 
       - name: Fetch daily pageviews from dump
         run: node fetch-daily-from-dump.js
