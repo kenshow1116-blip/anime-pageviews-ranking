@@ -44,6 +44,79 @@ function daysBetweenInclusive(start, end) {
   return Math.round((parseYmd(end) - parseYmd(start)) / 86400000) + 1;
 }
 
+// ---- ランキング初期表示用スナップショット ----
+// ランキングページは本来、全期間の日次データ(数十〜百数十MB)をブラウザで受け取り、その場で
+// 期間ごとの合計を計算して並べている。初めての訪問者ほど待たされるので、「最新日を基準にした
+// ライブ表示」で使う値だけをビルド時に計算して小さなJSON(<outPrefix>-snapshot.json)に書き出す。
+// 計算ルールは各ranking.htmlのcomputeMetricFromMap/sumRangeFromRec/loadRankingと完全に同じにすること。
+// 基準日(ブラウザ側のtodayMinusLag)は、ビルド当日(endDate)とその翌日のどちらにもなりうる
+// (UTCの日付が変わってから次のビルドまでの間は翌日)ため、両方を用意する。
+const SNAPSHOT_ROLLING = { y1: 365, m1: 30, w1: 7 };
+
+function snapshotMetrics(cum, r) {
+  const last = cum.length - 1;
+  const cumAt = (i) => (i < 0 || last < 0 ? 0 : cum[Math.min(i, last)]);
+  const rangeSum = (startIdx, days) => {
+    const endIdx = startIdx + days - 1;
+    if (endIdx < 0 || days <= 0 || last < 0) return 0;
+    return cumAt(endIdx) - cumAt(startIdx - 1);
+  };
+  const out = { all: r < 0 ? 0 : cumAt(r) };
+  // ライブ表示のローリング期間は基準日当日を含めず、前日を終点にする
+  for (const [k, days] of Object.entries(SNAPSHOT_ROLLING)) out[k] = rangeSum(r - 1 - (days - 1), days);
+  // 急上昇: 直近7日(基準日を含む)とその前の7日
+  out.sr = rangeSum(r - 6, 7);
+  out.sp = rangeSum(r - 13, 7);
+  return out;
+}
+
+function createSnapshotBuilder(totalDays, dateKeys) {
+  const endIdx = totalDays - 1;
+  const refIdxs = [endIdx, endIdx + 1];
+  const refYmds = refIdxs.map((i) => {
+    if (i < dateKeys.length) return dateKeys[i];
+    const d = parseYmd(dateKeys[dateKeys.length - 1]);
+    d.setDate(d.getDate() + (i - (dateKeys.length - 1)));
+    return fmtDate(d);
+  });
+  const refs = refYmds.map(() => ({
+    cur: { all: [], y1: [], m1: [], w1: [], sr: [], sp: [] },
+    prev: { all: [], y1: [], m1: [], w1: [], sd: [] },
+  }));
+  return {
+    add(raw) {
+      const cum = new Array(raw.length);
+      let running = 0;
+      for (let i = 0; i < raw.length; i++) cum[i] = running += raw[i];
+      refIdxs.forEach((r, k) => {
+        const cur = snapshotMetrics(cum, r);
+        const before = snapshotMetrics(cum, r - 1);
+        const ref = refs[k];
+        for (const key of Object.keys(ref.cur)) ref.cur[key].push(cur[key]);
+        // 前日比の順位用。累計は「基準日の値 - 基準日単体の閲覧数」(ブラウザ側と同じ式)
+        const last = cum.length - 1;
+        let todayViews = 0;
+        if (last >= 0) {
+          const c = Math.min(r, last);
+          todayViews = (cum[c] || 0) - (c > 0 ? cum[c - 1] || 0 : 0);
+        }
+        ref.prev.all.push(cur.all - todayViews);
+        for (const key of Object.keys(SNAPSHOT_ROLLING)) ref.prev[key].push(before[key]);
+        ref.prev.sd.push(before.sr - before.sp);
+      });
+    },
+    toJSON(endDate, titles) {
+      const out = { endDate, titles, refs: {} };
+      refYmds.forEach((ymd, k) => (out.refs[ymd] = refs[k]));
+      return out;
+    },
+  };
+}
+
+async function writeSnapshot(outPrefix, builder, endDate, titles) {
+  await writeFile(path.join(OUT_DIR, `${outPrefix}-snapshot.json`), JSON.stringify(builder.toJSON(endDate, titles)), "utf-8");
+}
+
 // listFile: 対象タイトル一覧のJSONファイルパス(文字列配列)。titlesを直接渡す場合は省略可。
 // titles: 対象タイトル一覧を配列で直接渡す場合(listFileより優先)。
 // outPrefix: 出力ファイル名の接頭辞("daily-views" / "seiyuu-daily-views"など)
@@ -86,6 +159,7 @@ export async function exportDailyViews({ listFile, titles, outPrefix, project = 
   const deltaStartIdx = Math.max(0, totalDays - DELTA_DAYS);
   const views = {};
   const deltaViews = {};
+  const snapshot = createSnapshotBuilder(totalDays, dateKeys);
   let missing = 0;
   for (const title of titleList) {
     const lookupTitle = titleMap ? titleMap[title] : title;
@@ -95,6 +169,7 @@ export async function exportDailyViews({ listFile, titles, outPrefix, project = 
     const raw = dateKeys.map((ymd) => map.get(ymd) || 0);
     deltaViews[title] = raw.slice(deltaStartIdx);
     views[title] = encodeTrimmedRaw(raw);
+    snapshot.add(raw);
   }
   db.close();
 
@@ -117,6 +192,7 @@ export async function exportDailyViews({ listFile, titles, outPrefix, project = 
     JSON.stringify({ endDate, deltaStartDate }),
     "utf-8"
   );
+  await writeSnapshot(outPrefix, snapshot, endDate, titleList);
 
   console.log(`書き出し完了: dist/data/${outPrefix}.json (endDate=${endDate}, deltaStartDate=${deltaStartDate})`);
 }
@@ -151,6 +227,7 @@ export async function exportStudioDailyViews({ studioToWorks, outPrefix }) {
   const deltaStartIdx = Math.max(0, totalDays - DELTA_DAYS);
   const views = {};
   const deltaViews = {};
+  const snapshot = createSnapshotBuilder(totalDays, dateKeys);
   const workRawCache = new Map(); // 複数社に属す作品の再クエリを避けるキャッシュ
 
   for (const studio of studioList) {
@@ -167,6 +244,7 @@ export async function exportStudioDailyViews({ studioToWorks, outPrefix }) {
     }
     deltaViews[studio] = raw.slice(deltaStartIdx);
     views[studio] = encodeTrimmedRaw(raw);
+    snapshot.add(raw);
   }
   db.close();
 
@@ -184,6 +262,7 @@ export async function exportStudioDailyViews({ studioToWorks, outPrefix }) {
     JSON.stringify({ endDate, deltaStartDate }),
     "utf-8"
   );
+  await writeSnapshot(outPrefix, snapshot, endDate, studioList);
 
   console.log(`書き出し完了: dist/data/${outPrefix}.json (endDate=${endDate}, deltaStartDate=${deltaStartDate})`);
 }

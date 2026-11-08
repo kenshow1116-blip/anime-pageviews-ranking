@@ -1164,6 +1164,19 @@ function buildTrendSeriesForCurrentPeriod(title) {
 }
 
 function renderDetailPanel(panel, title) {
+  if (!historicalMapsLoaded) {
+    panel.innerHTML =
+      '<div style="padding:16px 0;text-align:center;color:var(--text-muted);font-size:13px">推移データを読み込み中…(初回のみ少し時間がかかります)</div>';
+    ensureFullDataForTrends()
+      .then(() => {
+        if (!panel.hidden && panel.isConnected) renderDetailPanel(panel, title);
+      })
+      .catch(() => {
+        panel.innerHTML =
+          '<div style="padding:16px 0;text-align:center;color:var(--text-muted);font-size:13px">推移データを読み込めませんでした。再取得ボタンを押してください。</div>';
+      });
+    return;
+  }
   panel.innerHTML = "";
   const { series, mode } = buildTrendSeriesForCurrentPeriod(title);
   const chartWrap = document.createElement("div");
@@ -1350,6 +1363,58 @@ function updateSubtitle() {
     `日本語版Wikipedia「ページビュー」${detail} / 人間アクセスのみ集計 ${historicalNote}`;
 }
 
+// ---- 初期表示の高速化 ----
+// ライブ表示(最新日基準)の順位は、毎朝のビルド時に計算済みの小さなファイル(-snapshot.json)から
+// 読むだけで表示できる。全期間の日次データ(大きい)は、過去の日付を指定したときと
+// 推移グラフを開いたときにだけ取りに行く。
+const SNAPSHOT_URL = "data/manga-daily-views-snapshot.json";
+let snapshotPromise = null;
+function loadSnapshot() {
+  if (!snapshotPromise) {
+    snapshotPromise = fetch(SNAPSHOT_URL, { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+  return snapshotPromise;
+}
+
+// スナップショットから、loadRankingが計算するのと同じ形のresults/prevResultsを作る。
+// 基準日のデータが無い(ビルドが古い等)ときはnullを返し、従来の全データ計算に任せる。
+function resultsFromSnapshot(snap, periodKey, refYmd) {
+  const ref = snap && snap.refs && snap.refs[refYmd];
+  if (!ref || !Array.isArray(snap.titles)) return null;
+  if (periodKey === "surge") {
+    const results = ref.cur.sr.map((recentWeek, i) => {
+      const prevWeek = ref.cur.sp[i];
+      const delta = recentWeek - prevWeek;
+      const pct = prevWeek > 0 ? (delta / prevWeek) * 100 : recentWeek > 0 ? null : 0;
+      return { ok: true, value: { recentWeek, prevWeek, delta, pct } };
+    });
+    const prevResults = ref.prev.sd.map((delta) => ({ ok: true, value: { delta } }));
+    return { results, prevResults };
+  }
+  if (!ref.cur[periodKey] || !ref.prev[periodKey]) return null;
+  return {
+    results: ref.cur[periodKey].map((value) => ({ ok: true, value })),
+    prevResults: ref.prev[periodKey].map((value) => ({ ok: true, value })),
+  };
+}
+
+// 推移グラフ用に全データを1回だけ読み込む(複数の行で同時に開かれても取得は1回)。
+let fullDataPromise = null;
+function ensureFullDataForTrends() {
+  if (!fullDataPromise) {
+    fullDataPromise = (async () => {
+      await ensureAllDataReady();
+      await ensureHistoricalMaps();
+    })().catch((e) => {
+      fullDataPromise = null;
+      throw e;
+    });
+  }
+  return fullDataPromise;
+}
+
 async function loadRanking(forceRefresh) {
   const statusEl = document.getElementById("status");
   const refreshBtn = document.getElementById("refreshBtn");
@@ -1358,9 +1423,28 @@ async function loadRanking(forceRefresh) {
   refreshBtn.disabled = true;
   buildRows([]);
 
-  if (forceRefresh) historicalMapsLoaded = false; // 強制的にキャッシュの鮮度を再確認させる
+  if (forceRefresh) {
+    historicalMapsLoaded = false; // 強制的にキャッシュの鮮度を再確認させる
+    fullDataPromise = null;
+    snapshotPromise = null;
+  }
 
   statusEl.textContent = "最新データを確認中...";
+
+  // ライブ表示はビルド時に計算済みの順位を使う(全データのダウンロード・集計を待たない)
+  if (!historicalDate) {
+    const snap = await loadSnapshot();
+    const fromSnap = resultsFromSnapshot(snap, periodKey, dateToYmd(todayMinusLag()));
+    if (fromSnap) {
+      if (periodKey !== currentPeriod || historicalDate) return; // 取得中に表示条件が変わった
+      ANIME_LIST = snap.titles;
+      const prevSnapshot = computeRankSnapshot(fromSnap.prevResults, periodKey);
+      statusEl.textContent = `取得完了 (${new Date().toLocaleString("ja-JP")}) / 前日比`;
+      buildRows(fromSnap.results, prevSnapshot);
+      refreshBtn.disabled = false;
+      return;
+    }
+  }
   await ensureAllDataReady((stage) => {
     statusEl.textContent = stage === "downloading" ? "最新データを取得中..." : "保存中...";
   });
