@@ -787,14 +787,17 @@ function viewsAtYmd(rec, ymd) {
   return cur - prev;
 }
 
+// rec.viewsは累積合計なので、期間合計は「終点の累積 - 始点前日の累積」の1回の引き算で出せる。
+// (以前は1日ずつviewsAtYmdを足していたため、直近1年=365回×全タイトル分の日付計算が走り遅かった)
+// データ範囲外の日は0として扱う(始点より前・最終日より後)。
 function sumRangeFromRec(rec, fromDate, days) {
-  let total = 0;
-  for (let i = 0; i < days; i++) {
-    const d = new Date(fromDate);
-    d.setDate(d.getDate() + i);
-    total += viewsAtYmd(rec, dateToYmd(d));
-  }
-  return total;
+  if (!rec || !rec.views || !rec.startDate || rec.views.length === 0 || days <= 0) return 0;
+  const last = rec.views.length - 1;
+  const startIdx = daysBetweenYmdStr(rec.startDate, dateToYmd(fromDate));
+  const endIdx = startIdx + days - 1;
+  if (endIdx < 0) return 0;
+  const cumAt = (i) => (i < 0 ? 0 : rec.views[Math.min(i, last)] || 0);
+  return cumAt(endIdx) - cumAt(startIdx - 1);
 }
 
 // periodKeyの指標を、refDate(Dateオブジェクト)を基準にrecから計算する。
