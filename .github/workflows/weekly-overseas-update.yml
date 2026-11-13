@@ -45,7 +45,11 @@ jobs:
         id: download
         run: node drive-sync.js download data/pageviews.db
 
+      # ジョブの制限時間(timeout-minutes)で打ち切られると取得分がDriveに書き戻されないため、
+      # スクリプト側で時間予算を設けて自分で切り上げる(残りは次回、古い順に取得)
       - name: Fetch overseas (en.wikipedia) stats
+        env:
+          OVERSEAS_TIME_BUDGET_MIN: "270"
         run: node fetch-overseas-stats.js
 
       - name: Upload cache back to Google Drive

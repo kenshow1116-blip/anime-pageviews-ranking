@@ -8,7 +8,10 @@
 // 24時間分を素直にループすると、何らかのリソース蓄積(詳細未特定)で徐々に遅くなる現象が
 // 確認されたため、1時間ごとに使い捨てのプロセスにしてリセットしている。
 //
-// 使い方: node fetch-daily-from-dump.js [YYYYMMDD]  (省略時はUTC基準の前日)
+// 使い方: node fetch-daily-from-dump.js [YYYYMMDD]
+//   日付省略時は、UTC基準の前日を含む直近LOOKBACK_DAYS日のうち、24時間分そろって取得済みと
+//   記録されていない日(dump_daysテーブル)を、前日を先頭に新しい順で最大MAX_DAYS_PER_RUN日取得する。1日だけ見る方式だと、更新が失敗した日やGitHub Actionsの
+//   スケジュールがずれて飛ばされた日が永久に0件のまま残っていた(2026-11-04/11-08で発生)。
 
 import { DatabaseSync } from "node:sqlite";
 import { readFile, writeFile, unlink, mkdir } from "node:fs/promises";
@@ -61,20 +64,64 @@ function toDumpTitle(title) {
   return title.replace(/ /g, "_");
 }
 
-async function main() {
-  const dateArg = process.argv[2];
-  const dateYmd = dateArg || defaultUtcLagDate();
-  console.log(`対象日: ${dateYmd}`);
+const LOOKBACK_DAYS = 45;
 
+function addDaysYmd(ymd, n) {
+  const d = new Date(Date.UTC(Number(ymd.slice(0, 4)), Number(ymd.slice(4, 6)) - 1, Number(ymd.slice(6, 8))));
+  d.setUTCDate(d.getUTCDate() + n);
+  return `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, "0")}${String(d.getUTCDate()).padStart(2, "0")}`;
+}
+
+// 1回の実行で取り直す日数の上限(1日あたり約5分)。初回は過去の欠けた日がまとめて見つかるため、
+// 数日かけて少しずつ埋める。
+const MAX_DAYS_PER_RUN = 10;
+// これより古い日で一部の時間帯だけファイルが無い場合は、Wikimedia側で恒久的に欠けているとみなし、
+// あるだけの時間帯で確定させる(新しい日はダンプ公開待ちの可能性があるので保存せず次回に回す)。
+const SETTLE_DAYS = 3;
+const MAX_MISSING_HOURS_TO_SETTLE = 2;
+
+function ensureDumpDaysTable(db) {
+  // 24時間分そろって取得できた日を記録する。行数だけでは、途中で止まって数時間分しか入っていない日
+  // (旧ローカル運用で2026-10〜11月に多発)を見分けられないため。
+  db.exec("CREATE TABLE IF NOT EXISTS dump_days (date TEXT PRIMARY KEY, hours INTEGER NOT NULL, fetched_at TEXT NOT NULL)");
+}
+
+// 直近LOOKBACK_DAYS日のうち、ダンプから確定取得済みとして記録されていない日を返す。
+// 前日を最優先し、残りは新しい日から順に、最大MAX_DAYS_PER_RUN日。
+function findMissingDates() {
+  const latest = defaultUtcLagDate();
+  const first = addDaysYmd(latest, -(LOOKBACK_DAYS - 1));
+  const db = new DatabaseSync(DB_PATH);
+  ensureDumpDaysTable(db);
+  const rows = db.prepare("SELECT date, hours FROM dump_days WHERE date >= ? AND date <= ?").all(first, latest);
+  db.close();
+  const hoursByDate = new Map(rows.map((r) => [r.date, r.hours]));
+  const settleLimit = addDaysYmd(latest, -SETTLE_DAYS);
+  const missing = [];
+  for (let i = 0; i < LOOKBACK_DAYS; i++) {
+    const ymd = addDaysYmd(latest, -i);
+    const hours = hoursByDate.get(ymd);
+    const done = hours === 24 || (hours !== undefined && ymd <= settleLimit);
+    if (!done) missing.push(ymd);
+  }
+  return missing.slice(0, MAX_DAYS_PER_RUN);
+}
+
+async function loadTitles() {
   const animeList = JSON.parse(await readFile(path.resolve("data", "all-anime-list.json"), "utf-8"));
   const seiyuuList = JSON.parse(await readFile(path.resolve("data", "all-seiyuu-list.json"), "utf-8"));
   const mangaList = JSON.parse(await readFile(path.resolve("data", "all-manga-list.json"), "utf-8"));
   const allTitles = [...animeList, ...seiyuuList, ...mangaList];
+  console.log(`対象記事数: ${allTitles.length}件(アニメ${animeList.length} + 声優${seiyuuList.length} + 漫画${mangaList.length})`);
+  return allTitles;
+}
+
+async function processDate(dateYmd, allTitles) {
+  console.log(`対象日: ${dateYmd}`);
 
   const dumpTitleToOriginal = new Map();
   for (const title of allTitles) dumpTitleToOriginal.set(toDumpTitle(title), title);
   const targetDumpTitles = Array.from(dumpTitleToOriginal.keys());
-  console.log(`対象記事数: ${allTitles.length}件(アニメ${animeList.length} + 声優${seiyuuList.length} + 漫画${mangaList.length})`);
 
   const titlesFile = path.join(os.tmpdir(), `dump-target-titles-${process.pid}.json`);
   await writeFile(titlesFile, JSON.stringify(targetDumpTitles), "utf-8");
@@ -117,11 +164,18 @@ async function main() {
   }
 
   if (missingHours === 24) {
-    console.error("全時間帯のファイルが取得できませんでした。日付がまだ早すぎる可能性があります。");
-    process.exit(1);
+    throw new Error(`${dateYmd}: 全時間帯のファイルが取得できませんでした。日付がまだ早すぎる可能性があります。`);
+  }
+  // 一部の時間帯が欠けたまま保存すると、その日の閲覧数が大幅に少ないまま残ってしまう。
+  // 新しい日はダンプの公開待ちとみなして保存せず、次回の実行で取り直す。
+  const settled = dateYmd <= addDaysYmd(defaultUtcLagDate(), -SETTLE_DAYS);
+  if (missingHours > 0 && !(settled && missingHours <= MAX_MISSING_HOURS_TO_SETTLE)) {
+    throw new Error(`${dateYmd}: ${missingHours}時間分のファイルがまだありません(保存せず次回に取り直します)。`);
   }
 
   const db = new DatabaseSync(DB_PATH);
+  ensureDumpDaysTable(db);
+  const markDay = db.prepare("INSERT OR REPLACE INTO dump_days (date, hours, fetched_at) VALUES (?, ?, ?)");
   const upsert = db.prepare(
     "INSERT OR REPLACE INTO daily_views (project, article, date, views) VALUES (?, ?, ?, ?)"
   );
@@ -132,6 +186,7 @@ async function main() {
       const views = totals.get(dumpTitle) || 0;
       upsert.run("ja.wikipedia", title, dateYmd, views);
     }
+    markDay.run(dateYmd, availableHours.length, new Date().toISOString());
     db.exec("COMMIT");
   } catch (e) {
     db.exec("ROLLBACK");
@@ -158,6 +213,31 @@ async function main() {
     await mkdir(outDir, { recursive: true });
     await writeFile(path.join(outDir, hourlyFileName), JSON.stringify(hourlyPayload), "utf-8");
     console.log(`時間別データを dist/data/${hourlyFileName} に書き出しました(対象日=${dateYmd}, 利用可能時間: ${availableHours.length}時間)。`);
+  }
+}
+
+async function main() {
+  const allTitles = await loadTitles();
+  const dateArg = process.argv[2];
+  const dates = dateArg ? [dateArg] : findMissingDates();
+  if (dates.length === 0) {
+    console.log("直近の日付はすべて取得済みです。");
+    return;
+  }
+  console.log(`取得する日付: ${dates.join(", ")}`);
+  const failed = [];
+  for (const dateYmd of dates) {
+    try {
+      await processDate(dateYmd, allTitles);
+    } catch (e) {
+      // 1日分の失敗で他の日まで止めない(失敗した日は次回の実行で再挑戦される)
+      console.error(`${dateYmd} の取得に失敗:`, e.message || e);
+      failed.push(dateYmd);
+    }
+  }
+  if (failed.length > 0) {
+    console.error(`取得できなかった日: ${failed.join(", ")}(次回の実行で再挑戦します)`);
+    process.exit(1);
   }
 }
 

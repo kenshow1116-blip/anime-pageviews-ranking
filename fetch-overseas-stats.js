@@ -4,10 +4,16 @@
 // 既存のpageview-cache.js(同じSQLiteキャッシュ)を使うため、既に取得済みのタイトルは
 // キャッシュそのまま使用でAPI通信なし。
 // node fetch-overseas-stats.js
+//
+// GitHub Actionsのジョブには時間制限(5時間50分)があり、途中で打ち切られると取得済みの分まで
+// Driveに書き戻されず全部無駄になる(2026-11-08に実際に発生)。そのため:
+// - 3カテゴリ分の英語版記事をまとめ、最終取得日が古い順(未取得が最優先)に取得する
+// - 時間予算(既定270分、環境変数OVERSEAS_TIME_BUDGET_MINで変更可)を超えたら新規取得をやめ、
+//   残りはキャッシュにある分だけで統計を書き出して正常終了する(続きは次回、古い順なので自然に回る)
 
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { getDailyHistory, closeCache } from "./pageview-cache.js";
+import { getDailyHistory, getCachedMax, getCachedRangeOnly, closeCache } from "./pageview-cache.js";
 
 const USER_AGENT = "anime-pageviews-ranking-bot/1.0 (personal project)";
 const API_START = "20150701";
@@ -90,53 +96,79 @@ function computeTotal(items) {
   return items.reduce((sum, it) => sum + it.views, 0);
 }
 
-async function processCategory(titlesFile, statsFile, label) {
-  let jaToEn;
+const TIME_BUDGET_MS = Number(process.env.OVERSEAS_TIME_BUDGET_MIN || 270) * 60 * 1000;
+const startedAt = Date.now();
+
+const CATEGORIES = [
+  { titlesFile: "en-titles.json", statsFile: "en-work-stats.json", label: "アニメ" },
+  { titlesFile: "en-manga-titles.json", statsFile: "en-manga-stats.json", label: "漫画" },
+  { titlesFile: "en-seiyuu-titles.json", statsFile: "en-seiyuu-stats.json", label: "声優" },
+];
+
+async function loadPairs(titlesFile, label) {
   try {
-    jaToEn = JSON.parse(await readFile(path.resolve("data", titlesFile), "utf-8"));
+    return Object.entries(JSON.parse(await readFile(path.resolve("data", titlesFile), "utf-8"))); // [jaTitle, enTitle][]
   } catch {
     console.warn(`${label}: data/${titlesFile} が見つからないためスキップします(先にfetch-en-titles.jsを実行してください)。`);
-    return;
+    return null;
   }
-  const pairs = Object.entries(jaToEn); // [jaTitle, enTitle][]
-  console.log(`=== ${label}: 対象${pairs.length}件の英語版閲覧数を取得中(キャッシュ差分方式) ===`);
-
-  const endDate = fmtDate(todayMinusLag());
-  let apiFetchCount = 0;
-  const results = await runPool(
-    pairs,
-    ([, enTitle]) =>
-      getDailyHistory("en.wikipedia", enTitle, API_START, endDate, (article, s, e) => {
-        apiFetchCount++;
-        return fetchDailyHistoryRange(article, s, e);
-      }),
-    CONCURRENCY,
-    (done, total) => {
-      if (done % 50 === 0 || done === total) console.log(`  ${label}: ${done}/${total}件`);
-    }
-  );
-  console.log(`${label}: APIへの実リクエスト件数: ${apiFetchCount} / ${pairs.length}件`);
-
-  const stats = {};
-  const failed = [];
-  pairs.forEach(([jaTitle, enTitle], i) => {
-    const r = results[i];
-    if (!r.ok) {
-      failed.push({ jaTitle, enTitle, error: r.error ? r.error.message : "unknown" });
-      return;
-    }
-    stats[jaTitle] = { enTitle, total: computeTotal(r.value) };
-  });
-  if (failed.length > 0) console.warn(`${label}: 取得失敗 ${failed.length}件:`, failed.slice(0, 5));
-
-  await writeFile(path.resolve("data", statsFile), JSON.stringify(stats, null, 2), "utf-8");
-  console.log(`${label}: data/${statsFile} に ${Object.keys(stats).length}件書き出しました。`);
 }
 
 async function main() {
-  await processCategory("en-titles.json", "en-work-stats.json", "アニメ");
-  await processCategory("en-manga-titles.json", "en-manga-stats.json", "漫画");
-  await processCategory("en-seiyuu-titles.json", "en-seiyuu-stats.json", "声優");
+  const endDate = fmtDate(todayMinusLag());
+  const categories = [];
+  for (const c of CATEGORIES) {
+    const pairs = await loadPairs(c.titlesFile, c.label);
+    if (pairs) categories.push({ ...c, pairs });
+  }
+
+  // 取得対象の英語版記事(カテゴリ間の重複は1回だけ)を、最終取得日が古い順に並べる
+  const enTitles = Array.from(new Set(categories.flatMap((c) => c.pairs.map(([, en]) => en))));
+  const withMax = enTitles.map((en) => ({ en, max: getCachedMax("en.wikipedia", en) }));
+  const needFetch = withMax.filter((x) => !x.max || x.max < endDate);
+  needFetch.sort((a, b) => (a.max || "").localeCompare(b.max || ""));
+  console.log(`英語版記事 ${enTitles.length}件のうち、更新が必要なもの ${needFetch.length}件(最終取得日が古い順に取得)`);
+
+  let apiFetchCount = 0;
+  let skippedForTime = 0;
+  const failed = [];
+  await runPool(
+    needFetch,
+    async ({ en }) => {
+      if (Date.now() - startedAt > TIME_BUDGET_MS) {
+        skippedForTime++;
+        return;
+      }
+      await getDailyHistory("en.wikipedia", en, API_START, endDate, (article, s, e) => {
+        apiFetchCount++;
+        return fetchDailyHistoryRange(article, s, e);
+      });
+    },
+    CONCURRENCY,
+    (done, total, item) => {
+      if (done % 100 === 0 || done === total) {
+        const min = ((Date.now() - startedAt) / 60000).toFixed(0);
+        console.log(`  ${done}/${total}件 (${min}分経過)`);
+      }
+    }
+  ).then((results) => {
+    results.forEach((r, i) => {
+      if (!r.ok) failed.push({ enTitle: needFetch[i].en, error: r.error ? r.error.message : "unknown" });
+    });
+  });
+  console.log(`APIへの実リクエスト件数: ${apiFetchCount}件 / 時間切れで次回に回した件数: ${skippedForTime}件`);
+  if (failed.length > 0) console.warn(`取得失敗 ${failed.length}件:`, failed.slice(0, 5));
+
+  // 統計はキャッシュにある分から計算する(時間切れ・失敗した記事は前回取得分までの累計になる)
+  for (const { pairs, statsFile, label } of categories) {
+    const stats = {};
+    for (const [jaTitle, enTitle] of pairs) {
+      const items = getCachedRangeOnly("en.wikipedia", enTitle, API_START, endDate) || [];
+      stats[jaTitle] = { enTitle, total: computeTotal(items) };
+    }
+    await writeFile(path.resolve("data", statsFile), JSON.stringify(stats, null, 2), "utf-8");
+    console.log(`${label}: data/${statsFile} に ${Object.keys(stats).length}件書き出しました。`);
+  }
   closeCache();
   console.log("完了: 3カテゴリ全ての海外閲覧数統計を書き出しました。");
 }

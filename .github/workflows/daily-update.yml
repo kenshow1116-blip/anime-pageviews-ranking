@@ -58,7 +58,11 @@ jobs:
           node fetch-all-anime-list.js || echo "::warning::fetch-all-anime-list failed; using previous list"
           node fetch-all-manga-list.js || echo "::warning::fetch-all-manga-list failed; using previous list"
 
+      # 直近45日で未取得の日(失敗した日・スケジュールのずれで飛んだ日)をまとめて取得する。
+      # ダンプがまだ公開されていない等で一部失敗しても、取得済みのデータでサイトは更新し、
+      # 失敗した日は次回の実行で自動的に再挑戦する。
       - name: Fetch daily pageviews from dump
+        continue-on-error: true
         run: node fetch-daily-from-dump.js
 
       - name: Build pages
