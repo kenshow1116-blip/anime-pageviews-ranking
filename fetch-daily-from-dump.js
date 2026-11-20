@@ -74,7 +74,8 @@ function addDaysYmd(ymd, n) {
 
 // 1回の実行で取り直す日数の上限(1日あたり約5分)。初回は過去の欠けた日がまとめて見つかるため、
 // 数日かけて少しずつ埋める。
-const MAX_DAYS_PER_RUN = 10;
+// 手動実行で一気に埋めたいときは環境変数MAX_DAYS_PER_RUNで増やせる(ワークフローの入力max_days)
+const MAX_DAYS_PER_RUN = Number(process.env.MAX_DAYS_PER_RUN) > 0 ? Number(process.env.MAX_DAYS_PER_RUN) : 10;
 // これより古い日で一部の時間帯だけファイルが無い場合は、Wikimedia側で恒久的に欠けているとみなし、
 // あるだけの時間帯で確定させる(新しい日はダンプ公開待ちの可能性があるので保存せず次回に回す)。
 const SETTLE_DAYS = 3;

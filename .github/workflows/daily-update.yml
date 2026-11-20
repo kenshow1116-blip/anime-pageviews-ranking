@@ -3,7 +3,12 @@ name: Daily Update
 on:
   schedule:
     - cron: "0 20 * * *" # 毎日 UTC 20:00 (JST 翌5:00)。混雑時は数十分遅れることがある
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      max_days:
+        description: "取り直す日数の上限(1日約4分。欠けをまとめて埋めるときは40など)"
+        required: false
+        default: "10"
 
 # 日次・週次の両ワークフローが同じDriveのDBを読み書きするため、同じグループで直列化する
 # (同時に走ると後からアップロードした方が、もう片方の更新を上書きして消してしまう)
@@ -77,6 +82,8 @@ jobs:
       # 失敗した日は次回の実行で自動的に再挑戦する。
       - name: Fetch daily pageviews from dump
         continue-on-error: true
+        env:
+          MAX_DAYS_PER_RUN: ${{ inputs.max_days || '10' }}
         run: node fetch-daily-from-dump.js
 
       - name: Build pages
