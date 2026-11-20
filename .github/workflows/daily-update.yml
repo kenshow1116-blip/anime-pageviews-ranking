@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write # Release「db-cache」へのDB書き戻しに必要
   pages: write
   id-token: write
 
@@ -46,9 +46,23 @@ jobs:
           sudo docker image prune --all --force >/dev/null 2>&1 || true
           df -h /
 
-      - name: Download cache from Google Drive
+      # DBはこのリポジトリのGitHub Release「db-cache」に置く(release-sync.js参照)。
+      # Releaseにまだ無い初回だけ、以前の保管場所のGoogleドライブから取得する。
+      - name: Download cache
         id: download
-        run: node drive-sync.js download data/pageviews.db
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          node release-sync.js download data/pageviews.db
+          rc=$?
+          set -e
+          if [ $rc -eq 3 ]; then
+            echo "::notice::GitHub ReleaseにDBが無いため、初回のみGoogleドライブから取得します"
+            node drive-sync.js download data/pageviews.db
+          elif [ $rc -ne 0 ]; then
+            exit $rc
+          fi
 
       # Wikidataが混雑で失敗することがある。失敗時は出力ファイルが書き換わらず、リポジトリにある
       # 前回の一覧がそのまま使われるので、ここでは止めずに続行する(新作の反映が1日遅れるだけ)
@@ -72,11 +86,13 @@ jobs:
           node build-manga.js
           node build-categories.js
 
-      # ダウンロードに成功したときだけ書き戻す(失敗時に空や壊れたDBでDrive上の本体を上書きしないため)。
+      # ダウンロードに成功したときだけ書き戻す(失敗時に空や壊れたDBで保管中の本体を上書きしないため)。
       # 途中の手順が失敗しても、取得済みの閲覧数は無駄にしないよう書き戻す。
-      - name: Upload cache back to Google Drive
+      - name: Upload cache
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
-        run: node drive-sync.js upload data/pageviews.db
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node release-sync.js upload data/pageviews.db
 
       # Google Search Consoleの所有権確認ファイル。消えると定期再確認で所有権が外れる
       - name: Add site verification file
