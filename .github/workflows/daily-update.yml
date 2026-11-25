@@ -18,6 +18,7 @@ concurrency:
 
 permissions:
   contents: write # Release「db-cache」へのDB書き戻しに必要
+  actions: read # deploy-pagesが成果物(github-pages)を一覧するのに必要
   pages: write
   id-token: write
 
@@ -28,12 +29,9 @@ env:
   GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
 
 jobs:
-  update-and-deploy:
+  update-and-build:
     runs-on: ubuntu-latest
     timeout-minutes: 240
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -115,6 +113,16 @@ jobs:
         with:
           path: dist
 
+  # 公開は別ジョブにする。同じジョブ内でアップロード直後に公開すると、成果物がまだ見えず
+  # 「No artifacts named github-pages」で失敗することがある(2026-11-24〜25に連続発生)
+  deploy:
+    needs: update-and-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
